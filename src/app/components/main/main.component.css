@@ -1,3 +1,275 @@
-li a {
+.nav-item a {
+  color: #2d527c;
+  font-weight: 600;
+ /* margin-left:  20px ;
+  margin-right:  20px;*/
+}
+.navbar-brand{
+
+  margin: 0;
+}
+
+
+a[href = "http://impltech.com"]{
+  font-size: 25px;
+  color: #2d527c;
+  letter-spacing: .4px;
+  line-height: 1.5;
+  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Open Sans,Helvetica Neue,sans-serif;
+
+  font-weight: 600;
 
 }
+.nav-item a :hover {
+  color: dodgerblue;
+}
+
+
+/*nav item clash     */
+@-webkit-keyframes swing {
+  15% {
+    -webkit-transform: translateX(9px);
+    transform: translateX(9px);
+  }
+  30% {
+    -webkit-transform: translateX(-9px);
+    transform: translateX(-9px);
+  }
+  40% {
+    -webkit-transform: translateX(6px);
+    transform: translateX(6px);
+  }
+  50% {
+    -webkit-transform: translateX(-6px);
+    transform: translateX(-6px);
+  }
+  65% {
+    -webkit-transform: translateX(3px);
+    transform: translateX(3px);
+  }
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
+@keyframes swing {
+  15% {
+    -webkit-transform: translateX(9px);
+    transform: translateX(9px);
+  }
+  30% {
+    -webkit-transform: translateX(-9px);
+    transform: translateX(-9px);
+  }
+  40% {
+    -webkit-transform: translateX(6px);
+    transform: translateX(6px);
+  }
+  50% {
+    -webkit-transform: translateX(-6px);
+    transform: translateX(-6px);
+  }
+  65% {
+    -webkit-transform: translateX(3px);
+    transform: translateX(3px);
+  }
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
+.nav-item a:hover {
+  -webkit-animation: swing 0.6s ease;
+  animation: swing 0.6s ease;
+  -webkit-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+  color: #15d8ff;
+}
+
+
+
+
+
+/* language togler */
+label .switch{
+
+  margin-bottom: 0;
+
+}
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 14px;
+
+}
+
+/* Hide default HTML checkbox */
+.switch input {display:none;}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 6px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color:  #15d8ff;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px   #15d8ff;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/*navbar */
+#head
+{
+
+box-shadow: 0 2px 2px 0 rgba(0,0,0, 0.1), 0 2px 2px 0 rgba(0, 0, 0, 0.1);
+  background-color: white;
+  z-index: 100;
+height: auto;
+}
+.parallax-window{
+width: 100%;
+  min-height: 400px;
+  background: transparent;
+}
+.parallax-container {
+  height: 500px;
+  width: 100%;
+
+}
+#content{
+  overflow: visible;
+  text-align: center;
+  font-size: 1.5rem;
+  z-index: 2;
+}
+#container{
+  width: 100%;
+}
+
+#square{
+position: fixed;
+  z-index: 9;
+display: block;
+  left: 50%;
+  transform: translateX(-50%);
+top: 15%;
+
+   /* Negative half of height. */
+}
+figure{
+  text-align: center;
+}
+p, h4{
+  letter-spacing: .4px;
+  line-height: 1.5;
+  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Open Sans,Helvetica Neue,sans-serif;
+  color: #2d527c;
+  font-weight: 600;
+}
+
+
+/*   body */
+.body{
+  box-shadow: 0  -2px 2px 0  rgba(0,0,0, 0.1);
+  background-color: white;
+  z-index: 100;
+}
+
+.btn1{
+border-radius: 20px;
+ border-color: #2d527c;
+  background-color: #2d527c;
+  color: snow;
+  display: block;
+
+}
+.btn1:hover{
+  border-radius: 20px;
+  border-color: #15d8ff;
+  background: #15d8ff;
+}
+.btn1:active {
+  border-color: #15d8ff;
+}
+.btn1:focus {
+  border-color: #15d8ff;
+}
+
+.textbody{
+
+  color: #2d527c;
+  letter-spacing: .4px;
+  line-height: 1.5;
+  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Open Sans,Helvetica Neue,sans-serif;
+
+}
+article{
+margin-top: 10px;
+  margin-bottom: 50px;
+}
+
+
+.back{
+background-size: cover;
+  background-image: url("../../../assets/images/back.png")  ;
+z-index: -1;
+
+}
+
+
+
+
+
+
+li{
+  list-style: none;
+}
+
+.num{
+  color: white;
+  background: #2980B9;
+  display: inline-block;
+  text-align: center;
+  margin: 5px 10px;
+  line-height: 40px;
+  width: 40px;
+  height: 40px;
+}
+ol{
+  counter-reset: myCounter;
+}
+
+li{
+  list-style: none;
+}
+
+
