@@ -1,14 +1,20 @@
 .nav-item a {
   color: #2d527c;
   font-weight: 600;
- /* margin-left:  20px ;
-  margin-right:  20px;*/
+  /* margin-left:  20px ;
+   margin-right:  20px;*/
 }
 .navbar-brand{
 
   margin: 0;
 }
+.zero{
 
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: 0;
+  padding-right: 0;
+}
 
 a[href = "http://impltech.com"]{
   font-size: 25px;
@@ -150,13 +156,17 @@ input:checked + .slider:before {
 #head
 {
 
-box-shadow: 0 2px 2px 0 rgba(0,0,0, 0.1), 0 2px 2px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 2px 0 rgba(0,0,0, 0.1), 0 2px 2px 0 rgba(0, 0, 0, 0.1);
   background-color: white;
-  z-index: 100;
-height: auto;
+  z-index: 200;
+  height: auto;
+  width: 100%;
+
+  position: fixed;
 }
+
 .parallax-window{
-width: 100%;
+  width: 100%;
   min-height: 400px;
   background: transparent;
 }
@@ -176,14 +186,25 @@ width: 100%;
 }
 
 #square{
-position: fixed;
-  z-index: 9;
-display: block;
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  /* left: 50%;
+     transform: translateX(-50%);
+   */
+
+
+  /* Negative half of height. */
+}
+.top{
+  margin-top: 10%;
+}
+
+.center{
+
   left: 50%;
   transform: translateX(-50%);
-top: 15%;
-
-   /* Negative half of height. */
 }
 figure{
   text-align: center;
@@ -205,8 +226,8 @@ p, h4{
 }
 
 .btn1{
-border-radius: 20px;
- border-color: #2d527c;
+  border-radius: 20px;
+  border-color: #2d527c;
   background-color: #2d527c;
   color: snow;
   display: block;
@@ -233,43 +254,114 @@ border-radius: 20px;
 
 }
 article{
-margin-top: 10px;
+  margin-top: 10px;
   margin-bottom: 50px;
 }
 
 
 .back{
-background-size: cover;
-  background-image: url("../../../assets/images/back.png")  ;
-z-index: -1;
+
+  background-size: 100% 100%;
+  background-repeat:no-repeat; background-attachment:fixed;
+  background-image: url("../../../assets/images/bg.png")  ;
+  z-index: -1;
 
 }
 
 
+/* height of body
+.height{
+
+  min-height: 3600px;
 
 
 
+}
+@media  (max-width: 768px) {
+ .height{
 
-li{
-  list-style: none;
+   height: 5400px;
+
+ }
+}
+@media  (min-width: 768px) and (max-width: 1200px) {
+  .height{
+
+    height: 4000px;
+
+  }
+}
+@media  (max-width: 484px) {
+  .height{
+
+    height: 6000px;
+
+  }
+}
+@media  (max-width: 367px) {
+  .height{
+
+    height: 6100px;
+
+  }
+}
+@media  (max-width: 339px) {
+  .height{
+
+    height: 6800px;
+
+  }
+}
+*/
+.margin1
+{
+
+
+}
+.height1{
+
+  height: 50%;
+
 }
 
-.num{
-  color: white;
-  background: #2980B9;
-  display: inline-block;
-  text-align: center;
-  margin: 5px 10px;
-  line-height: 40px;
-  width: 40px;
-  height: 40px;
-}
-ol{
-  counter-reset: myCounter;
+
+/* small pictures  */
+.picture1{
+  position: absolute;
+left: 10%;
+top: 30%;
+  z-index: 200;
 }
 
-li{
-  list-style: none;
+.picture2 {
+  position: absolute;
+  left: 75%;
+  top: 40%;
+  z-index: 200;
 }
+.picture3{
+  position: absolute;
+  left: 85%;
+  top: 10%;
+  z-index: 200;
+}
+.picture4{
+  position: absolute;
+  left: 85%;
+  top: 120%;
+  z-index: 200;
+}
+.picture5{
+  position: absolute;
+  left: 19%;
+  top: 110%;
+  z-index: 200;
+}
+.chat{
+  position: fixed;
+  right: 2%;
+  top: 75%;
+  z-index: 250;
 
 
+}
