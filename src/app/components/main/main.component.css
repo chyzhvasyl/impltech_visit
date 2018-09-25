@@ -5,27 +5,25 @@
    margin-right:  20px;*/
 }
 .navbar-brand{
-
   margin: 0;
 }
 .zero{
-
   margin-left: 0;
   margin-right: 0;
   padding-left: 0;
   padding-right: 0;
 }
 
-a[href = "http://impltech.com"]{
+a[href = "http://impltech.com"] {
   font-size: 25px;
   color: #2d527c;
   letter-spacing: .4px;
   line-height: 1.5;
-  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Open Sans,Helvetica Neue,sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Open Sans, Helvetica Neue, sans-serif;
 
   font-weight: 600;
-
 }
+
 .nav-item a :hover {
   color: dodgerblue;
 }
@@ -91,12 +89,7 @@ a[href = "http://impltech.com"]{
   animation-iteration-count: 1;
   color: #15d8ff;
 }
-
-
-
-
-
-/* language togler */
+/* lang togler */
 label .switch{
 
   margin-bottom: 0;
@@ -348,20 +341,55 @@ top: 30%;
 .picture4{
   position: absolute;
   left: 85%;
-  top: 120%;
+  top: 90%;
   z-index: 200;
 }
 .picture5{
   position: absolute;
   left: 19%;
-  top: 110%;
+  top: 95%;
   z-index: 200;
 }
+.picture6{
+  position: absolute;
+  left: 24%;
+  top: 73%;
+  z-index: 200;
+}
+.picture7{
+  position: absolute;
+  left: 12%;
+  top: 105%;
+  z-index: 200;
+}
+.picture8{
+  position: absolute;
+  left: 52%;
+  top: 108%;
+  z-index: 200;
+}
+.picture9{
+  position: absolute;
+  left: 28%;
+  top: 55%;
+  z-index: 200;
+}
+.picture10{
+  position: absolute;
+  left: 33%;
+  top: 42%;
+  z-index: 200;
+}
+
 .chat{
   position: fixed;
   right: 2%;
   top: 75%;
   z-index: 250;
 
-
 }
+
+
+
+
+

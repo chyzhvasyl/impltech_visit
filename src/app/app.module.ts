@@ -3,10 +3,20 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { MainComponent } from './components/main/main.component';
-import {BootstrapOptions} from "../../node_modules/@angular/core/src/application_ref";
+
 import { ParallaxDirective } from './components/parallax.directive';
 import { SimpleSmoothScrollModule } from 'ng2-simple-smooth-scroll';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+
+import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import {TranslatingService} from './services/translating.service';
+
+
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http, './assets/lang/');
+}
 @NgModule({
   declarations: [
     AppComponent,
@@ -14,9 +24,16 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     ParallaxDirective
   ],
   imports: [
-    BrowserModule, SimpleSmoothScrollModule, BrowserAnimationsModule
+    BrowserModule, SimpleSmoothScrollModule, BrowserAnimationsModule, HttpClientModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    })
   ],
-  providers: [],
+  providers: [TranslatingService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

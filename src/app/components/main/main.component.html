@@ -1,48 +1,47 @@
 <div    style="" class="container-fluid ">
   <div id="head" class="row">
     <div class="col-md-2  ">
-
     </div>
     <div class="col-md-8">
       <nav class="mt-5 navbar navbar-expand-lg navbar-light">
-        <a    class="navbar-brand" href="http://impltech.com">impltech</a>
+
+          <a data-text="innovations"  class=" button-hover "  href="http://impltech.com">impltech</a>
+
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div     class="collapse navbar-collapse justify-content-md-center" id="navbarSupportedContent">
           <ul  class="navbar-nav ">
             <li class=" nav-item mr-3 ml-3">
-              <a   class="nav-link" href="#">CЕРВИСЫ</a>
+              <a   class="nav-link" href="#">{{'services' | translate}}</a>
             </li>
             <li class="  nav-item mr-3 ml-3">
-              <a  class="nav-link" href="#">ТЕХНОЛОГИИ</a>
+              <a  class="nav-link" href="#">{{'tech' | translate}}</a>
             </li>
             <li class=" nav-item mr-3 ml-3">
-              <a   class="nav-link" >ПОРТФОЛИО</a>
+              <a   class="nav-link" >{{'port' | translate}}</a>
             </li>
             <li  class=" nav-item mr-3 ml-3">
-              <a href="#div2" SimpleSmoothScroll [showHash]="true"  class="nav-link" >КОНТАКТЫ</a>
+              <a href="#div2" SimpleSmoothScroll [showHash]="true"  class="nav-link" >{{'cont' | translate}}</a>
             </li>
           </ul>
         </div>
         <div>
           <label class="switch">
-            <input type="checkbox">
-            <span class="slider"> </span>
+            <input (click)="switchLanguage(index)"   type="checkbox">
+            <span   class="slider"> </span>
           </label>
         </div>
       </nav>
     </div>
     <div class="col-md-2">
-
-
     </div>
   </div>
   <!-- <div appParallax [ratio]="0.5" id="circle"></div>
   <div appParallax [ratio]="0.9" id="rectangle"></div>
 -->
   <div class="row back">
-    <div    appParallax [ratio]="0.8" id="square">
+    <div    appParallax [ratio]="0.2" id="square">
       <div class="picture1">
 <img class="img-fluid" width="100px" src="../../../assets/images/screen_01/01.png">
       </div>
@@ -54,7 +53,7 @@
         <div class="height1 ">
           <div class="row zero top">
             <div [@slideIn]  class="col-md-12"  >
-              <img  width=""  class="img-fluid "  src="../../../assets/images/illustration.png">
+              <img  width="600px"  class="img-fluid "  src="../../../assets/images/illustration.png">
             </div>
           </div>
           <div  class="row margin1 zero">
@@ -71,7 +70,6 @@
           МЫ ПРЕДЛАГАЕМ <div style="color: #15d8ff; display: inline-block">ПОЛНЫЙ ЦИКЛ РАЗРАБОТКИ</div>
         </h4>
         <div  class="container text-center textbody">
-
           <div class="picture2">
             <img class="img-fluid" width="100px" src="../../../assets/images/screen_01/02.png">
           </div>
@@ -79,23 +77,34 @@
             <div class="picture4">
               <img class="img-fluid" width="100px" src="../../../assets/images/screen_01/04.png">
             </div>
+            <div class="picture6">
+              <img class="img-fluid" width="100px" src="../../../assets/images/screen_04_portfolio/02.png">
+            </div>
+            <div class="picture7">
+              <img class="img-fluid" width="100px" src="../../../assets/images/screen_04_portfolio/03.png">
+            </div>
+            <div class="picture8">
+              <img class="img-fluid" width="100px" src="../../../assets/images/screen_04_portfolio/04.png">
+            </div>
+            <div class="picture9">
+              <img class="img-fluid" width="100px" src="../../../assets/images/screen_04_portfolio/05.png">
+            </div>
+            <div class="picture10">
+              <img class="img-fluid" width="100px" src="../../../assets/images/screen_04_portfolio/06.png">
+            </div>
             <div class="col-md-6">
               <img class="img-fluid" width="100px" src="../../../assets/images/screen_02/icons/01.png"><br>
-
               <b>Разработка стилистики дизайна</b><br>
-
               <article>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                 Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</article>
             </div>
-
             <div class="col-md-6">
               <img class="img-fluid" width="100px" src="../../../assets/images/screen_02/icons/02.png"><br>
               <b>Подготовка документации и управление проектом разработки</b><br>
               <article> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                 Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</article>
             </div>
-
           </div>
           <div class="picture5">
             <img class="img-fluid" width="100px" src="../../../assets/images/screen_01/05.png">
@@ -108,7 +117,6 @@
               <article>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                 Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</article>
-
             </div>
             <div class="col-md-6">
               <img class="img-fluid" width="100px" src="../../../assets/images/screen_02/icons/04.png"><br>
@@ -132,9 +140,6 @@
     </div>
   </div>
 </div>
-
-
-
 <footer>
   <div class="container-fluid p-0 body" style="border-radius: 0">
     <div id="div2"  style="width: 100%" SimpleSmoothScroll [scrollTo]="'navbarSupportedContent'" [duration]="500" class="card"  >
@@ -152,6 +157,5 @@
         </div>
       </div>
     </div>
-
   </div>
 </footer>

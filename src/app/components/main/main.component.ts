@@ -1,9 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import $ from "jquery";
+import $ from 'jquery';
 import { SimpleSmoothScrollService } from 'ng2-simple-smooth-scroll';
 import { SimpleSmoothScrollOption } from 'ng2-simple-smooth-scroll';
 import {trigger, state, style, transition,
   animate, group, query, stagger, keyframes} from '@angular/animations';
+import {TranslatingService} from '../../services/translating.service';
+
+
+
+
 
 @Component({
   selector: 'app-main',
@@ -24,9 +29,17 @@ import {trigger, state, style, transition,
   ]
 })
 export class MainComponent implements OnInit {
-
-  constructor(private smooth: SimpleSmoothScrollService) { }
-
+  index = 0;
+  constructor(private smooth: SimpleSmoothScrollService, private translate: TranslatingService) { }
+  switchLanguage(index) {
+     index = this.index++;
+    if ( index % 2 === 0) {
+      this.translate.language = 'en';
+    } else {
+      this.translate.language = 'rus';
+    }
+    this.translate.switchLanguage(this.translate.language);
+  }
   ngOnInit() {
     this.smooth.smoothScrollToAnchor();
   }
