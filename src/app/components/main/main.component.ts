@@ -23,9 +23,18 @@ import {TranslatingService} from '../../services/translating.service';
       ]),
       transition(':leave', [
         animate(1500, style({transform: 'translateY(100%)',  opacity: 0}))
-      ])
-    ])
-
+      ]),
+    ]),
+trigger('fadein', [
+  state('inside', style({ opacity: 1})),
+  transition(':enter', [
+    style({ opacity: 0}),
+    animate(700)
+  ]),
+  transition(':leave', [
+    animate(700, style({ opacity: 0}))
+  ])
+])
   ]
 })
 export class MainComponent implements OnInit {
@@ -47,5 +56,4 @@ export class MainComponent implements OnInit {
   goTop(){
     this.smooth.smoothScrollToTop({ duration: 1000, easing: 'linear' });
   }
-
 }

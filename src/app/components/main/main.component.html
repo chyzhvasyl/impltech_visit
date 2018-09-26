@@ -1,9 +1,12 @@
+
+
+
 <div    style="" class="container-fluid ">
   <div id="head" class="row">
-    <div class="col-md-2  ">
+    <div class="col-md-1  ">
     </div>
-    <div class="col-md-8">
-      <nav class="mt-5 navbar navbar-expand-lg navbar-light">
+    <div class="col-md-10">
+      <nav class="mt-3 navbar navbar-expand-lg navbar-light">
 
           <a data-text="innovations"  class=" button-hover "  href="http://impltech.com">impltech</a>
 
@@ -31,10 +34,54 @@
             <input (click)="switchLanguage(index)"   type="checkbox">
             <span   class="slider"> </span>
           </label>
+
+<ul  class="navbar-nav">
+  <li >
+
+  <div [@fadein] *ngIf="index % 2 === 0" style="float: left; display: block" class="language-mark">
+    рус
+  </div>
+  </li>
+  <li style="clear: both">
+<div [@fadein] *ngIf="index % 2 !== 0" style="color: #15d8ff; float: right; display: block" class="language-mark  ">
+  en
+</div>
+  </li>
+</ul>
+          <!--
+                <table>
+
+                     <tr>
+                       <td [@fadein] *ngIf="index % 2 === 0"  class="language-mark">
+
+                         рус
+                       </td>
+                       <td *ngIf="index % 2 !== 0" style="color: #15d8ff" class="language-mark">
+                         eng
+                       </td>
+
+                     </tr>
+
+
+
+
+                   </table>
+
+
+
+                 <div [@fadein] *ngIf="index % 2 === 0; else eng"  class="language-mark" >
+
+                   рус
+
+                 </div>
+
+                 <div style="color: #15d8ff;" class="language-mark"  #eng>
+                   eng
+                 </div>   -->
         </div>
       </nav>
     </div>
-    <div class="col-md-2">
+    <div class="col-md-1">
     </div>
   </div>
   <!-- <div appParallax [ratio]="0.5" id="circle"></div>
@@ -58,16 +105,38 @@
           </div>
           <div  class="row margin1 zero">
             <div class=""  style="margin: 0 auto;" >
-              <p  >SMART SOWTFARE SOLUTIONS. WE HELP YOUR BUSINESS GROW.</p>
+              <p  >{{'header'| translate}}</p>
             </div>
           </div>
-          <button  type="button"  class=" mx-auto btn btn1">ОЦЕНИТЬ ПРОЕКТ</button>
+          <button  type="button"  class=" mx-auto btn btn1">{{'estimate' | translate}}</button>
           <div class="chat">
-            <img class="img-fluid" width="50px" src="../../../assets/images/chat.png">
+            <img  data-toggle="modal" data-target="#exampleModal" class="img-fluid" width="50px" src="../../../assets/images/chat.png">
+
+
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    ...
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
         <h4 style="margin-top: 10%" align="center">
-          МЫ ПРЕДЛАГАЕМ <div style="color: #15d8ff; display: inline-block">ПОЛНЫЙ ЦИКЛ РАЗРАБОТКИ</div>
+          {{'propose' | translate}} <div style="color: #15d8ff; display: inline-block">{{'cycle' | translate}}</div>
         </h4>
         <div  class="container text-center textbody">
           <div class="picture2">
@@ -94,14 +163,14 @@
             </div>
             <div class="col-md-6">
               <img class="img-fluid" width="100px" src="../../../assets/images/screen_02/icons/01.png"><br>
-              <b>Разработка стилистики дизайна</b><br>
+              <b>{{'1' | translate}}</b><br>
               <article>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                 Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</article>
             </div>
             <div class="col-md-6">
               <img class="img-fluid" width="100px" src="../../../assets/images/screen_02/icons/02.png"><br>
-              <b>Подготовка документации и управление проектом разработки</b><br>
+              <b>{{'2' | translate}}</b><br>
               <article> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                 Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</article>
             </div>
@@ -112,7 +181,7 @@
           <div class="row">
             <div class="col-md-6">
               <img class="img-fluid" width="100px" src="../../../assets/images/screen_02/icons/03.png"><br>
-              <b> Разработка приложений</b>
+              <b>{{'3' | translate}}</b>
               <br>
               <article>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -120,19 +189,19 @@
             </div>
             <div class="col-md-6">
               <img class="img-fluid" width="100px" src="../../../assets/images/screen_02/icons/04.png"><br>
-              <b> Тестирование</b>  <br>   <article>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              <b> {{'4' | translate}}</b>  <br>   <article>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
               Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</article>
             </div>
           </div>
           <div class="row">
             <div class="col-md-6">
               <img class="img-fluid" width="100px" src="../../../assets/images/screen_02/icons/05.png"><br>
-              <b>Размещение на облачных серверах</b>
+              <b>{{'5' | translate}}</b>
               <article>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                 Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</article>     </div>
             <div class="col-md-6">
               <img class="img-fluid" width="100px" src="../../../assets/images/screen_02/icons/06.png"><br>
-              <b>Поддержка и развитие</b>   <br> <article>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              <b>{{'6' | translate}}</b>   <br> <article>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
               Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</article>    </div>
           </div>
         </div>
@@ -140,22 +209,33 @@
     </div>
   </div>
 </div>
-<footer>
-  <div class="container-fluid p-0 body" style="border-radius: 0">
-    <div id="div2"  style="width: 100%" SimpleSmoothScroll [scrollTo]="'navbarSupportedContent'" [duration]="500" class="card"  >
-      <div class="card text-center">
-        <div class="card-header">
-          Featured
-        </div>
+<footer   >
+
+  <div class="container-fluid p-0  position-absolute" style="border-radius: 0; z-index: 300;">
+    <div   style="width: 100%" SimpleSmoothScroll [scrollTo]="'navbarSupportedContent'" [duration]="500" class="card"  >
+      <div class="card ">
+
         <div class="card-body">
-          <h5 class="card-title">Special title treatment</h5>
-          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-          <a href="#navbarSupportedContent" class="btn btn-primary">Go somewhere</a>
-        </div>
-        <div class="card-footer text-muted">
-          2 days ago
+          <div class="row ">
+<div class="col-md-5 text-center pt-5">
+  <p class="card-text">+38097208045</p>
+  <p class="card-text">impltech@ukr.net</p>
+  <p class="card-text">+38096235844</p>
+  <p class="card-text">+38050687359</p>
+</div>
+            <div class="col-md-7">
+              <div class=" text-center">
+                <img class="img-fluid" width="500px" src="https://djmmlc8gcwtqv.cloudfront.net/imgs/chatkit/chat-build.gif"
+                     alt="123"></div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
+  <div id="div2">
+  </div>
+
+
 </footer>
+
