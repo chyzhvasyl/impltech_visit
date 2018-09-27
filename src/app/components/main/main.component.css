@@ -257,12 +257,23 @@ article{
 
 .back{
 
+  position: relative;
+}
+
+.back::before{
   background-size: 100% 100%;
   background-repeat:no-repeat; background-attachment:fixed;
   background-image: url("../../../assets/images/bg.png")  ;
   z-index: -1;
-
+  content: ' ';
+  height: 100%;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  will-change: transform;
 }
+
 
 
 /* height of body
@@ -422,4 +433,13 @@ div .modal-backdrop .fade .show
 {
 
   display: none;
+}
+
+.button_shadow{
+  -webkit-box-shadow: 10px 11px 16px 1px rgba(176,176,176,1);
+  -moz-box-shadow: 10px 11px 16px 1px rgba(176,176,176,1);
+  box-shadow: 10px 11px 16px 1px rgba(176,176,176,1);
+
+
+
 }

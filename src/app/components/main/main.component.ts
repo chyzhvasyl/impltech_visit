@@ -39,6 +39,7 @@ trigger('fadein', [
 })
 export class MainComponent implements OnInit {
   index = 0;
+  display: boolean = false;
   constructor(private smooth: SimpleSmoothScrollService, private translate: TranslatingService) { }
   switchLanguage(index) {
      index = this.index++;
@@ -48,6 +49,17 @@ export class MainComponent implements OnInit {
       this.translate.language = 'rus';
     }
     this.translate.switchLanguage(this.translate.language);
+  }
+
+
+
+
+  showDialog() {
+    this.display = true;
+  }
+
+  hideDialog() {
+    this.display = false;
   }
   ngOnInit() {
     this.smooth.smoothScrollToAnchor();

@@ -1,18 +1,19 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppComponent } from './app.component';
 import { MainComponent } from './components/main/main.component';
-
 import { ParallaxDirective } from './components/parallax.directive';
 import { SimpleSmoothScrollModule } from 'ng2-simple-smooth-scroll';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import {TranslatingService} from './services/translating.service';
-
+import {DialogModule} from 'primeng/dialog';
+import {CommonModule} from '@angular/common';
+import {TabViewModule} from 'primeng/primeng';
+import {CodeHighlighterModule} from 'primeng/primeng';
+import {ButtonModule} from 'primeng/primeng';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/lang/');
@@ -24,7 +25,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     ParallaxDirective
   ],
   imports: [
-    BrowserModule, SimpleSmoothScrollModule, BrowserAnimationsModule, HttpClientModule,
+    BrowserModule, SimpleSmoothScrollModule, BrowserAnimationsModule, HttpClientModule, DialogModule, CommonModule, TabViewModule, CodeHighlighterModule, ButtonModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
