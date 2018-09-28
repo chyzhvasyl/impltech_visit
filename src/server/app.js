@@ -6,10 +6,32 @@ let cors          = require  ('cors') ;
 let corsOptions   = require  ('./config/cors') ;
 let config        = require  ('./config/config') ;
 let chat_routes   = require  ('./routes/chat_routes') ;
+let path = require('path');
+let https = require('https');
 
+let intel = require('intel');
+let fs = require('fs');
+let morgan =  require('morgan');
 let app = express();
 
 app.options('*', cors(corsOptions));
+
+/* логгирование */
+intel.addHandler(new intel.handlers.File('./logs/file.log'));
+/* логгирование */
+
+
+const accessLogStream = fs.createWriteStream(path.join(__dirname, './logs/access.log'), {flags: 'a'});
+// *** config middleware *** //
+app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'uploads')));
+
+app.use(bodyParser.json({limit: "50mb"}));
+app.use(bodyParser.raw({limit: "50mb", extended: true, parameterLimit:50000}));
+app.use(morgan(':method :url :status :res[content-length] - :response-time ms :date[clf] :http-version', {stream: accessLogStream}));
+
+
+
 
 app.get('/', (req, res) => {
   res.send('Privet');
