@@ -8,7 +8,6 @@ let config        = require  ('./config/config') ;
 let chat_routes   = require  ('./routes/chat_routes') ;
 let path = require('path');
 let https = require('https');
-
 let intel = require('intel');
 let fs = require('fs');
 let morgan =  require('morgan');

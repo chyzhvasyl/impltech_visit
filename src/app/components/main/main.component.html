@@ -35,14 +35,19 @@
             <span   class="slider"> </span>
           </label>
 
-<ul  class="navbar-nav">
+<ul  class="navbar-nav" >
   <li >
-  <div [@fadein] *ngIf="index % 2 === 0" style="float: left; display: block" class="language-mark">
+  <div    class="language-mark mr-1">
     рус
   </div>
   </li>
-  <li style="clear: both">
-<div [@fadein] *ngIf="index % 2 !== 0" style="color: #15d8ff; float: right; display: block" class="language-mark  ">
+  <li style="color: #2d527c; font-weight: bold" >
+    /
+
+
+  </li>
+  <li >
+<div [ngClass]="{'lang_color': index % 2 !== 0 }" class="language-mark ml-1 ">
   en
 </div>
   </li>
@@ -115,13 +120,19 @@
                 <div class="modal-body1 ">
                   <form class="p-3">
                     <div class="form-group">
-                      <input class="form-control" id="exampleName" placeholder="Enter name">
+                      <input [(ngModel)]="user.name" #name = "ngModel" name="name" required pattern="[a-zA-Z_]{1,30}"  class="form-control" id="exampleName"  placeholder="Enter name">
+                      <div [hidden]="name.valid || name.untouched" class="alert alert-info mt-1 p-1">
+                         Put the name
+                      </div>
                     </div>
                     <div class="form-group">
-                      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                      <input name="email" [(ngModel)]="user.email"   #email="ngModel" required pattern="[a-zA-Z_].+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}"  type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
                       <small id="emailHelp" class="form-text text-muted">Никому никогда не говорите свой email</small>
+                      <div [hidden]="email.valid || email.untouched" class="alert alert-info mt-1 p-1">
+                        Not correct email
+                      </div>
                     </div>
-                    <button type="button" class="btn btn-info">login</button>
+                    <button type="submit" [disabled]="email.invalid || name.invalid"    (click)="signin()"  class="btn btn-info">login</button>
                   </form>
                 </div>
                <!-- <div class="modal-footer1">

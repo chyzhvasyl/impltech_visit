@@ -58,6 +58,12 @@ export class MainComponent implements OnInit {
   hideDialog() {
     this.display = false;
   }
+
+  signin(){
+
+    console.log(this.user);
+
+  }
   ngOnInit() {
     this.smooth.smoothScrollToAnchor();
     let modal = document.getElementById('myModal');
