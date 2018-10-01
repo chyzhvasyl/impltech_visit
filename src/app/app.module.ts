@@ -14,6 +14,7 @@ import {CommonModule} from '@angular/common';
 import {TabViewModule} from 'primeng/primeng';
 import {CodeHighlighterModule} from 'primeng/primeng';
 import {ButtonModule} from 'primeng/primeng';
+import {InputTextModule} from 'primeng/inputtext';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/lang/');
@@ -26,6 +27,7 @@ export function HttpLoaderFactory(http: HttpClient) {
   ],
   imports: [
     BrowserModule, SimpleSmoothScrollModule, BrowserAnimationsModule, HttpClientModule, DialogModule, CommonModule, TabViewModule, CodeHighlighterModule, ButtonModule,
+    InputTextModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

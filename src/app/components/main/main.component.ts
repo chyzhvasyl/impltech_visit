@@ -5,10 +5,7 @@ import { SimpleSmoothScrollOption } from 'ng2-simple-smooth-scroll';
 import {trigger, state, style, transition,
   animate, group, query, stagger, keyframes} from '@angular/animations';
 import {TranslatingService} from '../../services/translating.service';
-
-
-
-
+import {User} from '../classes/user';
 
 @Component({
   selector: 'app-main',
@@ -38,8 +35,12 @@ trigger('fadein', [
   ]
 })
 export class MainComponent implements OnInit {
+
   index = 0;
-  display: boolean = false;
+  display = false;
+  user: User = new User();
+
+
   constructor(private smooth: SimpleSmoothScrollService, private translate: TranslatingService) { }
   switchLanguage(index) {
      index = this.index++;
@@ -50,10 +51,6 @@ export class MainComponent implements OnInit {
     }
     this.translate.switchLanguage(this.translate.language);
   }
-
-
-
-
   showDialog() {
     this.display = true;
   }
@@ -63,8 +60,21 @@ export class MainComponent implements OnInit {
   }
   ngOnInit() {
     this.smooth.smoothScrollToAnchor();
+    let modal = document.getElementById('myModal');
+    let btn = document.getElementById('myBtn');
+    let span: HTMLElement = document.getElementsByClassName('close1')[0] as HTMLElement;
+    btn.onclick = function() {
+      modal.style.display = 'block';
+    };
+    span.onclick = function() {
+      modal.style.display = 'none';
+    };
+    window.onclick = function(event) {
+      if (event.target === modal) {
+        modal.style.display = 'none';
+      }
+    };
   }
-
   goTop(){
     this.smooth.smoothScrollToTop({ duration: 1000, easing: 'linear' });
   }
