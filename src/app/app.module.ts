@@ -16,6 +16,11 @@ import {CodeHighlighterModule} from 'primeng/primeng';
 import {ButtonModule} from 'primeng/primeng';
 import {InputTextModule} from 'primeng/inputtext';
 import {ReactiveFormsModule, FormsModule} from '@angular/forms';
+import {PusherService} from './services/pusher.service';
+import {routes} from './services/routing/routing-routing.module';
+import {RouterModule} from '@angular/router';
+import { NewMessageComponent } from './components/new-message/new-message.component';
+import {MessageService} from './services/message.service';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/lang/');
@@ -24,11 +29,12 @@ export function HttpLoaderFactory(http: HttpClient) {
   declarations: [
     AppComponent,
     MainComponent,
-    ParallaxDirective
+    ParallaxDirective,
+    NewMessageComponent
   ],
   imports: [
     BrowserModule, SimpleSmoothScrollModule, BrowserAnimationsModule, HttpClientModule, DialogModule, CommonModule, TabViewModule, CodeHighlighterModule, ButtonModule,
-    InputTextModule, ReactiveFormsModule, FormsModule,
+    InputTextModule, ReactiveFormsModule, FormsModule, RouterModule.forRoot(routes),
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -37,7 +43,7 @@ export function HttpLoaderFactory(http: HttpClient) {
       }
     })
   ],
-  providers: [TranslatingService],
+  providers: [TranslatingService, PusherService, MessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

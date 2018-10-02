@@ -6,6 +6,8 @@ import {trigger, state, style, transition,
   animate, group, query, stagger, keyframes} from '@angular/animations';
 import {TranslatingService} from '../../services/translating.service';
 import {User} from '../classes/user';
+import {Message} from '../../services/message.service';
+import {MessageService} from '../../services/message.service';
 
 @Component({
   selector: 'app-main',
@@ -39,9 +41,13 @@ export class MainComponent implements OnInit {
   index = 0;
   display = false;
   user: User = new User();
+  messages: Array<Message>;
 
+  constructor(private smooth: SimpleSmoothScrollService, private translate: TranslatingService, private messageService: MessageService) {
 
-  constructor(private smooth: SimpleSmoothScrollService, private translate: TranslatingService) { }
+    this.messages = [];
+
+  }
   switchLanguage(index) {
      index = this.index++;
     if ( index % 2 === 0) {
@@ -65,6 +71,9 @@ export class MainComponent implements OnInit {
 
   }
   ngOnInit() {
+    this.messageService.messagesStream
+      .subscribe(this.newMessageEventHandler.bind(this));
+
     this.smooth.smoothScrollToAnchor();
     let modal = document.getElementById('myModal');
     let btn = document.getElementById('myBtn');
@@ -80,8 +89,16 @@ export class MainComponent implements OnInit {
         modal.style.display = 'none';
       }
     };
+
   }
   goTop(){
     this.smooth.smoothScrollToTop({ duration: 1000, easing: 'linear' });
   }
+
+  private newMessageEventHandler(event: Message): void {
+    this.messages.push(event);
+  }
+/* sdf*/
+
+
 }
