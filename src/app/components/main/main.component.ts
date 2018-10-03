@@ -6,8 +6,9 @@ import {trigger, state, style, transition,
   animate, group, query, stagger, keyframes} from '@angular/animations';
 import {TranslatingService} from '../../services/translating.service';
 import {User} from '../classes/user';
-import {Message} from '../../services/message.service';
-import {MessageService} from '../../services/message.service';
+import {ChatService} from '../../services/chat.service';
+//import {Message} from '../../services/message.service';
+//import {MessageService} from '../../services/message.service';
 
 @Component({
   selector: 'app-main',
@@ -41,11 +42,12 @@ export class MainComponent implements OnInit {
   index = 0;
   display = false;
   user: User = new User();
-  messages: Array<Message>;
+  //messages: Array<Message>;
 
-  constructor(private smooth: SimpleSmoothScrollService, private translate: TranslatingService, private messageService: MessageService) {
+  constructor(private smooth: SimpleSmoothScrollService, private translate: TranslatingService/*, private messageService: MessageService*/,
+              private chat: ChatService) {
 
-    this.messages = [];
+   // this.messages = [];
 
   }
   switchLanguage(index) {
@@ -71,8 +73,14 @@ export class MainComponent implements OnInit {
 
   }
   ngOnInit() {
-    this.messageService.messagesStream
-      .subscribe(this.newMessageEventHandler.bind(this));
+   // this.messageService.messagesStream
+    //  .subscribe(this.newMessageEventHandler.bind(this));
+this.chat.messages.subscribe(msg => {
+  console.log(msg);
+
+
+
+});
 
     this.smooth.smoothScrollToAnchor();
     let modal = document.getElementById('myModal');
@@ -91,13 +99,18 @@ export class MainComponent implements OnInit {
     };
 
   }
+  sendMessage()
+  {
+console.log('cpaka' );
+    this.chat.sendmessage('test message');
+  }
   goTop(){
     this.smooth.smoothScrollToTop({ duration: 1000, easing: 'linear' });
   }
 
-  private newMessageEventHandler(event: Message): void {
-    this.messages.push(event);
-  }
+ // private newMessageEventHandler(event: Message): void {
+ //   this.messages.push(event);
+ // }
 /* sdf*/
 
 

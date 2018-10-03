@@ -5,8 +5,9 @@
 export const environment = {
   production: false,
   pusher: {
-    key: '0814d1ea2b72859d690b',
-  }
+    key: '5a85cf001047fc2673d6',
+  },
+  ws_url: 'http://localhost:8090'
 };
 
 /*

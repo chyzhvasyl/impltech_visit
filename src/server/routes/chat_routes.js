@@ -1,20 +1,30 @@
 let express = require('express');
 let router = express.Router();
-let Pusher = require('pusher');
+let user = require('../schems/user');
+let message = require('../schems/message');
 
+//let Pusher = require('pusher');
 
-router.post('/pusher/auth', auth);
-const pusher = new Pusher({
-  app_id: '612610',
-  key: '0814d1ea2b72859d690b',
-  secret: '60f48930f54ac650f3c5',
-  cluster: "eu"
-});
+router.get('/auth', get);
+router.post('/auth', auth);
+
 
 router.get('/', (req, res) => {
   res.send('all good');
 });
 
+
+/*
+const pusher = new Pusher({
+  appId: '613333',
+  key: '5a85cf001047fc2673d6',
+  secret: '38222ae17d1f102aabf0',
+  cluster: 'mt1',
+  encrypted: true
+});
+router.get('/', (req, res) => {
+  res.send('all good');
+});
 let messages = [];
 function auth (req, res){
   const socketId = req.body.socket_id;
@@ -22,7 +32,30 @@ function auth (req, res){
   const auth = pusher.authenticate(socketId, channel);
   res.send(auth);
 }
+*/
+function auth(req, res) {
+  let userData = req.body;
+  user.findOne({mail: userData.mail}, (err, user) => {
+    if (err) {
+    res.send(err);
+    res.json(err);
+
+    } else {
+      if (!user) {
+        user.save(user);
+        res.status(200).send(user);
+      }
+       else {
+        res.status(200).send('все гуд');
+      }
+    }
+  })
+
+}
 
 
+function get( req, res) {
+  res.send('all good');
+}
 
 module.exports = router;

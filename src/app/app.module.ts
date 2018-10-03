@@ -21,6 +21,8 @@ import {routes} from './services/routing/routing-routing.module';
 import {RouterModule} from '@angular/router';
 import { NewMessageComponent } from './components/new-message/new-message.component';
 import {MessageService} from './services/message.service';
+import {ChatService} from './services/chat.service';
+import {WebsocketService} from './services/websocket.service';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/lang/');
@@ -43,7 +45,7 @@ export function HttpLoaderFactory(http: HttpClient) {
       }
     })
   ],
-  providers: [TranslatingService, PusherService, MessageService],
+  providers: [TranslatingService, PusherService, MessageService, ChatService, WebsocketService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
