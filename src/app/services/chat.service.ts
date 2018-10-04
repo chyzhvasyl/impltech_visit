@@ -12,15 +12,14 @@ messages: Subject<any>;
     this.messages = <Subject<any>>webService
       .connect().pipe(
         map((response: any): any => {
-          console.log('response' + response);
           return response;
         })
       );
 
 
   }
-  sendmessage(msg) {
-console.log('msg' + msg);
+  sendmessage(msg)
+  {
     this.messages.next(msg);
   }
 }

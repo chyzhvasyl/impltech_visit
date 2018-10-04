@@ -108,7 +108,7 @@
             </div>
           </div>
           <button  type="button"  class=" mx-auto btn btn1 button_shadow">{{'estimate' | translate}}</button>
-          <button  (click)="sendMessage()"  class="btn btn-info">login</button>
+
           <div class="chat">
             <div id="myModal" class="modal1">
               <!-- Modal content -->
@@ -141,7 +141,7 @@
                      Not correct email
                    </div>
                  </div>
-                 <button type="submit" [disabled]="email.invalid || name.invalid"    (click)="signin()"  class="btn btn-info">login</button>
+                 <button type="submit" [disabled]="email.invalid || name.invalid"    (click)="sendMessage()"  class="btn btn-info">login</button>
 
                </form>
 

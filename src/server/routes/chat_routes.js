@@ -46,6 +46,7 @@ function auth(req, res) {
         res.status(200).send(user);
       }
        else {
+
         res.status(200).send('все гуд');
       }
     }

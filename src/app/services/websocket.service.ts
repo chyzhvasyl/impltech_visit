@@ -8,34 +8,27 @@ import {environment} from '../../environments/environment';
   providedIn: 'root'
 })
 export class WebsocketService {
-private socket;
-
+  private socket;
 
   constructor() { }
 
-
   connect(): Rx.Subject<MessageEvent> {
-this.socket = io(environment.ws_url);
-let observable = new Observable (observer  => {
-  this.socket.on('message', (data) => {
-console.log('received a message from web server');
-observer.next(data);
-    }
-  );
-return() =>
-{
-
-    this.socket.disconnect();
-};
+    this.socket = io(environment.ws_url);
+    const observable = new Observable(observer => {
+      this.socket.on('message', (data) => {
+        console.log('Received message from Websocket Server');
+        observer.next(data);
+      });
+      return () => {
+        this.socket.disconnect();
+      };
+    });
+    const observer = {
+      next: (data: Object) => {
+        this.socket.emit('message', JSON.stringify(data));
+      },
+    };
+    return Rx.Subject.create(observer, observable);
   }
 
-);
-let observer = {
-next: (data: Object) => {
-
-this.socket.emit('message', JSON.stringify(data));
-},
-};
-return Rx.Subject.create(observer, observable);
-  }
 }

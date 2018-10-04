@@ -1,6 +1,6 @@
 //Imports
-let express = require('express');
-let app = express();
+const express = require('express');
+const app = express();
 let mongoose      = require  ('mongoose') ;
 let bodyParser    = require  ('body-parser') ;
 let cors          = require  ('cors') ;
@@ -12,8 +12,8 @@ let intel = require('intel');
 let fs = require('fs');
 
 let morgan =  require('morgan');
-let server_io = require('http').Server(app);
-let io = require('socket.io')(server_io);
+const server = require('http').Server(app);
+const io = require('socket.io')(server);
 
 app.options('*', cors(corsOptions));
 
@@ -38,15 +38,27 @@ app.use(morgan(':method :url :status :res[content-length] - :response-time ms :d
 app.get('/', (req, res) => {});
 app.post('/', (req, res) => {});
 
-io.on('connection',  (socket) => {
-  socket.emit('news', { hello: 'world' });
-  socket.on('my other event', function (data) {
-    console.log('socket cyka'+ data);
+app.use(express.static(path.join(__dirname, "/")));
+
+io.on("connection", (socket) => {
+  console.log('new connection made');
+
+  socket.on('message', (message) => {
+
+    let object = {
+          date: new Date(),
+          username: "chyzh",
+          message: message
+    };
+    console.log("Message Received: " + message);
+socket.emit('message', object);
+
+    //io.emit('message', {type:'new-message', text: message});
+
+
+
   });
 
-  socket.on('my other event',  (message) => {
-    io.emit('news', { type: 'world' , text: message});
-  });
 
 });
 
@@ -57,7 +69,13 @@ mongoose.connect(config.db.database, (err, res) => {
     console.log('Connected to database ' + config.db.database);
   }
 });
-//const server = http.createServer(app);
+
+
+
+
+
 app.use('/api',  chat_routes);
-server_io.listen(config.serverPort, () => console.log(`API running on localhost:${config.serverPort}`));
+
+
+server.listen(config.serverPort, () => console.log(`API running on localhost:${config.serverPort}`));
 

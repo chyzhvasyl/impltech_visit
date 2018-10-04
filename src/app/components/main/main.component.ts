@@ -7,8 +7,6 @@ import {trigger, state, style, transition,
 import {TranslatingService} from '../../services/translating.service';
 import {User} from '../classes/user';
 import {ChatService} from '../../services/chat.service';
-//import {Message} from '../../services/message.service';
-//import {MessageService} from '../../services/message.service';
 
 @Component({
   selector: 'app-main',
@@ -38,17 +36,11 @@ trigger('fadein', [
   ]
 })
 export class MainComponent implements OnInit {
-
   index = 0;
   display = false;
   user: User = new User();
-  //messages: Array<Message>;
-
-  constructor(private smooth: SimpleSmoothScrollService, private translate: TranslatingService/*, private messageService: MessageService*/,
-              private chat: ChatService) {
-
-   // this.messages = [];
-
+  constructor(private smooth: SimpleSmoothScrollService, private translate: TranslatingService,
+          private chat: ChatService ) {
   }
   switchLanguage(index) {
      index = this.index++;
@@ -73,15 +65,9 @@ export class MainComponent implements OnInit {
 
   }
   ngOnInit() {
-   // this.messageService.messagesStream
-    //  .subscribe(this.newMessageEventHandler.bind(this));
 this.chat.messages.subscribe(msg => {
-  console.log(msg);
-
-
-
+ console.log(msg);
 });
-
     this.smooth.smoothScrollToAnchor();
     let modal = document.getElementById('myModal');
     let btn = document.getElementById('myBtn');
@@ -99,19 +85,11 @@ this.chat.messages.subscribe(msg => {
     };
 
   }
-  sendMessage()
-  {
-console.log('cpaka' );
-    this.chat.sendmessage('test message');
-  }
+sendMessage()
+{
+  this.chat.sendmessage(this.user);
+}
   goTop(){
     this.smooth.smoothScrollToTop({ duration: 1000, easing: 'linear' });
   }
-
- // private newMessageEventHandler(event: Message): void {
- //   this.messages.push(event);
- // }
-/* sdf*/
-
-
 }

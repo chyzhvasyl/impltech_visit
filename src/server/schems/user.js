@@ -2,7 +2,7 @@ let mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const UserSchema = new Schema({
-  name: { type: String },
+  username: { type: String },
   mail: {type: String },
   message: [{ type: Schema.Types.ObjectId, ref: 'message'}]
 });
