@@ -7,6 +7,9 @@ import {trigger, state, style, transition,
 import {TranslatingService} from '../../services/translating.service';
 import {User} from '../classes/user';
 import {ChatService} from '../../services/chat.service';
+import * as io from 'socket.io-client';
+import {environment} from '../../../environments/environment';
+import {Message} from '../classes/message';
 
 @Component({
   selector: 'app-main',
@@ -39,8 +42,15 @@ export class MainComponent implements OnInit {
   index = 0;
   display = false;
   user: User = new User();
+  message: Message = new Message();
+  //message: string;
+
+  msg = [];
+  socket;
+  numberOfOnlineUsers: number;
   constructor(private smooth: SimpleSmoothScrollService, private translate: TranslatingService,
           private chat: ChatService ) {
+    this.socket = io(environment.ws_url);
   }
   switchLanguage(index) {
      index = this.index++;
@@ -66,8 +76,17 @@ export class MainComponent implements OnInit {
   }
   ngOnInit() {
 this.chat.messages.subscribe(msg => {
+  this.message.date = msg.date;
+  this.message.username = msg.username;
  console.log(msg);
 });
+    this.socket.on('online', (numberOfOnlineUsers) => {
+      this.numberOfOnlineUsers = numberOfOnlineUsers;
+    });
+    this.socket.on('disconnect', (numberOfOnlineUsers) => {
+      this.numberOfOnlineUsers = numberOfOnlineUsers;
+    });
+
     this.smooth.smoothScrollToAnchor();
     let modal = document.getElementById('myModal');
     let btn = document.getElementById('myBtn');
@@ -83,12 +102,15 @@ this.chat.messages.subscribe(msg => {
         modal.style.display = 'none';
       }
     };
-
   }
 sendMessage()
 {
-  this.chat.sendmessage(this.user);
+  this.msg.push(this.message);
+  console.log('masg' + this.msg);
+  this.chat.sendmessage(this.message.content);
+
 }
+
   goTop(){
     this.smooth.smoothScrollToTop({ duration: 1000, easing: 'linear' });
   }

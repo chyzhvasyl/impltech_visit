@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import * as io from 'socket.io-client';
+
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -8,24 +9,13 @@ import * as io from 'socket.io-client';
 export class AppComponent implements OnInit{
   title = 'app';
 
- // socket;
- // numberOfOnlineUsers: number;
-//
- // constructor() {
- //   this.socket = io();
- // }
-//
- // public ngOnInit(): void {
- //   this.socket.on('numberOfOnlineUsers', (numberOfOnlineUsers) => {
- //     this.numberOfOnlineUsers = numberOfOnlineUsers;
- //   });
- // }
 
 
   constructor() {
-
   }
+ ngOnInit() {
 
-  ngOnInit() {
-  }
+ }
+
+
 }

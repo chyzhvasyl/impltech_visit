@@ -77,3 +77,5 @@ GET /socket.io/?EIO=3&transport=polling&t=MOwNUim 404 149 - 0.171 ms 03/Oct/2018
 GET /socket.io/?EIO=3&transport=polling&t=MOwNVx5 404 149 - 0.122 ms 03/Oct/2018:14:38:50 +0000 1.1
 GET /socket.io/?EIO=3&transport=polling&t=MOwNX9P 404 149 - 0.162 ms 03/Oct/2018:14:38:55 +0000 1.1
 GET /favicon.ico 404 150 - 1.987 ms 04/Oct/2018:07:56:16 +0000 1.1
+GET /api/doctor 404 149 - 3.499 ms 05/Oct/2018:15:14:40 +0000 1.1
+GET /api/patient 404 150 - 0.510 ms 05/Oct/2018:15:14:40 +0000 1.1

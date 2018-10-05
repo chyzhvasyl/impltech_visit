@@ -39,7 +39,7 @@ app.get('/', (req, res) => {});
 app.post('/', (req, res) => {});
 
 app.use(express.static(path.join(__dirname, "/")));
-
+let online = 0;
 io.on("connection", (socket) => {
   console.log('new connection made');
 
@@ -47,21 +47,24 @@ io.on("connection", (socket) => {
 
     let object = {
           date: new Date(),
-          username: "chyzh",
+          username: socket.id,
           message: message
     };
     console.log("Message Received: " + message);
 socket.emit('message', object);
 
     //io.emit('message', {type:'new-message', text: message});
-
-
-
+  });
+  online++;
+  socket.emit('online', online);
+  console.log("online " + online);
+  socket.on('disconnect', () => {
+    online--;
+    io.emit('numberOfOnlineUsers', online);
+    console.log('User disconnected');
   });
 
-
 });
-
 mongoose.connect(config.db.database, (err, res) => {
   if(err) {
     console.log('Database error: ' + err);
@@ -69,8 +72,6 @@ mongoose.connect(config.db.database, (err, res) => {
     console.log('Connected to database ' + config.db.database);
   }
 });
-
-
 
 
 

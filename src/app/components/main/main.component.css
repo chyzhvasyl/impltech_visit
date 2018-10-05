@@ -524,3 +524,44 @@ div .modal-backdrop .fade .show
 
   color: #15d8ff;  display: block
 }
+
+.chat_body{
+  height: 280px;
+  width: 100%;
+
+overflow-y: auto;
+}
+/*Стилі для сколбара*/
+::-webkit-scrollbar{
+  width:6px;
+
+}
+::-webkit-scrollbar-thumb{
+  border-width:1px 1px 1px 2px;
+  border-color: #777;
+  background-color: #aaa;border-radius: 15px;
+
+}
+::-webkit-scrollbar-thumb:hover{
+  border-width: 1px 1px 1px 2px;
+  border-color: #555;
+  background-color: #777;
+}
+::-webkit-scrollbar-track{
+  border-width:0;
+}
+::-webkit-scrollbar-track:hover{
+  background-color: #e7e7e7;
+}
+.message{
+  display: block;
+  float: right;
+  height: auto;
+  padding: 5px;
+
+  width: 70%;
+  background-color: #e2e2e2;
+  border-radius: 7px;
+  margin-top: 2px;
+  margin-left: 2px;
+}

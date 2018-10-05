@@ -25,7 +25,7 @@ export class WebsocketService {
     });
     const observer = {
       next: (data: Object) => {
-        this.socket.emit('message', JSON.stringify(data));
+        this.socket.emit('message', data);
       },
     };
     return Rx.Subject.create(observer, observable);

@@ -24,6 +24,7 @@ import {MessageService} from './services/message.service';
 import {ChatService} from './services/chat.service';
 import {WebsocketService} from './services/websocket.service';
 
+
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/lang/');
 }
