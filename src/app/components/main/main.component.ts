@@ -38,13 +38,12 @@ trigger('fadein', [
 ])
   ]
 })
+
 export class MainComponent implements OnInit {
   index = 0;
   display = false;
   user: User = new User();
   message: Message = new Message();
-  //message: string;
-
   msg = [];
   socket;
   numberOfOnlineUsers: number;
@@ -87,6 +86,8 @@ this.chat.messages.subscribe(msg => {
       this.numberOfOnlineUsers = numberOfOnlineUsers;
     });
 
+
+
     this.smooth.smoothScrollToAnchor();
     let modal = document.getElementById('myModal');
     let btn = document.getElementById('myBtn');
@@ -105,12 +106,18 @@ this.chat.messages.subscribe(msg => {
   }
 sendMessage()
 {
-  this.msg.push(this.message);
-  console.log('masg' + this.msg);
+  this.msg.push({
+    date: this.message.date,
+    username: this.message.username,
+    content: this.message.content
+  });
   this.chat.sendmessage(this.message.content);
-
+  this.message.content = '';
+  $(document).ready(function () {
+    let chat_height = $('.chat_body').height();
+    $('.chat_body').scrollTop(10000000);
+  });
 }
-
   goTop(){
     this.smooth.smoothScrollToTop({ duration: 1000, easing: 'linear' });
   }

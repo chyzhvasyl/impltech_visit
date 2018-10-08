@@ -1,5 +1,5 @@
 export class Message {
-  content: string;
-  username: any;
-  date: any;
+  content?: string;
+  username?: any;
+  date?: any;
 }

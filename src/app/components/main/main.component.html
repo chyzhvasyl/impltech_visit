@@ -41,8 +41,6 @@
   </div>
   </li>
   <li style="color: #2d527c; font-weight: bold" >
-    /
-
 
   </li>
   <li >
@@ -118,10 +116,31 @@
                   <h5>Представтесь и начните чат</h5>
                 </div>
                 <div class="modal-body1 ">
+<div class="chat_body" >
+  <div *ngFor="let message  of msg;" class="message">
 
-<div class="chat_body">
-  <div *ngFor="let message  of msg; " class="message">
-    {{message.content }}
+
+    <div *ngIf = "msg.length" >
+
+      <div class="name">
+
+
+        {{message.username}}
+      </div>
+<br>
+     <div class="content">
+
+       {{message.content}}
+     </div>
+<br>
+
+      <div class="date">
+        {{message.date}}
+
+      </div>
+
+
+    </div>
   </div>
 </div>
                   <!--
@@ -143,11 +162,11 @@ auth
                  <button type="submit" [disabled]="email.invalid || name.invalid"    (click)="sendMessage()"  class="btn btn-info">login</button>
                </form>
 -->
-                  <form class="p-1 form-inline" (ngSubmit)="sendMessage()">
+                  <form  class="p-1 form-inline" (ngSubmit)="sendMessage()">
                     <div class="form-group">
                       <input [(ngModel)]="message.content" #content = "ngModel" name="content" required pattern=""  class="form-control" id="exampleName"  placeholder="write smth">
                     </div>
-                    <button type="submit" [disabled]="content.invalid"   class="btn btn-info ml-2">send</button>
+                    <button type="submit"  [disabled]="content.invalid"   class="btn btn-info ml-2">send</button>
                   </form>
                 </div>
                <!-- <div class="modal-footer1">
@@ -246,6 +265,7 @@ auth
   <p class="card-text">+38096235844</p>
   <p class="card-text">+38050687359</p>
 </div>
+
             <div class="col-md-7">
               <div class=" text-center">
                 <img  class="img-fluid" width="500px" src="https://djmmlc8gcwtqv.cloudfront.net/imgs/chatkit/chat-build.gif"
@@ -255,6 +275,7 @@ auth
         </div>
       </div>
     </div>
+
 
   </div>
   <div id="div2">
