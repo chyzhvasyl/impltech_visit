@@ -3,8 +3,10 @@ const Schema = mongoose.Schema;
 
 const MessageSchema = new Schema({
   date:     { type: Date, default: Date.now },
-  message:  { type: String },
-  user:     { type: Schema.Types.ObjectId, ref: 'user' }
+  content:  { type: String },
+  user:     { type: Schema.Types.ObjectId, ref: 'user' },
+  versionKey: false
+  //collection: 'message'
 });
 
 

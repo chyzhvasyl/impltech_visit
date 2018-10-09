@@ -13,8 +13,10 @@ let fs = require('fs');
 
 let morgan =  require('morgan');
 const server = require('http').Server(app);
-const io = require('socket.io')(server);
 
+// виносимо в окремий модуль
+const io = require('socket.io')(server);
+require('./socket_chat/socket_chat')(io);
 app.options('*', cors(corsOptions));
 
 /* логгирование */
@@ -35,49 +37,26 @@ app.use(bodyParser.json({limit: "50mb"}));
 app.use(bodyParser.raw({limit: "50mb", extended: true, parameterLimit:50000}));
 app.use(morgan(':method :url :status :res[content-length] - :response-time ms :date[clf] :http-version', {stream: accessLogStream}));
 
+
+
+
 app.get('/', (req, res) => {});
 app.post('/', (req, res) => {});
-
 app.use(express.static(path.join(__dirname, "/")));
-let online = 0;
-io.on("connection", (socket) => {
-  console.log('new connection made');
-socket.join('all');
-  socket.on('message', content => {
 
-    let message = {
-          date: new Date(),
-          username: socket.id,
-          content: content
-    };
-    console.log("Message Received: " + content);
-socket.emit('message', message);
-socket.to('all').emit('message', message)
 
-    //io.emit('message', {type:'new-message', text: message});
-  });
-  online++;
-  socket.emit('online', online);
-  console.log("online " + online);
-  socket.on('disconnect', () => {
-    online--;
-    io.emit('numberOfOnlineUsers', online);
-    console.log('User disconnected');
-  });
 
-});
-mongoose.connect(config.db.database, (err, res) => {
+mongoose.connect(config.db.database, { useNewUrlParser: true },(err, res) => {
+
   if(err) {
     console.log('Database error: ' + err);
   } else {
+
     console.log('Connected to database ' + config.db.database);
   }
 });
 
-
-
+mongoose.Promise = require('bluebird');
 app.use('/api',  chat_routes);
-
-
 server.listen(config.serverPort, () => console.log(`API running on localhost:${config.serverPort}`));
 

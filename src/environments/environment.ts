@@ -7,7 +7,8 @@ export const environment = {
   pusher: {
     key: '5a85cf001047fc2673d6',
   },
-  ws_url: 'http://localhost:8090'
+  ws_url: 'http://localhost:8090',
+  message_history: null
 };
 
 /*

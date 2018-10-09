@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import $ from 'jquery';
 import { SimpleSmoothScrollService } from 'ng2-simple-smooth-scroll';
 import { SimpleSmoothScrollOption } from 'ng2-simple-smooth-scroll';
@@ -10,6 +10,7 @@ import {ChatService} from '../../services/chat.service';
 import * as io from 'socket.io-client';
 import {environment} from '../../../environments/environment';
 import {Message} from '../classes/message';
+import {WebsocketService} from '../../services/websocket.service';
 
 @Component({
   selector: 'app-main',
@@ -44,12 +45,13 @@ export class MainComponent implements OnInit {
   display = false;
   user: User = new User();
   message: Message = new Message();
-  message_array = [];
+  message_array: any = [];
   socket;
   numberOfOnlineUsers: number;
+  connection;
 
   constructor(private smooth: SimpleSmoothScrollService, private translate: TranslatingService,
-          private chat: ChatService ) {
+          private chatservice: ChatService, private websocketservice: WebsocketService) {
     this.socket = io(environment.ws_url);
   }
 
@@ -79,8 +81,13 @@ export class MainComponent implements OnInit {
   ngOnInit()
   // отримання часу і нікнейму з сервера
   {
+    this.chatservice.sendmessage('Hello');
+   this.websocketservice.getMessages().subscribe(message => {
+     this.message_array = message;
+    });
 
-    this.chat.messages.subscribe(msg => {
+    //this.message_array.push(environment.message_history);
+    this.chatservice.messages.subscribe(msg => {
       this.message.date = msg.date;
       this.message.username = msg.username;
       this.message.content = msg.content;
@@ -119,16 +126,14 @@ export class MainComponent implements OnInit {
         modal.style.display = 'none';
       }
     };
-    console.log('msg date', this.message.date);
   }
 
   // відправка повідомлення
 sendMessage()
 {
   this.chat_autoscroll();
-  this.chat.sendmessage(this.message.content);
+  this.chatservice.sendmessage(this.message.content);
 }
-
   goTop(){
     this.smooth.smoothScrollToTop({ duration: 1000, easing: 'linear' });
   }
@@ -138,8 +143,12 @@ sendMessage()
     $(document).ready(function () {
       const chat_body =  $('.chat_body');
       const chat_height = chat_body.prop('scrollHeight');
-      console.log(chat_height);
       chat_body.scrollTop(chat_height);
     });
+  }
+
+
+  ngOnDestroy() {
+    //this.connection.unsubscribe();
   }
 }
