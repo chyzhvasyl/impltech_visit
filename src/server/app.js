@@ -42,16 +42,17 @@ app.use(express.static(path.join(__dirname, "/")));
 let online = 0;
 io.on("connection", (socket) => {
   console.log('new connection made');
+socket.join('all');
+  socket.on('message', content => {
 
-  socket.on('message', (message) => {
-
-    let object = {
+    let message = {
           date: new Date(),
           username: socket.id,
-          message: message
+          content: content
     };
-    console.log("Message Received: " + message);
-socket.emit('message', object);
+    console.log("Message Received: " + content);
+socket.emit('message', message);
+socket.to('all').emit('message', message)
 
     //io.emit('message', {type:'new-message', text: message});
   });

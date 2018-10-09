@@ -44,13 +44,15 @@ export class MainComponent implements OnInit {
   display = false;
   user: User = new User();
   message: Message = new Message();
-  msg = [];
+  message_array = [];
   socket;
   numberOfOnlineUsers: number;
+
   constructor(private smooth: SimpleSmoothScrollService, private translate: TranslatingService,
           private chat: ChatService ) {
     this.socket = io(environment.ws_url);
   }
+
   switchLanguage(index) {
      index = this.index++;
     if ( index % 2 === 0) {
@@ -60,6 +62,7 @@ export class MainComponent implements OnInit {
     }
     this.translate.switchLanguage(this.translate.language);
   }
+
   showDialog() {
     this.display = true;
   }
@@ -73,22 +76,35 @@ export class MainComponent implements OnInit {
     console.log(this.user);
 
   }
-  ngOnInit() {
-this.chat.messages.subscribe(msg => {
-  this.message.date = msg.date;
-  this.message.username = msg.username;
- console.log(msg);
-});
+  ngOnInit()
+  // отримання часу і нікнейму з сервера
+  {
+
+    this.chat.messages.subscribe(msg => {
+      this.message.date = msg.date;
+      this.message.username = msg.username;
+      this.message.content = msg.content;
+      this.message_array.push({
+        date: this.message.date,
+        username: this.message.username,
+        content: this.message.content,
+      });
+      this.chat_autoscroll();
+      this.message.content = '';
+
+    });
+
+  // вивід онлайн користувачів на сайті
     this.socket.on('online', (numberOfOnlineUsers) => {
       this.numberOfOnlineUsers = numberOfOnlineUsers;
     });
     this.socket.on('disconnect', (numberOfOnlineUsers) => {
       this.numberOfOnlineUsers = numberOfOnlineUsers;
     });
-
-
-
+    // якір
     this.smooth.smoothScrollToAnchor();
+
+    // modal box
     let modal = document.getElementById('myModal');
     let btn = document.getElementById('myBtn');
     let span: HTMLElement = document.getElementsByClassName('close1')[0] as HTMLElement;
@@ -103,22 +119,27 @@ this.chat.messages.subscribe(msg => {
         modal.style.display = 'none';
       }
     };
+    console.log('msg date', this.message.date);
   }
+
+  // відправка повідомлення
 sendMessage()
 {
-  this.msg.push({
-    date: this.message.date,
-    username: this.message.username,
-    content: this.message.content
-  });
+  this.chat_autoscroll();
   this.chat.sendmessage(this.message.content);
-  this.message.content = '';
-  $(document).ready(function () {
-    let chat_height = $('.chat_body').height();
-    $('.chat_body').scrollTop(10000000);
-  });
 }
+
   goTop(){
     this.smooth.smoothScrollToTop({ duration: 1000, easing: 'linear' });
+  }
+
+  // опускаємо вниз скрол при відправці повідомлення
+  chat_autoscroll() {
+    $(document).ready(function () {
+      const chat_body =  $('.chat_body');
+      const chat_height = chat_body.prop('scrollHeight');
+      console.log(chat_height);
+      chat_body.scrollTop(chat_height);
+    });
   }
 }

@@ -117,10 +117,10 @@
                 </div>
                 <div class="modal-body1 ">
 <div class="chat_body" >
-  <div *ngFor="let message  of msg;" class="message">
+  <div *ngFor="let message  of message_array;" class="message">
 
 
-    <div *ngIf = "msg.length" >
+    <div *ngIf = "message_array.length" >
 
       <div class="name">
 
@@ -131,15 +131,15 @@
      <div class="content">
 
        {{message.content}}
+
      </div>
+
 <br>
 
       <div class="date">
         {{message.date}}
 
       </div>
-
-
     </div>
   </div>
 </div>
