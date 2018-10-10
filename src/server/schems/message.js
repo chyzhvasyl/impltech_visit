@@ -5,6 +5,7 @@ const MessageSchema = new Schema({
   date:     { type: Date, default: Date.now },
   content:  { type: String },
   user:     { type: Schema.Types.ObjectId, ref: 'user' },
+  id: {type: String},
   versionKey: false
   //collection: 'message'
 });

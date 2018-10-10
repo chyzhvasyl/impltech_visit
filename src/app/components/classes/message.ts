@@ -1,6 +1,5 @@
 export class Message {
+  _id?: any;
   content?: string;
-  username?: any;
   date?: any;
-
 }

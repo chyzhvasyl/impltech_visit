@@ -12,7 +12,7 @@ messages: Subject<any>;
     this.messages = <Subject<any>>webService
       .connect().pipe(
         map((response: any): any => {
-          console.log()
+          console.log();
           return response;
         })
       );

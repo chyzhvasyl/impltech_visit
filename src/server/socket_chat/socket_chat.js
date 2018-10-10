@@ -12,7 +12,7 @@ module.exports = io =>{
 
       let message = {
         date: new Date(),
-        username: socket.id,
+        id: socket.id,
         content: content
       };
       message_scheme.create(message,  error =>{
@@ -21,8 +21,6 @@ module.exports = io =>{
           return error.status(400).end();
         }
         else {
-
-
           console.log("Message Received: " + content);
           socket.emit('message', message);
           socket.to('all').emit('message', message)
@@ -48,8 +46,7 @@ module.exports = io =>{
       message_scheme
         .find({})
         .sort({date: -1})
-        .limit(500)
-        .sort({date: 1})
+        .limit(50)
         .lean()
         .exec( (err, messages) => {
           if(err){

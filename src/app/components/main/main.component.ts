@@ -11,6 +11,7 @@ import * as io from 'socket.io-client';
 import {environment} from '../../../environments/environment';
 import {Message} from '../classes/message';
 import {WebsocketService} from '../../services/websocket.service';
+import {ModalBoxService} from '../../services/modal-box.service';
 
 @Component({
   selector: 'app-main',
@@ -51,7 +52,7 @@ export class MainComponent implements OnInit {
   connection;
 
   constructor(private smooth: SimpleSmoothScrollService, private translate: TranslatingService,
-          private chatservice: ChatService, private websocketservice: WebsocketService) {
+          private chatservice: ChatService, private websocketservice: WebsocketService, private open_modalbox: ModalBoxService) {
     this.socket = io(environment.ws_url);
   }
 
@@ -81,19 +82,20 @@ export class MainComponent implements OnInit {
   ngOnInit()
   // отримання часу і нікнейму з сервера
   {
-    this.chatservice.sendmessage('Hello');
+
    this.websocketservice.getMessages().subscribe(message => {
      this.message_array = message;
+     this.message_array.reverse();
     });
 
     //this.message_array.push(environment.message_history);
     this.chatservice.messages.subscribe(msg => {
       this.message.date = msg.date;
-      this.message.username = msg.username;
+      this.message._id = msg.id;
       this.message.content = msg.content;
       this.message_array.push({
         date: this.message.date,
-        username: this.message.username,
+        _id: this.message._id,
         content: this.message.content,
       });
       this.chat_autoscroll();
@@ -111,28 +113,16 @@ export class MainComponent implements OnInit {
     // якір
     this.smooth.smoothScrollToAnchor();
 
-    // modal box
-    let modal = document.getElementById('myModal');
-    let btn = document.getElementById('myBtn');
-    let span: HTMLElement = document.getElementsByClassName('close1')[0] as HTMLElement;
-    btn.onclick = function() {
-      modal.style.display = 'block';
-    };
-    span.onclick = function() {
-      modal.style.display = 'none';
-    };
-    window.onclick = function(event) {
-      if (event.target === modal) {
-        modal.style.display = 'none';
-      }
-    };
+    // open modal
+    this.open_modalbox.open_modal();
   }
 
   // відправка повідомлення
 sendMessage()
 {
-  this.chat_autoscroll();
   this.chatservice.sendmessage(this.message.content);
+  this.chat_autoscroll();
+
 }
   goTop(){
     this.smooth.smoothScrollToTop({ duration: 1000, easing: 'linear' });
@@ -146,7 +136,6 @@ sendMessage()
       chat_body.scrollTop(chat_height);
     });
   }
-
 
   ngOnDestroy() {
     //this.connection.unsubscribe();

@@ -20,10 +20,10 @@ export class WebsocketService {
         this.socket.emit('receive_history');
         observer.next(data);
       });
-      this.socket.on('history', messages => {
-       console.log('history', messages);
-
-      });
+     // this.socket.on('history', messages => {
+     //  console.log('history', messages);
+//
+     // });
       return () => {
         this.socket.disconnect();
       };
@@ -46,6 +46,8 @@ export class WebsocketService {
   getMessages() {
     return new Observable(observer => {
       this.socket.on('history', (messages) => {
+        console.log('history', messages);
+       // messages.reverse();
         observer.next(messages);
       });
       return () => {

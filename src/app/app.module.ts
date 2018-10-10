@@ -23,6 +23,10 @@ import { NewMessageComponent } from './components/new-message/new-message.compon
 import {MessageService} from './services/message.service';
 import {ChatService} from './services/chat.service';
 import {WebsocketService} from './services/websocket.service';
+import { TechnologiesComponent } from './components/technologies/technologies.component';
+import { PortfolioComponent } from './components/portfolio/portfolio.component';
+import { ServicesComponent } from './components/services/services.component';
+import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.component';
 
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -33,7 +37,11 @@ export function HttpLoaderFactory(http: HttpClient) {
     AppComponent,
     MainComponent,
     ParallaxDirective,
-    NewMessageComponent
+    NewMessageComponent,
+    TechnologiesComponent,
+    PortfolioComponent,
+    ServicesComponent,
+    PagenotfoundComponent
   ],
   imports: [
     BrowserModule, SimpleSmoothScrollModule, BrowserAnimationsModule, HttpClientModule, DialogModule, CommonModule, TabViewModule, CodeHighlighterModule, ButtonModule,
