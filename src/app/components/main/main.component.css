@@ -337,68 +337,69 @@ article{
   position: absolute;
 left: 10%;
 top: 30%;
-  z-index: 100;
+  z-index: 1;
 }
 
 .picture2 {
   position: absolute;
   left: 75%;
   top: 40%;
-  z-index: 100;
+  z-index: 1;
 }
 .picture3{
   position: absolute;
   left: 85%;
   top: 10%;
-  z-index: 100;
+  z-index: 1;
 }
 .picture4{
   position: absolute;
   left: 85%;
   top: 90%;
-  z-index: 100;
+  z-index: 1;
 }
 .picture5{
   position: absolute;
   left: 19%;
   top: 95%;
-  z-index: 100;
+  z-index: 1;
 }
 .picture6{
   position: absolute;
   left: 24%;
   top: 73%;
-  z-index: 100;
+  z-index: 1;
 }
 .picture7{
   position: absolute;
   left: 12%;
   top: 105%;
-  z-index: 100;
+  z-index: 1;
 }
 .picture8{
   position: absolute;
   left: 52%;
   top: 108%;
-  z-index: 100;
+  z-index: 1;
 }
 .picture9{
   position: absolute;
   left: 28%;
   top: 55%;
-  z-index: 100;
+  z-index: 1;
 }
 .picture10{
   position: absolute;
   left: 33%;
   top: 42%;
-  z-index: 100;
+  z-index: 1;
 }
 
 .chat{
   position: fixed;
   right: 2%;
   top: 75%;
+  z-index: 100;
 }
 
 .language-mark{
@@ -445,7 +446,7 @@ div .modal-backdrop .fade .show
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
   z-index: 1000; /* Sit on top */
-  padding-top: 300px; /* Location of the box */
+    /* Location of the box */
   right: 0;
   top: 0;
   width: 100%; /* Full width */
@@ -456,6 +457,7 @@ div .modal-backdrop .fade .show
 
 /* Modal Content */
 .modal-content1 {
+  margin-top: 15%;
   float: right;
   right: 0.5%;
   position: relative;
@@ -587,6 +589,12 @@ overflow-y: auto;
  font-size: 8px;
   float: right;
 }
+@media  (max-width: 368px) {
+  .modal-content1{
 
+    width: 100%;
+
+  }
+}
 
 /* logo*/
