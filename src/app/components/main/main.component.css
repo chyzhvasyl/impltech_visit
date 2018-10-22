@@ -395,12 +395,7 @@ top: 30%;
   z-index: 1;
 }
 
-.chat{
-  position: fixed;
-  right: 2%;
-  top: 75%;
-  z-index: 100;
-}
+
 
 .language-mark{
   display: block;
@@ -415,7 +410,6 @@ td{
 
   display: inline-block;
 }
-
 
 
 ul li  {display:inline;}
@@ -441,36 +435,6 @@ div .modal-backdrop .fade .show
 
 
 
-/* The Modal (background) */
-.modal1 {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1000; /* Sit on top */
-    /* Location of the box */
-  right: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-
-}
-
-/* Modal Content */
-.modal-content1 {
-  margin-top: 15%;
-  float: right;
-  right: 0.5%;
-  position: relative;
-  background-color: whitesmoke;
-  width: 300px;
-  height: 400px;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
-  -webkit-animation-name: animatetop;
-  -webkit-animation-duration: 0.4s;
-  animation-name: animatetop;
-  animation-duration: 0.4s;
-  border-radius: 10px;
-}
 
 /* Add Animation */
 @-webkit-keyframes animatetop {
@@ -483,42 +447,6 @@ div .modal-backdrop .fade .show
   to {top:0; opacity:1}
 }
 
-/* The Close Button */
-.close1 {
-  color: white;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
-
-.close1:hover,
-.close1:focus {
-  color: #000;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-.modal-header1 {
-  padding: 2px 16px;
-  background-color: rgb(25, 164, 181);
-  color: white;
-}
-
-.modal-body1 {
-  width: auto;
-  overflow: auto;
-  opacity: 0.8;
-  margin: 0;
-}
-
-.modal-footer1 {
-  opacity: 0.5;
-  color: black;
-}
-.modal-body1 p{
-  opacity: 1;
-}
-
 
 .lang_color
 {
@@ -527,12 +455,7 @@ div .modal-backdrop .fade .show
   color: #15d8ff;  display: block
 }
 
-.chat_body{
-  height: 280px;
-  width: 100%;
 
-overflow-y: auto;
-}
 /*Стилі для сколбара*/
 ::-webkit-scrollbar{
   width:6px;
@@ -555,46 +478,8 @@ overflow-y: auto;
 ::-webkit-scrollbar-track:hover{
   background-color: #e7e7e7;
 }
-.message{
-  display: block;
-  float: right;
-  height: auto;
-  padding: 5px;
-
-  width: 70%;
-  background-color: #e2e2e2;
-  border-radius: 7px;
-  margin-top: 2px;
-  margin-left: 2px;
-}
 
 
-.name{
-  top: 0;
-  display: block;
-  left: 0;
-  float: left;
-  font-size: 10px;
-}
 
-.content{
-
-  display: block;
-  left: 0;
-  float: left;
-}
-.date{
-
-  display: block;
- font-size: 8px;
-  float: right;
-}
-@media  (max-width: 368px) {
-  .modal-content1{
-
-    width: 100%;
-
-  }
-}
 
 /* logo*/

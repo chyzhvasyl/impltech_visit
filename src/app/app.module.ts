@@ -27,6 +27,7 @@ import { TechnologiesComponent } from './components/technologies/technologies.co
 import { PortfolioComponent } from './components/portfolio/portfolio.component';
 import { ServicesComponent } from './components/services/services.component';
 import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.component';
+import { MessengerComponent } from './components/messenger/messenger.component';
 
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -41,7 +42,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     TechnologiesComponent,
     PortfolioComponent,
     ServicesComponent,
-    PagenotfoundComponent
+    PagenotfoundComponent,
+    MessengerComponent
   ],
   imports: [
     BrowserModule, SimpleSmoothScrollModule, BrowserAnimationsModule, HttpClientModule, DialogModule, CommonModule, TabViewModule, CodeHighlighterModule, ButtonModule,
