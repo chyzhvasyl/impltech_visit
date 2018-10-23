@@ -24,8 +24,6 @@ export class MessengerComponent implements OnInit {
   constructor( private chatservice: ChatService, private websocketservice: WebsocketService, private open_modalbox: ModalBoxService )
   {
     this.socket = io(environment.ws_url);
-
-
   }
   chat_autoscroll() {
     $(document).ready(function () {

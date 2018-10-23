@@ -113,77 +113,7 @@
           </div>
 
 
-          <div class="chat">
-            <div id="myModal" class="modal1">
-              <!-- Modal content -->
-              <div class="modal-content1">
-                <div class="modal-header1">
-                  <span id="close1" class="close1">&times;</span>
-                  <h5>Представтесь и начните чат</h5>
-                </div>
-                <div class="modal-body1 ">
-                  <div class="chat_body" >
-                    <!--     <div *ngFor="let message  of message_array;" class="message">
-
-
-                           <div *ngIf = "message_array.length" >
-
-                             <div class="name">
-
-
-                               {{message.id}}
-                             </div>
-                             <br>
-                             <div class="content">
-
-                               {{message.content}}
-
-                             </div>
-
-                             <br>
-
-                             <div class="date">
-                               {{message.date}}
-
-                             </div>
-                           </div>
-                         </div> -->
-                  </div>
-                  <!--
-auth
-               <form class="p-3">
-                 <div class="form-group">
-                   <input [(ngModel)]="user.name" #name = "ngModel" name="name" required pattern="[a-zA-Z_]{1,30}"  class="form-control" id="exampleName"  placeholder="Enter name">
-                   <div [hidden]="name.valid || name.untouched" class="alert alert-info mt-1 p-1">
-                      Put the name
-                   </div>
-                 </div>
-                 <div class="form-group">
-                   <input name="email" [(ngModel)]="user.email"   #email="ngModel" required pattern="[a-zA-Z_].+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}"  type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-                   <small id="emailHelp" class="form-text text-muted">Никому никогда не говорите свой email</small>
-                   <div [hidden]="email.valid || email.untouched" class="alert alert-info mt-1 p-1">
-                     Not correct email
-                   </div>
-                 </div>
-                 <button type="submit" [disabled]="email.invalid || name.invalid"    (click)="sendMessage()"  class="btn btn-info">login</button>
-               </form>
--->
-                  <form  class="p-1 form-inline" >
-                    <div class="form-group">
-                      <input  name="content" required pattern=""  class="form-control" id="exampleName"  placeholder="write smth">
-                    </div>
-                    <button type="submit"    class="btn btn-info ml-2">send</button>
-                  </form>
-                </div>
-                <!-- <div class="modal-footer1">
-                   <h3>Modal Footer</h3>
-                 </div>
-                 -->
-              </div>
-            </div>
-            <img   id="myBtn" class="img-fluid" width="50px" src="../../../assets/images/chat.png">
-            <!-- Modal -->
-          </div>
+          <app-messenger></app-messenger>
         </div>
 
 

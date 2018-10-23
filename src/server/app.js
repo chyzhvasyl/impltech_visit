@@ -1,6 +1,6 @@
 //Imports
-const express = require('express');
-const app = express();
+let express = require('express');
+let app = express();
 let mongoose      = require  ('mongoose') ;
 let bodyParser    = require  ('body-parser') ;
 let cors          = require  ('cors') ;
@@ -10,9 +10,8 @@ let chat_routes   = require  ('./routes/chat_routes') ;
 let path = require('path');
 let intel = require('intel');
 let fs = require('fs');
-
 let morgan =  require('morgan');
-const server = require('http').Server(app);
+let server = require('http').Server(app);
 
 // виносимо в окремий модуль
 const io = require('socket.io')(server);

@@ -42,6 +42,8 @@
     "mongoose": "^5.2.18",
     "morgan": "^1.9.1",
     "ng2-simple-smooth-scroll": "^0.3.0",
+    "passport": "^0.4.0",
+    "passport-jwt": "^4.0.0",
     "path": "^0.12.7",
     "popper.js": "^1.14.4",
     "primeicons": "^1.0.0-beta.10",

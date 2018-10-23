@@ -7,7 +7,7 @@ module.exports = io =>{
   io.on("connection", (socket) => {
 
     console.log('new connection made');
-    socket.join('all');
+
     socket.on('message', content => {
 
       let message = {
@@ -42,7 +42,6 @@ module.exports = io =>{
 
 
     socket.on('receive_history', () => {
-
       message_scheme
         .find({})
         .sort({date: -1})

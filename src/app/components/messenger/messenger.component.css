@@ -105,3 +105,25 @@
 .modal-body1 p{
   opacity: 1;
 }
+/*Стилі для сколбара*/
+::-webkit-scrollbar{
+  width:6px;
+
+}
+::-webkit-scrollbar-thumb{
+  border-width:1px 1px 1px 2px;
+  border-color: #777;
+  background-color: #aaa;border-radius: 15px;
+
+}
+::-webkit-scrollbar-thumb:hover{
+  border-width: 1px 1px 1px 2px;
+  border-color: #555;
+  background-color: #777;
+}
+::-webkit-scrollbar-track{
+  border-width:0;
+}
+::-webkit-scrollbar-track:hover{
+  background-color: #e7e7e7;
+}
