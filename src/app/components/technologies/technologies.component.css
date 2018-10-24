@@ -1,0 +1,56 @@
+
+
+.mob {
+  background-image: url(../../../assets/images/technologies_component/mobile.png), url(../../../assets/images/technologies_component/computer.png);
+  background-repeat: no-repeat, no-repeat;
+  background-position: left, right;
+
+}
+
+img.img-fluid{
+
+
+}
+.height_technologies{
+
+
+  height: 363px;
+}
+div.card {
+
+  margin-right: 0;
+}
+.absolute_center
+{
+
+
+  overflow: no-display;
+  width: 100%;
+  z-index: 2;
+  min-width: 400px;
+  max-width: 900px;
+  margin: auto;
+  margin-top: 150px;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+}
+ .card-body:hover .one {
+width: 50px;
+
+ }
+.demo{
+
+  position:relative;
+  margin:0 auto;
+  height: auto;
+  display: block;
+}
+.demo img {
+  left: 0;
+  position:absolute;
+  top: 0;
+}
+
+.demo img.raz {opacity:0;filter:alpha(opacity=0);}
+.demo:hover img.raz {opacity:1;filter:alpha(opacity=100);}
+.demo:hover img.dva, .demo img.dva:hover {opacity:0;filter:alpha(opacity=0);}
