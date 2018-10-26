@@ -38,6 +38,10 @@ export class MessengerComponent implements OnInit {
     this.chat_autoscroll();
 
   }
+  auth(){
+
+
+  }
   ngOnInit() {
     this.websocketservice.getMessages().subscribe(message => {
       this.message_array = message;

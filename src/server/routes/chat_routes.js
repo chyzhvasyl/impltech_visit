@@ -2,10 +2,11 @@ let express = require('express');
 let router = express.Router();
 let user = require('../schems/user');
 let message = require('../schems/message');
-
+let _ =  require('lodash');
 let passport = require('passport');
+let jwt =  require('jsonwebtoken');
 let {Strategy, ExtractJwt }=  require('passport-jwt');
-
+let {jwt1} = require('../config/config.js');
 
 
 //router.get('/auth', get);
@@ -17,13 +18,8 @@ router.get('/', (req, res) => {
   res.send('all good');
 });
 
-var opts = {
 
-  jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
-  secretOrKey:'YhZu-x#Nf2sT'
-
-};
-passport.use(new Strategy(opts, function(jwt_payload, done){
+passport.use(new Strategy(jwt1, function(jwt_payload, done){
   if (jwt_payload !== void (0)){
     return done (false, jwt_payload);
   }
@@ -42,14 +38,23 @@ if (jwtError !== void(0) || error !== void(0)) {
   next()
 })(req, res, next)
 }
-function get_history(req, res) {
+
+function create_token(body) {
+  return jwt.sign(
+    body,
+    jwt1.secretOrKey,
+    {expiresIn: jwt1.expiresIn}
+  );
 
 }
 
 
-function auth(req, res) {
+
+
+
+function  auth(req, res) {
   let userData = req.body;
-  user.findOne({mail: userData.mail}).exec(function (error, user_data) {
+  user.findOne({mail: {$regex: _.escapeRegExp(userData.mail), $options: 'i'}}).exec(function (error, user_data) {
     if (error)
     {
       res.send(error);
@@ -60,8 +65,15 @@ function auth(req, res) {
         new_user.save(function (error, userdata) {
            if (error) {
              res.sendStatus(400).send(error);
-           } else {
-              res.status(200).send(userdata);
+           }
+           else
+             {
+               //res.status(200).send(userdata);
+           let token =  create_token({id: userdata._id, username: userdata.username});
+console.log('token', token);
+          res.cookie('token', token, {
+            httpOnly: true
+          })
            }
          });
       }
@@ -72,9 +84,8 @@ function auth(req, res) {
   })
 }
 
-function get( req, res) {
-  // треба якось стянути підтчгування повідомленнь з сокєта через рест апі
-  res.send('all good');
+function get_history(req, res) {
+
 }
 
 module.exports = router;

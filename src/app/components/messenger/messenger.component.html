@@ -27,7 +27,7 @@
            Not correct email
          </div>
        </div>
-       <button type="submit" [disabled]="email.invalid || name.invalid"    (click)="sendMessage()"  class="btn btn-info">login</button>
+       <button type="submit" [disabled]="email.invalid || name.invalid"    (click)="auth()"  class="btn btn-info">login</button>
      </form>
         <!--
            <div class="chat_body" >
