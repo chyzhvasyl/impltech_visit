@@ -12,6 +12,7 @@ let {jwt1} = require('../config/config.js');
 //router.get('/auth', get);
 router.get('/history:/id',  check_auth, get_history);
 router.post('/auth',   auth);
+router.post('/logout',   logout);
 
 
 router.get('/', (req, res) => {
@@ -48,10 +49,6 @@ function create_token(body) {
 
 }
 
-
-
-
-
 function  auth(req, res) {
   let userData = req.body;
   user.findOne({mail: {$regex: _.escapeRegExp(userData.mail), $options: 'i'}}).exec(function (error, user_data) {
@@ -68,21 +65,31 @@ function  auth(req, res) {
            }
            else
              {
-               //res.status(200).send(userdata);
-           let token =  create_token({id: userdata._id, username: userdata.username});
-console.log('token', token);
-          res.cookie('token', token, {
-            httpOnly: true
-          })
+                let token =  create_token({id: userdata._id, username: userdata.username});
+                res.cookie('token', token, {
+                httpOnly: true
+          });
+                res.send(userdata);
            }
          });
       }
       else {
-        res.status(200).send(user_data._id);
+        let token =  create_token({id: user_data._id, username: user_data.username});
+        res.cookie('token', token, {
+          httpOnly: true
+        });
+        res.send(user_data);
+        res.status(200).send({user_id: user_data._id, message: 'user loggedIn'} );
       }
     }
   })
 }
+
+function logout(req, res) {
+  res.clearCookie('token');
+  res.status(200).send({message: 'logged out successfully'});
+}
+
 
 function get_history(req, res) {
 

@@ -12,7 +12,7 @@ let intel = require('intel');
 let fs = require('fs');
 let morgan =  require('morgan');
 let server = require('http').Server(app);
-
+let cookieParser = require('cookie-parser');
 // виносимо в окремий модуль
 const io = require('socket.io')(server);
 require('./socket_chat/socket_chat')(io);
@@ -35,7 +35,7 @@ const accessLogStream = fs.createWriteStream(path.join(__dirname, './logs/access
 app.use(bodyParser.json({limit: "50mb"}));
 app.use(bodyParser.raw({limit: "50mb", extended: true, parameterLimit:50000}));
 app.use(morgan(':method :url :status :res[content-length] - :response-time ms :date[clf] :http-version', {stream: accessLogStream}));
-
+app.use(cookieParser());
 
 
 
