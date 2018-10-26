@@ -8,10 +8,10 @@ const UserSchema = new Schema({
   addedAt: { type: Date, default: Date.now}
 }, {versionKey: false});
 
-UserSchema.pre ('save', function (next) {
-
-  
-});
+//UserSchema.pre ('save', function (next) {
+//
+//
+//});
 const user = mongoose.model('user', UserSchema, 'user');
 module.exports = user;
 /*

@@ -7,35 +7,12 @@
         <h5>Представтесь и начните чат</h5>
       </div>
       <div class="modal-body1 ">
-        <div class="chat_body" >
-          <div *ngFor="let message  of message_array;" class="message">
 
 
-            <div *ngIf = "message_array.length" >
-
-              <div class="name">
 
 
-                {{message.id}}
-              </div>
-              <br>
-              <div class="content">
 
-                {{message.content}}
 
-              </div>
-
-              <br>
-
-              <div class="date">
-                {{message.date}}
-
-              </div>
-            </div>
-          </div>
-        </div>
-        <!--
-auth
      <form class="p-3">
        <div class="form-group">
          <input [(ngModel)]="user.name" #name = "ngModel" name="name" required pattern="[a-zA-Z_]{1,30}"  class="form-control" id="exampleName"  placeholder="Enter name">
@@ -52,13 +29,42 @@ auth
        </div>
        <button type="submit" [disabled]="email.invalid || name.invalid"    (click)="sendMessage()"  class="btn btn-info">login</button>
      </form>
--->
-        <form  class="p-1 form-inline" (ngSubmit)="sendMessage()">
-          <div class="form-group">
-            <input [(ngModel)]="message.content" #content = "ngModel" name="content" required pattern=""  class="form-control" id="exampleName"  placeholder="write smth">
-          </div>
-          <button type="submit"  [disabled]="content.invalid"   class="btn btn-info ml-2">send</button>
-        </form>
+        <!--
+           <div class="chat_body" >
+             <div *ngFor="let message  of message_array;" class="message">
+
+
+               <div *ngIf = "message_array.length" >
+
+                 <div class="name">
+
+
+                   {{message.id}}
+                 </div>
+                 <br>
+                 <div class="content">
+
+                   {{message.content}}
+
+                 </div>
+
+                 <br>
+
+                 <div class="date">
+                   {{message.date}}
+
+                 </div>
+               </div>
+             </div>
+           </div>
+           <form  class="p-1 form-inline" (ngSubmit)="sendMessage()">
+             <div class="form-group">
+               <input [(ngModel)]="message.content" #content = "ngModel" name="content" required pattern=""  class="form-control" id="exampleName"  placeholder="write smth">
+             </div>
+             <button type="submit"  [disabled]="content.invalid"   class="btn btn-info ml-2">send</button>
+           </form>
+           -->
+
       </div>
 
 

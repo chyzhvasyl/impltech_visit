@@ -46,26 +46,31 @@ function get_history(req, res) {
 
 }
 
+
 function auth(req, res) {
   let userData = req.body;
-  user.findOne({mail: userData.mail}, (err, user) => {
-    if (err)
+  user.findOne({mail: userData.mail}).exec(function (error, user_data) {
+    if (error)
     {
-      res.send(err);
-      res.json(err);
-
-  } else {
-    if (!user ) {
-      user.save(user);
-      res.status(200).send(user);
+      res.send(error);
     }
     else {
-      res.status(200).send(user._id);
+      if (user_data == void(0)){
+       let new_user = new user(userData);
+        new_user.save(function (error, userdata) {
+           if (error) {
+             res.sendStatus(400).send(error);
+           } else {
+              res.status(200).send(userdata);
+           }
+         });
+      }
+      else {
+        res.status(200).send(user_data._id);
+      }
     }
-  }})
-
+  })
 }
-
 
 function get( req, res) {
   // треба якось стянути підтчгування повідомленнь з сокєта через рест апі
