@@ -4,6 +4,7 @@ import * as io from 'socket.io-client';
 import {environment} from '../../../environments/environment';
 import {ModalBoxService} from '../../services/modal-box.service';
 import {HostListener} from '@angular/core';
+import * as $ from 'jquery';
 
 
 @Component({
@@ -21,6 +22,7 @@ export class TechnologiesComponent implements OnInit {
   index = 0;
   socket;
   numberOfOnlineUsers: number;
+  iterator = 0;
 
   switchLanguage(index) {
     index = this.index++;
@@ -37,7 +39,23 @@ export class TechnologiesComponent implements OnInit {
     this.screen_width = event.target.innerWidth;
   }
 
+margin_top(){
+//let div = document.getElementsByClassName('absolute_center');
+  this.iterator++;
+  const div1 = $('.absolute_center  ');
+  if ( this.iterator % 2 === 0) {
+    $(document).ready(function () {
+      div1.removeClass('margin_top');
 
+    });
+  } else {
+    $(document).ready(function () {
+      div1.addClass('margin_top');
+
+    });
+  }
+
+}
   ngOnInit() {
     this.socket.on('online', (numberOfOnlineUsers) => {
       this.numberOfOnlineUsers = numberOfOnlineUsers;

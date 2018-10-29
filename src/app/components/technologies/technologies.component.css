@@ -198,3 +198,8 @@ border-radius: 10px;
 .card-body{
   display: inline-flex;
 }
+
+.margin_top{
+  margin-top: 200px;
+
+}
