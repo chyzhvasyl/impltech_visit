@@ -1,6 +1,11 @@
 import { Injectable } from '@angular/core';
 import {ReplaySubject} from 'rxjs';
-import {PusherService} from './pusher.service';
+
+import {environment} from '../../environments/environment';
+import {HttpClient} from '@angular/common/http';
+import {Http} from '@angular/http';
+import {promise} from 'selenium-webdriver';
+import rejected = promise.rejected;
 
 
 
@@ -14,21 +19,44 @@ export interface Message {
 })
 
 export class MessageService {
-  messagesStream = new ReplaySubject<Message>(1);
-  constructor(  private pusherService: PusherService) {
-    this.pusherService.messagesChannel.bind('client-new-message', (message) => {
-      this.emitNewMessage(message);
+
+  constructor( private http: Http) {
+  }
+  login(user) {
+      const login_url = `http://localhost:8090/api/auth`;
+        return this.http.post(login_url, user).toPromise()
+    .then(
+    res => {
+      return res;
+    },
+    err => {
+      console.log('error', err.json());
+      return err;
+    }
+  );
+  }
+
+
+// другий варік але він не передає в компонент резалт
+  login1(user) {
+    const login_url = `http://localhost:8090/api/auth`;
+    let promise = new Promise((resolve, reject) => {
+
+      this.http.post(login_url, user).toPromise()
+        .then(
+          res => { // Success
+            resolve();
+            console.log('ответ от сервера', res.json());
+return res;
+          }
+
+        );
+
     });
 
 
-
-  }
-  send(message: Message) {
-    this.pusherService.messagesChannel.trigger('client-new-message', message);
-    this.emitNewMessage(message);
-  }
-
-  emitNewMessage(message: Message) {
-    this.messagesStream.next(message);
+    return promise;
   }
 }
+
+

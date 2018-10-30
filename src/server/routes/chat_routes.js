@@ -51,13 +51,16 @@ function create_token(body) {
 
 function  auth(req, res) {
   let userData = req.body;
+  console.log('userData', userData);
   user.findOne({mail: {$regex: _.escapeRegExp(userData.mail), $options: 'i'}}).exec(function (error, user_data) {
     if (error)
     {
       res.send(error);
     }
     else {
+
       if (user_data == void(0)){
+
        let new_user = new user(userData);
         new_user.save(function (error, userdata) {
            if (error) {
@@ -69,16 +72,19 @@ function  auth(req, res) {
                 res.cookie('token', token, {
                 httpOnly: true
           });
-                res.send(userdata);
+               console.log('user added', userdata);
+                res.status(201).send({user_id: userdata._id, message: 'user successfully added'} );
            }
          });
       }
       else {
+        console.log('user founded');
         let token =  create_token({id: user_data._id, username: user_data.username});
         res.cookie('token', token, {
           httpOnly: true
         });
-        res.send(user_data);
+        //res.send(user_data);
+
         res.status(200).send({user_id: user_data._id, message: 'user loggedIn'} );
       }
     }

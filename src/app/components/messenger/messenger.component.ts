@@ -7,6 +7,7 @@ import * as io from 'socket.io-client';
 import $ from 'jquery';
 import {environment} from '../../../environments/environment';
 import {ModalBoxService} from '../../services/modal-box.service';
+import {MessageService} from '../../services/message.service';
 
 @Component({
   selector: 'app-messenger',
@@ -14,6 +15,8 @@ import {ModalBoxService} from '../../services/modal-box.service';
   styleUrls: ['./messenger.component.css']
 })
 export class MessengerComponent implements OnInit {
+  logged_in = false;
+  result: object;
   index = 0;
   display = false;
   user: User = new User();
@@ -21,7 +24,8 @@ export class MessengerComponent implements OnInit {
   message_array: any = [];
   socket;
   numberOfOnlineUsers: number;
-  constructor( private chatservice: ChatService, private websocketservice: WebsocketService, private open_modalbox: ModalBoxService )
+  constructor( private chatservice: ChatService, private websocketservice: WebsocketService, private open_modalbox: ModalBoxService,
+               private message_service: MessageService)
   {
     this.socket = io(environment.ws_url);
   }
@@ -38,9 +42,25 @@ export class MessengerComponent implements OnInit {
     this.chat_autoscroll();
 
   }
-  auth(){
+  auth()
+  {
+    this.message_service.login(this.user).then(
+      res => {
+    if (res.status = 200) {
+        this.logged_in =  true;
 
+    }
+        this.result =  res.json();
+        console.log('res',  res);
+        return res;
+      },
+      err => {
+        this.result =  err.json();
+        console.log('err', err);
+        return err.json();
 
+      }
+    );
   }
   ngOnInit() {
     this.websocketservice.getMessages().subscribe(message => {

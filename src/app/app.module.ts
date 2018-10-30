@@ -16,10 +16,8 @@ import {CodeHighlighterModule} from 'primeng/primeng';
 import {ButtonModule} from 'primeng/primeng';
 import {InputTextModule} from 'primeng/inputtext';
 import {ReactiveFormsModule, FormsModule} from '@angular/forms';
-import {PusherService} from './services/pusher.service';
 import {routes} from './services/routing/routing-routing.module';
 import {RouterModule} from '@angular/router';
-import { NewMessageComponent } from './components/new-message/new-message.component';
 import {MessageService} from './services/message.service';
 import {ChatService} from './services/chat.service';
 import {WebsocketService} from './services/websocket.service';
@@ -28,7 +26,7 @@ import { PortfolioComponent } from './components/portfolio/portfolio.component';
 import { ServicesComponent } from './components/services/services.component';
 import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.component';
 import { MessengerComponent } from './components/messenger/messenger.component';
-
+import { HttpModule } from '@angular/http';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/lang/');
@@ -38,7 +36,6 @@ export function HttpLoaderFactory(http: HttpClient) {
     AppComponent,
     MainComponent,
     ParallaxDirective,
-    NewMessageComponent,
     TechnologiesComponent,
     PortfolioComponent,
     ServicesComponent,
@@ -46,8 +43,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     MessengerComponent
   ],
   imports: [
-    BrowserModule, SimpleSmoothScrollModule, BrowserAnimationsModule, HttpClientModule, DialogModule, CommonModule, TabViewModule, CodeHighlighterModule, ButtonModule,
-    InputTextModule, ReactiveFormsModule, FormsModule, RouterModule.forRoot(routes),
+    BrowserModule, SimpleSmoothScrollModule, BrowserAnimationsModule, HttpClientModule, DialogModule, CommonModule, TabViewModule,
+    CodeHighlighterModule, ButtonModule, InputTextModule, ReactiveFormsModule, FormsModule,  HttpModule, RouterModule.forRoot(routes),
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -56,7 +53,7 @@ export function HttpLoaderFactory(http: HttpClient) {
       }
     })
   ],
-  providers: [TranslatingService, PusherService, MessageService, ChatService, WebsocketService],
+  providers: [TranslatingService, MessageService, ChatService, WebsocketService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

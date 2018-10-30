@@ -1,6 +1,6 @@
 export class User {
-  email: string;
-  name: string;
+  mail: string;
+  username: string;
   remember: boolean;
 }
 

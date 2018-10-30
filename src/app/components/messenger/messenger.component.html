@@ -13,24 +13,25 @@
 
 
 
-     <form class="p-3">
+     <form *ngIf="logged_in === false" class="p-3">
        <div class="form-group">
-         <input [(ngModel)]="user.name" #name = "ngModel" name="name" required pattern="[a-zA-Z_]{1,30}"  class="form-control" id="exampleName"  placeholder="Enter name">
-         <div [hidden]="name.valid || name.untouched" class="alert alert-info mt-1 p-1">
+         <input [(ngModel)]="user.username" #username = "ngModel" name="username" required pattern="[a-zA-Z_]{1,30}"  class="form-control" id="exampleName"  placeholder="Enter name">
+         <div [hidden]="username.valid || username.untouched" class="alert alert-info mt-1 p-1">
             Put the name
          </div>
        </div>
        <div class="form-group">
-         <input name="email" [(ngModel)]="user.email"   #email="ngModel" required pattern="[a-zA-Z_].+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}"  type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+         <input name="mail" [(ngModel)]="user.mail"   #mail="ngModel" required pattern="[a-zA-Z_].+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}"  type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
          <small id="emailHelp" class="form-text text-muted">Никому никогда не говорите свой email</small>
-         <div [hidden]="email.valid || email.untouched" class="alert alert-info mt-1 p-1">
+         <div [hidden]="mail.valid || mail.untouched" class="alert alert-info mt-1 p-1">
            Not correct email
          </div>
        </div>
-       <button type="submit" [disabled]="email.invalid || name.invalid"    (click)="auth()"  class="btn btn-info">login</button>
+       <button type="submit" [disabled]="mail.invalid || username.invalid"    (click)="auth()"  class="btn btn-info">login</button>
      </form>
-        <!--
-           <div class="chat_body" >
+        <!-- chat -->
+<div *ngIf="logged_in === true">
+           <div  class="chat_body" >
              <div *ngFor="let message  of message_array;" class="message">
 
 
@@ -63,7 +64,7 @@
              </div>
              <button type="submit"  [disabled]="content.invalid"   class="btn btn-info ml-2">send</button>
            </form>
-           -->
+</div>
 
       </div>
 
