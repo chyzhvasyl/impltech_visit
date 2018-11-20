@@ -8,12 +8,25 @@ import {environment} from '../../environments/environment';
   providedIn: 'root'
 })
 export class WebsocketService {
-  private socket;
+  public socket;
+  numberOfOnlineUsers: number;
   //public massage_history: any;
 
-  constructor() { }
-  connect(): Rx.Subject<MessageEvent> {
+  constructor() {
+
+
     this.socket = io(environment.ws_url);
+    // вивід онлайн користувачів на сайті
+    this.socket.on('online', (numberOfOnlineUsers) => {
+      this.numberOfOnlineUsers = numberOfOnlineUsers;
+      console.log('numberOfOnlineUsers', numberOfOnlineUsers);
+    });
+    this.socket.on('disconnect', (numberOfOnlineUsers) => {
+      this.numberOfOnlineUsers = numberOfOnlineUsers;
+    });
+  }
+  connect(): Rx.Subject<MessageEvent> {
+
     const observable = new Observable(observer => {
       this.socket.on('message', (data) => {
         console.log('Received message from Websocket Server', 'connected!');

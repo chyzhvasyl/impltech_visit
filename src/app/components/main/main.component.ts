@@ -6,8 +6,8 @@ import {trigger, state, style, transition,
   animate, group, query, stagger, keyframes} from '@angular/animations';
 import {TranslatingService} from '../../services/translating.service';
 import {User} from '../classes/user';
-import * as io from 'socket.io-client';
 import {environment} from '../../../environments/environment';
+import {WebsocketService} from '../../services/websocket.service';
 
 
 @Component({
@@ -42,12 +42,8 @@ export class MainComponent implements OnInit {
   index = 0;
   display = false;
   user: User = new User();
-  socket;
-  numberOfOnlineUsers: number;
-
-
   constructor(private smooth: SimpleSmoothScrollService, private translate: TranslatingService) {
-    this.socket = io(environment.ws_url);
+
   }
 
   switchLanguage(index) {
@@ -75,13 +71,6 @@ export class MainComponent implements OnInit {
   }
   ngOnInit()
   {
-  // вивід онлайн користувачів на сайті
-    this.socket.on('online', (numberOfOnlineUsers) => {
-      this.numberOfOnlineUsers = numberOfOnlineUsers;
-    });
-    this.socket.on('disconnect', (numberOfOnlineUsers) => {
-      this.numberOfOnlineUsers = numberOfOnlineUsers;
-    });
     // якір
     this.smooth.smoothScrollToAnchor();
 

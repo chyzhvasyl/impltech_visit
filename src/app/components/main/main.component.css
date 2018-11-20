@@ -10,6 +10,7 @@
   margin: 0;
 }
 .zero{
+  margin-top: 5%;
   margin-left: 0;
   margin-right: 0;
   padding-left: 0;
@@ -449,8 +450,48 @@ div .modal-backdrop .fade .show
 }
 
 
+/* footer */
+.footerBody{
+  display: block;
+  background-color: #292929;
+
+}
+.footerContacts{
+  color: #15d8ff;
+  font-size: 24px;
+  font-weight: 600;
+  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Open Sans,Helvetica Neue,sans-serif;
+
+}
+
+.foterIcons{
+  width: 20px;
 
 
+  height: 20px;
+
+}
+.footerFonts{
+  letter-spacing: .4px;
+  line-height: 1.5;
+  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Open Sans,Helvetica Neue,sans-serif;
+  color: white;
+  font-weight: 600;
+  font-size: 18px;
+
+}
+.nav-link{
+  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Open Sans,Helvetica Neue,sans-serif;
+
+}
+.nav-link:hover{
+color: #FFFFFF;
+
+}
+.heightEntry{
+  height: 100vh;
+
+}
 
 
 /* logo*/

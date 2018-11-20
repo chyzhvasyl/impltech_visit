@@ -12,7 +12,7 @@ import {ModalBoxService} from '../../services/modal-box.service';
 })
 export class ServicesComponent implements OnInit {
   constructor(private translate: TranslatingService, private open_modal: ModalBoxService) {
-    this.socket = io(environment.ws_url);
+
 
 
   }
@@ -33,12 +33,6 @@ export class ServicesComponent implements OnInit {
 
 
   ngOnInit() {
-    this.socket.on('online', (numberOfOnlineUsers) => {
-      this.numberOfOnlineUsers = numberOfOnlineUsers;
-    });
-    this.socket.on('disconnect', (numberOfOnlineUsers) => {
-      this.numberOfOnlineUsers = numberOfOnlineUsers;
-    });
-    this.open_modal.open_modal();
+
   }
 }

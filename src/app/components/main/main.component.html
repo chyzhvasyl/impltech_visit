@@ -6,7 +6,7 @@
     </div>
     <div class="col-md-10">
       <nav class="mt-3 navbar navbar-expand-lg navbar-light"><br>
-<div style="font-size: 10px"> <p class="font-italic m-0">online: {{numberOfOnlineUsers}}</p>
+<div style="font-size: 10px">
         <!--  <a data-text="innovations"  class=" button-hover "  href="http://impltech.com">impltech</a>
  -->
   <img class="img-fluid" width="200px"  src="../../../assets/images/logo/logo.png">
@@ -98,13 +98,14 @@
       </div>
 
       <div class="text-center" >
-        <div class="height1 ">
+        <div class="heightEntry">
           <div class="row zero top">
-            <div [@slideIn]  class="col-md-12"  >
+            <!--<animation div  [@slideIn]   class="col-md-12"  > -->
+            <div class="col-md-12"  >
               <img  width="600px"  class="img-fluid "  src="../../../assets/images/illustration.png">
             </div>
           </div>
-          <div  class="row margin1 zero">
+          <div  class="row  zero">
             <div class=""  style="margin: 0 auto;" >
               <p  >{{'header'| translate}}</p>
             </div>
@@ -113,7 +114,7 @@
           <app-messenger></app-messenger>
 
         </div>
-        <h4 style="margin-top: 10%" align="center">
+        <h4   align="center">
           {{'propose' | translate}} <div style="color: #15d8ff; display: inline-block">{{'cycle' | translate}}</div>
         </h4>
         <div  class="container text-center textbody">
@@ -187,26 +188,63 @@
     </div>
   </div>
 </div>
+
+
 <footer>
-  <div class="container-fluid p-0  position-absolute" style="border-radius: 0; z-index: 300;">
-    <div   style="width: 100%" SimpleSmoothScroll [scrollTo]="'navbarSupportedContent'" [duration]="500" class="card"  >
-      <div class="card ">
-        <div class="card-body">
-          <div class="row ">
-<div class="col-md-5 text-center pt-5">
-  <p class="card-text">+38097208045</p>
-  <p class="card-text">impltech@ukr.net</p>
-  <p class="card-text">+38096235844</p>
-  <p class="card-text">+38050687359</p>
+
+
+  <div class="container-fluid p-0 position-absolute" style="z-index: 300;">
+
+    <div  >
+      <div class="  footerBody">
+<div class="container">
+  <div class="row">
+    <div class="col-md-5 mt-5">
+
+      <img class="img-fluid " width="300px"  src="../../../assets/images/footer/footer/logo_blue.png">
+      <div class="mt-3 text-white mb-5">
+        {{'header'| translate}}
+      </div>
+    </div>
+    <div class="col-md-2 mt-5">
+
+        <a routerLink="/services"   class="nav-link">{{'services' | translate}}</a>
+
+        <a  class="nav-link"   routerLink="/technologies" >{{'tech' | translate}}</a>
+
+
+        <a  routerLink="/portfolio"  class="nav-link" >{{'port' | translate}}</a>
+
+    </div>
+    <div class="col-md-5 mt-5 footerContacts">
+      <div class="ml-5">
+        <div class="row ">
+          {{'cont' | translate}}
+
+        </div>
+
+        <div class="row">
+
+ <img   class="img-fluid foterIcons" src="../../../assets/images/footer/footer/phone_icon.png">
+
+<div class="mr-3 ml-3 footerFonts"> +3806787887 </div>
+         <a href="https://www.google.com"><img    class="img-fluid foterIcons" src="../../../assets/images/footer/footer/facebook_icon.png"></a>
+        </div>
+        <div class="row">
+          <img    class="img-fluid foterIcons" src="../../../assets/images/footer/footer/mail_icon.png">
+          <div class="mr-3 ml-3 footerFonts"> impltech@gmail.com </div>
+<a href="https://www.google.com">
+  <img    class="img-fluid foterIcons" src="../../../assets/images/footer/footer/icon_l.png">
+</a>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
 </div>
 
-            <div class="col-md-7">
-              <div class=" text-center">
-                <img  class="img-fluid" width="500px" src="https://djmmlc8gcwtqv.cloudfront.net/imgs/chatkit/chat-build.gif"
-                     alt="123"></div>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
 

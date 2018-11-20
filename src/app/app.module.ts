@@ -27,7 +27,7 @@ import { ServicesComponent } from './components/services/services.component';
 import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.component';
 import { MessengerComponent } from './components/messenger/messenger.component';
 import { HttpModule } from '@angular/http';
-
+import {ProgressBarModule} from 'primeng/progressbar';
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/lang/');
 }
@@ -45,6 +45,7 @@ export function HttpLoaderFactory(http: HttpClient) {
   imports: [
     BrowserModule, SimpleSmoothScrollModule, BrowserAnimationsModule, HttpClientModule, DialogModule, CommonModule, TabViewModule,
     CodeHighlighterModule, ButtonModule, InputTextModule, ReactiveFormsModule, FormsModule,  HttpModule, RouterModule.forRoot(routes),
+    ProgressBarModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

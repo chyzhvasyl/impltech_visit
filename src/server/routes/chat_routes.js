@@ -27,8 +27,6 @@ passport.use(new Strategy(jwt1, function(jwt_payload, done){
   done();
 }));
 
-
-
 function check_auth(req, res, next) {
 passport.authenticate('jwt', {session: false}, (error, decryptToken, jwtError) => {
 if (jwtError !== void(0) || error !== void(0)) {
