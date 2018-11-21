@@ -27,7 +27,10 @@ import { ServicesComponent } from './components/services/services.component';
 import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.component';
 import { MessengerComponent } from './components/messenger/messenger.component';
 import { HttpModule } from '@angular/http';
+import {NoPreloading} from '@angular/router';
+import {AppPreloadingStrategy} from './components/classes/app-preloading-strategy';
 import {ProgressBarModule} from 'primeng/progressbar';
+import { EstimatingComponent } from './components/estimating/estimating.component';
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/lang/');
 }
@@ -40,11 +43,12 @@ export function HttpLoaderFactory(http: HttpClient) {
     PortfolioComponent,
     ServicesComponent,
     PagenotfoundComponent,
-    MessengerComponent
+    MessengerComponent,
+    EstimatingComponent
   ],
   imports: [
     BrowserModule, SimpleSmoothScrollModule, BrowserAnimationsModule, HttpClientModule, DialogModule, CommonModule, TabViewModule,
-    CodeHighlighterModule, ButtonModule, InputTextModule, ReactiveFormsModule, FormsModule,  HttpModule, RouterModule.forRoot(routes),
+    CodeHighlighterModule, ButtonModule, InputTextModule, ReactiveFormsModule, FormsModule,  HttpModule, RouterModule.forRoot(routes, { preloadingStrategy: AppPreloadingStrategy}),
     ProgressBarModule,
     TranslateModule.forRoot({
       loader: {
@@ -54,7 +58,7 @@ export function HttpLoaderFactory(http: HttpClient) {
       }
     })
   ],
-  providers: [TranslatingService, MessageService, ChatService, WebsocketService],
+  providers: [TranslatingService, MessageService, ChatService, WebsocketService, AppPreloadingStrategy],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

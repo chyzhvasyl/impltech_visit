@@ -7,12 +7,15 @@ let passport = require('passport');
 let jwt =  require('jsonwebtoken');
 let {Strategy, ExtractJwt }=  require('passport-jwt');
 let {jwt1} = require('../config/config.js');
-
-
-//router.get('/auth', get);
+let nodemailer = require('nodemailer');
+let smtpTransport = require('nodemailer-smtp-transport');
+let path = require('path');
+let multer = require('multer');
+let UPLOAD_PATH = './uploads';
 router.get('/history:/id',  check_auth, get_history);
 router.post('/auth',   auth);
 router.post('/logout',   logout);
+router.post('/upload',   fileUpload);
 
 
 router.get('/', (req, res) => {
@@ -93,6 +96,97 @@ function logout(req, res) {
   res.clearCookie('token');
   res.status(200).send({message: 'logged out successfully'});
 }
+
+function fileUpload(req, res) {
+  uploadFile(req, res, function (err) {
+    if (err) {
+      res.send(err);
+    } else {
+      if (req.file) {
+        fs.readFile(req.file.path, 'utf-8', function (err, data) {
+          if (err) throw err;
+          const newFile = new file();
+          newFile.filename = req.file.filename;
+          newFile.contentType = req.file.mimetype;
+          newFile.save(function (err, newFile) {
+            if (err) {
+              res.sendStatus(400);
+              res.json(err);
+              intel.error(err);
+            }
+            else {
+              // формуємо відправку на сєрвак
+              let smtp_transport = nodemailer.createTransport(
+                smtpTransport({
+                    service: "Gmail",
+                    auth: {
+                      user: "vasyachyzh1996@gmail.com",
+                      pass: "471034pop"
+                    }
+                  }
+                ));
+
+              let mail = {
+                from: '"123" <vasyachyzh1996@gmail.com>',
+                to: req.mail,
+                subject: "Potential Client !",
+                text: "This my file",
+                html: "<b>This my file</b>",
+                attachments:
+                  {
+                    filename:  newFile.filename,
+                    path: './uploads' + 'треба глянуть як формується ім я файла'
+
+                  }
+              };
+
+                  //smtp_transport.sendMail(mail, function(error, response){
+                  //  if(error){
+                  //    console.log('ERoRR!!!!', error);
+                  //  }else{
+                  //    console.log("Message sent: " + response);
+                  //  }
+                  //  smtp_transport.close();
+                  //});
+            }
+          });
+        });
+      }
+    }
+  })
+
+}
+
+
+
+
+let storage = multer.diskStorage({
+  destination: UPLOAD_PATH,
+  filename: function (req, file, cb) {
+    cb(null, Date.now() + path.extname(file.originalname));
+  }
+});
+
+let uploadFile = multer({
+  storage: storage,
+  limits: {fileSize: 20 * 1024 * 1024},
+  fileFilter: function (req, file, cb) {
+    checkFileType(file, cb);
+  }
+}).single('graph');
+
+function checkFileType(file, cb) {
+  const filetypes = /.txt/;
+  const extname = path.extname(file.originalname).toLowerCase();
+  const isValidExtension = filetypes.test(extname);
+  if (isValidExtension) {
+    return cb(null, true);
+  } else {
+    cb('Error: Json only!');
+  }
+}
+
+
 
 
 function get_history(req, res) {

@@ -4,6 +4,10 @@
   top: 75%;
   z-index: 100;
 }
+.zIndex{
+  position: fixed;
+  z-index: 100;
+}
 .modal1 {
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */

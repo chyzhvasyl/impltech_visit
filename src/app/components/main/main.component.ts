@@ -71,6 +71,7 @@ export class MainComponent implements OnInit {
   }
   ngOnInit()
   {
+
     // якір
     this.smooth.smoothScrollToAnchor();
 

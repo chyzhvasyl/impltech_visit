@@ -17,8 +17,6 @@ export class ServicesComponent implements OnInit {
 
   }
   index = 0;
-  socket;
-  numberOfOnlineUsers: number;
   switchLanguage(index) {
     index = this.index++;
     if ( index % 2 === 0) {
@@ -28,10 +26,6 @@ export class ServicesComponent implements OnInit {
     }
     this.translate.switchLanguage(this.translate.language);
   }
-
-
-
-
   ngOnInit() {
 
   }

@@ -63,6 +63,7 @@ export class MessengerComponent implements OnInit {
     );
   }
   ngOnInit() {
+
     this.websocketservice.getMessages().subscribe(message => {
       this.message_array = message;
       this.message_array.reverse();
