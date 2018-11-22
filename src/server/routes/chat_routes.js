@@ -25,7 +25,6 @@ router.get('/', (req, res) => {
   res.send('all good');
 });
 
-
 passport.use(new Strategy(jwt1, function(jwt_payload, done){
   if (jwt_payload !== void (0)){
     return done (false, jwt_payload);
@@ -101,52 +100,54 @@ function fileUpload(req, res) {
     if (err) {
       res.send(err);
     } else {
-      if (req.file) {
-        fs.readFile(req.file.path, 'utf-8', function (err, data) {
-          if (err) throw err;
-          let newFile = new file();
-          newFile.filename = req.file.filename;
-          newFile.contentType = req.file.mimetype;
-          let filename = newFile.filename;
-          newFile.save(function (err, newFile) {
-            if (err) {
-              res.sendStatus(400);
-              res.json(err);
-              intel.error(err);
-            }
-            else {
-              // формуємо відправку на сєрвак
-              let smtp_transport = nodemailer.createTransport(
-                smtpTransport({
-                    service: "Gmail",
-                    auth: authGmail
-                  }
-                ));
-              console.log('req.body', req.body);
-              let mail = {
-                from: '"Sender-Bot" <vasyachyzh1996@gmail.com>',
-                to: "yurihoy1488@gmail.com", /* req.mail*/
-                subject: "Potential Client !",
-                text: "Potential Client !",
-                html: "<b>Potential Client !</b>",
-                attachments:
-                  {
-                    filename:  filename,
-                    path: UPLOAD_PATH + '/' + filename.toString()
-                  }
-              };
-                 smtp_transport.sendMail(mail, function(error, response){
-                   if(error){
-                     res.send(error);
-                   }else{
-                     res.send(response);
-                   }
-                   smtp_transport.close();
-                 });
-            }
-          });
-        });
-      }
+
+      console.log('req', req.data)
+      //if (req.file) {
+      //  fs.readFile(req.body.file.path, 'utf-8', function (err, data) {
+      //    if (err) throw err;
+      //    let newFile = new file();
+      //    newFile.filename = req.body.file.filename;
+      //    newFile.contentType = req.body.file.mimetype;
+      //    let filename = newFile.filename;
+      //    newFile.save(function (err, newFile) {
+      //      if (err) {
+      //        res.sendStatus(400);
+      //        res.json(err);
+      //        intel.error(err);
+      //      }
+      //      else {
+      //        // формуємо відправку на сєрвак
+      //        let smtp_transport = nodemailer.createTransport(
+      //          smtpTransport({
+      //              service: "Gmail",
+      //              auth: authGmail
+      //            }
+      //          ));
+      //        console.log('req.body', req.body.body);
+      //        let mail = {
+      //          from: '"Sender-Bot" <vasyachyzh1996@gmail.com>',
+      //          to: "yurihoy1488@gmail.com", /* req.mail*/
+      //          subject: "Potential Client !",
+      //          text: "Potential Client !",
+      //          html: "<b>Potential Client !</b>",
+      //          attachments:
+      //            {
+      //              filename:  filename,
+      //              path: UPLOAD_PATH + '/' + filename.toString()
+      //            }
+      //        };
+      //           smtp_transport.sendMail(mail, function(error, response){
+      //             if(error){
+      //               res.send(error);
+      //             }else{
+      //               res.send(response);
+      //             }
+      //             smtp_transport.close();
+      //           });
+      //      }
+      //    });
+      //  });
+      //}
     }
   })
 

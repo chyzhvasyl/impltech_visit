@@ -4,3 +4,8 @@ export class User {
   remember: boolean;
 }
 
+export class Form {
+  mail: string;
+  event: any;
+}
+

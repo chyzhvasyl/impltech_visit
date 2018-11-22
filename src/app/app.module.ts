@@ -31,6 +31,7 @@ import {NoPreloading} from '@angular/router';
 import {AppPreloadingStrategy} from './components/classes/app-preloading-strategy';
 import {ProgressBarModule} from 'primeng/progressbar';
 import { EstimatingComponent } from './components/estimating/estimating.component';
+import { FeedbackFormComponent } from './components/feedback-form/feedback-form.component';
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/lang/');
 }
@@ -44,7 +45,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     ServicesComponent,
     PagenotfoundComponent,
     MessengerComponent,
-    EstimatingComponent
+    EstimatingComponent,
+    FeedbackFormComponent
   ],
   imports: [
     BrowserModule, SimpleSmoothScrollModule, BrowserAnimationsModule, HttpClientModule, DialogModule, CommonModule, TabViewModule,

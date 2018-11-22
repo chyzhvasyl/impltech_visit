@@ -48,7 +48,6 @@
                    {{message.content}}
 
                  </div>
-
                  <br>
 
                  <div class="date">
@@ -60,7 +59,7 @@
            </div>
            <form  class="p-1 form-inline" (ngSubmit)="sendMessage()">
              <div class="form-group">
-               <input [(ngModel)]="message.content" #content = "ngModel" name="content" required pattern=""  class="form-control" id="exampleName"  placeholder="write smth">
+               <input [(ngModel)]="message.content" #content = "ngModel" name="content" required pattern=""  class="form-control"  placeholder="write smth">
              </div>
              <button type="submit"  [disabled]="content.invalid"   class="btn btn-info ml-2">send</button>
            </form>

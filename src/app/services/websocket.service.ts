@@ -15,7 +15,7 @@ export class WebsocketService {
   constructor() {
 
 
-    this.socket = io(environment.ws_url);
+    this.socket = io(environment.api_url);
     // вивід онлайн користувачів на сайті
     this.socket.on('online', (numberOfOnlineUsers) => {
       this.numberOfOnlineUsers = numberOfOnlineUsers;
