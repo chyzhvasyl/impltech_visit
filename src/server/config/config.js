@@ -12,6 +12,9 @@ jwt1:{
   expiresIn: '1day'
 
 }
-
-
+,
+  authGmail: {
+    user: "vasyachyzh1996@gmail.com",
+    pass: "471034pop"
+  }
 };

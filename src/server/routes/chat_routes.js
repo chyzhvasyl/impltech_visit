@@ -1,21 +1,24 @@
 let express = require('express');
 let router = express.Router();
 let user = require('../schems/user');
-let message = require('../schems/message');
+let file = require('../schems/file');
 let _ =  require('lodash');
 let passport = require('passport');
 let jwt =  require('jsonwebtoken');
 let {Strategy, ExtractJwt }=  require('passport-jwt');
 let {jwt1} = require('../config/config.js');
+let {authGmail} = require('../config/config.js');
 let nodemailer = require('nodemailer');
 let smtpTransport = require('nodemailer-smtp-transport');
 let path = require('path');
 let multer = require('multer');
 let UPLOAD_PATH = './uploads';
+let FormData = require('form-data');
+let fs = require('fs');
 router.get('/history:/id',  check_auth, get_history);
 router.post('/auth',   auth);
 router.post('/logout',   logout);
-router.post('/upload',   fileUpload);
+router.post('/upload_file',   fileUpload);
 
 
 router.get('/', (req, res) => {
@@ -47,7 +50,6 @@ function create_token(body) {
     jwt1.secretOrKey,
     {expiresIn: jwt1.expiresIn}
   );
-
 }
 
 function  auth(req, res) {
@@ -59,9 +61,7 @@ function  auth(req, res) {
       res.send(error);
     }
     else {
-
       if (user_data == void(0)){
-
        let new_user = new user(userData);
         new_user.save(function (error, userdata) {
            if (error) {
@@ -85,7 +85,6 @@ function  auth(req, res) {
           httpOnly: true
         });
         //res.send(user_data);
-
         res.status(200).send({user_id: user_data._id, message: 'user loggedIn'} );
       }
     }
@@ -105,9 +104,10 @@ function fileUpload(req, res) {
       if (req.file) {
         fs.readFile(req.file.path, 'utf-8', function (err, data) {
           if (err) throw err;
-          const newFile = new file();
+          let newFile = new file();
           newFile.filename = req.file.filename;
           newFile.contentType = req.file.mimetype;
+          let filename = newFile.filename;
           newFile.save(function (err, newFile) {
             if (err) {
               res.sendStatus(400);
@@ -119,35 +119,30 @@ function fileUpload(req, res) {
               let smtp_transport = nodemailer.createTransport(
                 smtpTransport({
                     service: "Gmail",
-                    auth: {
-                      user: "vasyachyzh1996@gmail.com",
-                      pass: "471034pop"
-                    }
+                    auth: authGmail
                   }
                 ));
-
+              console.log('req.body', req.body);
               let mail = {
-                from: '"123" <vasyachyzh1996@gmail.com>',
-                to: req.mail,
+                from: '"Sender-Bot" <vasyachyzh1996@gmail.com>',
+                to: "yurihoy1488@gmail.com", /* req.mail*/
                 subject: "Potential Client !",
-                text: "This my file",
-                html: "<b>This my file</b>",
+                text: "Potential Client !",
+                html: "<b>Potential Client !</b>",
                 attachments:
                   {
-                    filename:  newFile.filename,
-                    path: './uploads' + 'треба глянуть як формується ім я файла'
-
+                    filename:  filename,
+                    path: UPLOAD_PATH + '/' + filename.toString()
                   }
               };
-
-                  //smtp_transport.sendMail(mail, function(error, response){
-                  //  if(error){
-                  //    console.log('ERoRR!!!!', error);
-                  //  }else{
-                  //    console.log("Message sent: " + response);
-                  //  }
-                  //  smtp_transport.close();
-                  //});
+                 smtp_transport.sendMail(mail, function(error, response){
+                   if(error){
+                     res.send(error);
+                   }else{
+                     res.send(response);
+                   }
+                   smtp_transport.close();
+                 });
             }
           });
         });
@@ -156,9 +151,6 @@ function fileUpload(req, res) {
   })
 
 }
-
-
-
 
 let storage = multer.diskStorage({
   destination: UPLOAD_PATH,
@@ -182,12 +174,9 @@ function checkFileType(file, cb) {
   if (isValidExtension) {
     return cb(null, true);
   } else {
-    cb('Error: Json only!');
+    cb('Error: TXT ONLY!');
   }
 }
-
-
-
 
 function get_history(req, res) {
 
