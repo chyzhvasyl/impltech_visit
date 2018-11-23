@@ -12,13 +12,13 @@ import {HttpClient} from '@angular/common/http';
   styleUrls: ['./feedback-form.component.css']
 })
 export class FeedbackFormComponent implements OnInit {
+  feedbackForm: Form = new Form();
   form: any = {};
   files: any;
   constructor(private upload: MessageService, public http: Http, public httpClient: HttpClient) {
 
     this.form = {
-      mail: '',
-      file: ''
+      mail: ''
     };
 
   }

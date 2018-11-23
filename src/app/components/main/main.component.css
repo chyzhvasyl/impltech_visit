@@ -224,25 +224,7 @@ p, h4{
 
 }
 
-.btn1{
-  border-radius: 20px;
-  border-color: #2d527c;
-  background-color: #2d527c;
-  color: snow;
-  display: block;
 
-}
-.btn1:hover{
-  border-radius: 20px;
-  border-color: #15d8ff;
-  background: #15d8ff;
-}
-.btn1:active {
-  border-color: #15d8ff;
-}
-.btn1:focus {
-  border-color: #15d8ff;
-}
 
 .textbody{
 

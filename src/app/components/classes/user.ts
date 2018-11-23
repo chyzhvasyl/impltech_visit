@@ -6,6 +6,6 @@ export class User {
 
 export class Form {
   mail: string;
-  event: any;
+  file: any;
 }
 

@@ -8,11 +8,6 @@
       </div>
       <div class="modal-body1 ">
 
-
-
-
-
-
      <form *ngIf="logged_in === false" class="p-3">
        <div class="form-group">
          <input [(ngModel)]="user.username" #username = "ngModel" name="username" required pattern="[a-zA-Z_]{1,30}"  class="form-control" id="exampleName"  placeholder="Enter name">

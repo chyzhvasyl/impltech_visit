@@ -1,0 +1,91 @@
+.estimateForm{
+
+  width: 600px;
+  display: none;
+}
+input[type=text], select, textarea {
+  width: 100%;
+  /*padding: 12px 20px;*/
+  margin: 8px 0;
+  display: inline-block;
+  border: 0 solid #ccc;
+  border-radius: 15px;
+  box-sizing: border-box;
+  box-shadow: 1px 1px 20px -6px rgb(41, 41, 41);
+
+  padding: 5px 5px 5px 40px;
+
+
+}
+
+button[type=submit] {
+  width: auto;
+  background-color: #2d527c;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button[type=submit]:hover {
+ /* background-color: #15d8ff; */
+}
+input:focus{
+
+}
+.inputName{
+  background: url(../../../assets/icons/student.png) no-repeat 10px 4px;
+}
+.inputMail{
+  background: url(../../../assets/icons/three-arrows-form-a-box.png) no-repeat 10px 4px;
+}
+.inputNumber{
+  background: url(../../../assets/icons/sound-bars-formed-by-small-circles.png) no-repeat 10px 4px;
+}
+.inputSybject{
+  background: url(../../../assets/icons/medical-history.png) no-repeat 10px 4px;
+}
+.inputDescription{
+  background: url(../../../assets/icons/double-wrench-tool-and-hammer-forming-a-cross-of-outlines.png) no-repeat 10px 4px;
+}
+div {
+  border-radius: 5px;
+
+  padding: 20px;
+}
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.btn1{
+  border-radius: 20px;
+  border-color: #2d527c;
+  background-color: #2d527c;
+  color: snow;
+  display: block;
+
+}
+.btn1:hover{
+  border-radius: 20px;
+  border-color: #15d8ff;
+  background: #15d8ff;
+}
+.btn1:active {
+  border-color: #15d8ff;
+}
+.btn1:focus {
+  border-color: #15d8ff;
+}
+.button_shadow{
+  -webkit-box-shadow: 10px 11px 16px 1px rgba(176,176,176,1);
+  -moz-box-shadow: 10px 11px 16px 1px rgba(176,176,176,1);
+  box-shadow: 10px 11px 16px 1px rgba(176,176,176,1);
+}
+
+
+

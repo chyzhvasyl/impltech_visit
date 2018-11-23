@@ -73,6 +73,7 @@ export class MainComponent implements OnInit {
   {
 
     // якір
+
     this.smooth.smoothScrollToAnchor();
 
     // open modal

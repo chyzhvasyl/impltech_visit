@@ -15,6 +15,7 @@ import {MessageService} from '../../services/message.service';
   styleUrls: ['./messenger.component.css']
 })
 export class MessengerComponent implements OnInit {
+  myModal: string;
   logged_in = false;
   result: object;
   index = 0;
@@ -28,6 +29,7 @@ export class MessengerComponent implements OnInit {
                private message_service: MessageService)
   {
     this.socket = this.websocketservice.socket;
+    this.myModal = 'myModal';
   }
   chat_autoscroll() {
     $(document).ready(function () {
@@ -63,7 +65,7 @@ export class MessengerComponent implements OnInit {
     );
   }
   ngOnInit() {
-
+console.log('id', this.myModal);
     this.websocketservice.getMessages().subscribe(message => {
       this.message_array = message;
       this.message_array.reverse();
@@ -84,6 +86,7 @@ export class MessengerComponent implements OnInit {
 
     });
     this.open_modalbox.open_modal();
+    this.open_modalbox.openEsimate();
 
   }
 
