@@ -100,57 +100,53 @@ function fileUpload(req, res) {
     if (err) {
       res.send(err);
     } else {
-
-      console.log('req', req.data)
-      //if (req.file) {
-      //  fs.readFile(req.body.file.path, 'utf-8', function (err, data) {
-      //    if (err) throw err;
-      //    let newFile = new file();
-      //    newFile.filename = req.body.file.filename;
-      //    newFile.contentType = req.body.file.mimetype;
-      //    let filename = newFile.filename;
-      //    newFile.save(function (err, newFile) {
-      //      if (err) {
-      //        res.sendStatus(400);
-      //        res.json(err);
-      //        intel.error(err);
-      //      }
-      //      else {
-      //        // формуємо відправку на сєрвак
-      //        let smtp_transport = nodemailer.createTransport(
-      //          smtpTransport({
-      //              service: "Gmail",
-      //              auth: authGmail
-      //            }
-      //          ));
-      //        console.log('req.body', req.body.body);
-      //        let mail = {
-      //          from: '"Sender-Bot" <vasyachyzh1996@gmail.com>',
-      //          to: "yurihoy1488@gmail.com", /* req.mail*/
-      //          subject: "Potential Client !",
-      //          text: "Potential Client !",
-      //          html: "<b>Potential Client !</b>",
-      //          attachments:
-      //            {
-      //              filename:  filename,
-      //              path: UPLOAD_PATH + '/' + filename.toString()
-      //            }
-      //        };
-      //           smtp_transport.sendMail(mail, function(error, response){
-      //             if(error){
-      //               res.send(error);
-      //             }else{
-      //               res.send(response);
-      //             }
-      //             smtp_transport.close();
-      //           });
-      //      }
-      //    });
-      //  });
-      //}
+        if (req.file || req.body.data) {
+          let message = JSON.parse(req.body.data);
+          fs.readFile(req.file.path, 'utf-8', function (err, data) {
+            if (err) throw err;
+            let newFile = new file();
+            newFile.filename = req.file.filename;
+            newFile.contentType = req.file.mimetype;
+            let filename = newFile.filename;
+            newFile.save(function (err, newFile) {
+              if (err) {
+                res.sendStatus(400).send(err);
+                res.json(err);
+                intel.error(err);
+              }
+              else {
+                // формуємо відправку на сєрвак
+                let smtp_transport = nodemailer.createTransport(
+                  smtpTransport({
+                      service: "Gmail",
+                      auth: authGmail
+                    }
+                  ));
+                let mail = {
+                  from: '"Sender-Bot" <bot@impltech.com>',
+                  to: "incoming@impltech.com", /* req.mail*/
+                  subject: 'Potential Client:',
+                  text:  'Почта потенциального клиента: ' + message.mail,
+                  attachments:
+                    {
+                      filename:  filename,
+                      path: UPLOAD_PATH + '/' + filename.toString()
+                    }
+                };
+                   smtp_transport.sendMail(mail, function(error, response){
+                     if(error){
+                       res.send(error);
+                     }else{
+                       res.send(response);
+                     }
+                     smtp_transport.close();
+                   });
+              }
+            });
+          });
+        }
     }
   })
-
 }
 
 let storage = multer.diskStorage({
@@ -169,13 +165,13 @@ let uploadFile = multer({
 }).single('graph');
 
 function checkFileType(file, cb) {
-  const filetypes = /.txt/;
+  const filetypes = /.ppt|.txt|.doc|.docx|.pdf/;
   const extname = path.extname(file.originalname).toLowerCase();
   const isValidExtension = filetypes.test(extname);
   if (isValidExtension) {
     return cb(null, true);
   } else {
-    cb('Error: TXT ONLY!');
+    cb('Error: only .ppt|.txt|.doc|.docx|.pdf');
   }
 }
 

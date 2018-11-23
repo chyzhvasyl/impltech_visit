@@ -3,7 +3,8 @@ import {MessageService} from '../../services/message.service';
 import {Form} from '../classes/user';
 import {environment} from '../../../environments/environment';
 import {map} from 'rxjs/operators';
-import {Http, Headers, RequestOptions} from '@angular/http';
+import {Http, Headers, RequestOptions, Response} from '@angular/http';
+import {HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-feedback-form',
@@ -11,13 +12,13 @@ import {Http, Headers, RequestOptions} from '@angular/http';
   styleUrls: ['./feedback-form.component.css']
 })
 export class FeedbackFormComponent implements OnInit {
-  feedbackForm: Form = new Form();
   form: any = {};
   files: any;
-  constructor(private upload: MessageService, public http: Http) {
+  constructor(private upload: MessageService, public http: Http, public httpClient: HttpClient) {
 
     this.form = {
-      mail: ''
+      mail: '',
+      file: ''
     };
 
   }
@@ -43,27 +44,43 @@ export class FeedbackFormComponent implements OnInit {
       headers.append('Accept', 'application/json');
       const options = new RequestOptions( {headers: headers });
       final_data = formData;
-    } else {
+    }
+
+    else
+      {
       final_data = this.form;
     }
-    console.log(final_data.getAll('files'));
-    this.http.post(environment.api_url +  `api/upload_file`, final_data /*, options */)
-      .pipe(map((res: any) => res.json()));
 
+    console.log(final_data.getAll('graph'));
+
+    console.log(final_data.getAll('data'));
+
+    return this.http.post(environment.api_url +  `/api/upload_file`, final_data /*, options */)
+      .toPromise()
+      .then(
+        res => {
+          console.log('res', res.json());
+          return res.json();
+
+        },
+        err => {
+          console.log('error', err.json());
+          return err.json();
+        }
+      );
   }
 
+  // uploadFile(event)
+  // {
+  //   this.upload.submitFeedback(event, this.feedbackForm).subscribe(data => {
+  //       console.log('success' + data);
+  //     },
+  //     error => {
+  //         console.log('error' + error);
+  //     }
+  //   );
+  // }
 
-
-  //uploadFile(event) {
-//
-  //  this.upload.submitFeedback(event, this.feedbackForm).subscribe(data => {
-  //      console.log('success' + data);
-  //    },
-  //    error => {
-  //        console.log('error' + error);
-  //    }
-  //  );
-  //}
   ngOnInit() {
   }
 

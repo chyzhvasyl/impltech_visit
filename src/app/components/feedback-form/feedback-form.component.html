@@ -1,19 +1,17 @@
-<!--
-<form  class="p-1 form" (ngSubmit)="uploadFile($event)">
-  <div class="form-group">
-    <input [(ngModel)]="feedbackForm.mail" #content = "ngModel" style="width: 20%" name="content" required pattern=""  class="form-control"    placeholder="write smth">
-  </div>
-  <div class="form-group">
-    <label for="exampleFormControlFile1">Example file input</label>
-    <input    type="file" class="form-control-file"   name="content" required pattern="" id="exampleFormControlFile1">
-  </div>
-  <button type="submit"  [disabled]="content.invalid"   class="btn btn-info ml-2">send</button>
-</form>
--->
-
 
 <form name="form" (ngSubmit)="f.form.valid && submitFeedback()" #f="ngForm" novalidate>
-  <input type="text"  name="first" [(ngModel)]="form.mail" #first="ngModel"/>
-  <input type="file"  (change)="addFile($event)"/>
-  <button type="submit">Отправить</button>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Email address</label>
+    <input type="text"  name="first" [(ngModel)]="form.mail" #mail="ngModel" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputFile">File</label>
+    <input type="file"     (change)="addFile($event)"    class="form-control" id="exampleInputFile" aria-describedby="exampleInputFile"  >
+    <small id="fileHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+  </div>
+  <button [disabled]="mail.invalid  " type="submit" class="btn btn-primary">Submit</button>
 </form>
+
+
+
