@@ -28,9 +28,19 @@ export class ModalBoxService {
   {
     const modal = document.getElementById('estimateModal');
     const btn = document.getElementById('estimateButton');
+    const submitBtn = document.getElementById('submitButton');
     const span: HTMLElement = document.getElementsByClassName('close')[0] as HTMLElement;
     btn.onclick = function() {
       modal.style.display = 'block';
+    };
+    submitBtn.onclick = function() {
+      modal.style.display = 'none';
+      /*
+        -webkit-animation-name: animatebot;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatebot;
+  animation-duration: 0.4s;
+       */
     };
     span.onclick = function() {
       modal.style.display = 'none';

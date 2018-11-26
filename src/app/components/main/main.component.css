@@ -184,7 +184,7 @@ input:checked + .slider:before {
 
 #square{
   position: relative;
-  z-index: 1;
+
   display: block;
   width: 100%;
   /* left: 50%;
@@ -398,7 +398,7 @@ ul li  {display:inline;}
   height: 100%;
   background-color: #2d527c;
 }
-div .modal-backdrop .fade .show
+div.modal-backdrop.fade.show
 {
 
   display: none;

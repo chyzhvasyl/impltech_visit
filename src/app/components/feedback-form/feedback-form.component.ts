@@ -4,7 +4,6 @@ import {Form} from '../classes/user';
 import {environment} from '../../../environments/environment';
 import {map} from 'rxjs/operators';
 import {Http, Headers, RequestOptions, Response} from '@angular/http';
-import {HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-feedback-form',
@@ -15,7 +14,7 @@ export class FeedbackFormComponent implements OnInit {
   feedbackForm: Form = new Form();
   form: any = {};
   files: any;
-  constructor(private upload: MessageService, public http: Http, public httpClient: HttpClient) {
+  constructor(private upload: MessageService, public http: Http ) {
 
     this.form = {
       mail: ''
@@ -50,10 +49,8 @@ export class FeedbackFormComponent implements OnInit {
       {
       final_data = this.form;
     }
-
-    console.log(final_data.getAll('graph'));
-
-    console.log(final_data.getAll('data'));
+    // console.log(final_data.getAll('graph'));
+    // console.log(final_data.getAll('data'));
 
     return this.http.post(environment.api_url +  `/api/upload_file`, final_data /*, options */)
       .toPromise()

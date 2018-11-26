@@ -86,7 +86,7 @@ console.log('id', this.myModal);
 
     });
     this.open_modalbox.open_modal();
-    this.open_modalbox.openEsimate();
+
 
   }
 

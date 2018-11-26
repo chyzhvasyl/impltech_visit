@@ -15,10 +15,15 @@ let multer = require('multer');
 let UPLOAD_PATH = './uploads';
 let FormData = require('form-data');
 let fs = require('fs');
+
+
+
+
 router.get('/history:/id',  check_auth, get_history);
 router.post('/auth',   auth);
 router.post('/logout',   logout);
 router.post('/upload_file',   fileUpload);
+router.post('/feedBackForm', feedBackForm);
 
 
 router.get('/', (req, res) => {
@@ -147,6 +152,33 @@ function fileUpload(req, res) {
         }
     }
   })
+}
+function feedBackForm(req, res){
+  let message = req.body;
+  console.log('message', message);
+    let smtp_transport = nodemailer.createTransport(
+      smtpTransport({
+        service: "Gmail",
+        auth: authGmail
+      }
+      ));
+    let mail = {
+      from: '"Sender-Form" <bot@impltech.com>',
+      to: "yurihoy1488@gmail.com", /* req.mail*/
+      subject: 'Potential Client:',
+      text:  'Контакты: ' +'\n'+ 'Имя ' + message.fullname +'\n'+'Почта '  + message.mail + '\n' + 'Номер телефона '  + message.numberPhone + '\n' + 'Предмет '  + message.subject +'\n' + 'Описание '  + message.description
+    };
+      smtp_transport.sendMail(mail, function(error, response){
+        if(error){
+         // res.sendStatus(400);
+          res.send(error);
+
+        }else{
+         // res.sendStatus(200);
+          res.send(response);
+        }
+        smtp_transport.close();
+      });
 }
 
 let storage = multer.diskStorage({

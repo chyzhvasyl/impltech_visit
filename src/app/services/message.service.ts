@@ -53,7 +53,20 @@ return res;
     });
     return promise;
   }
+senddetailedForm(body){
+    console.log('body', JSON.stringify(body));
+  return this.http.post(environment.api_url +  `/api/feedBackForm`, body/*, options */)
+    .toPromise()
+    .then(
+      res => {
+        return res.json();
+      },
+      err => {
+        return err.json();
+      }
+    );
 
+}
 
 }
 

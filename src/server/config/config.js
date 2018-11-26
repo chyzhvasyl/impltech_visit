@@ -14,7 +14,7 @@ jwt1:{
 }
 ,
   authGmail: {
-    user: "bot@impltech.com",
-    pass: "71m1VCpkvG3H"
+    user: "vasyachyzh1996@gmail.com",
+    pass: "471034pop"
   }
 };

@@ -1,12 +1,23 @@
-<div id="estimateModal" class="estimateForm"  >
-  <form>
-    <span id="close" class="close">&times;</span>
-    <input class="inputName" type="text" id="fullname" name="fullname" placeholder="Your name">
-    <input class="inputMail" type="text" id="mail" name="mail" placeholder="Your mail adress">
-    <input class="inputNumber" type="text" id="number" name="phoneNumber" placeholder="Your last phone number">
-    <input class="inputSybject" type="text" id="subject" name="subject" placeholder="Your subject">
-    <textarea class="inputDescription" placeholder="Describe yourself here..." (resize)="false"></textarea>
-    <button  type="submit"  >Submit </button>
-  </form>
+<button id="estimateButton" type="button" data-toggle="modal" data-target="#exampleModal"  class=" mx-auto btn btn1 button_shadow">{{'estimate' | translate}}</button>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header P-0">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form (ngSubmit)="f.form.valid && sendForm()" #f="ngForm" novalidate>
+          <input class="inputName" required [(ngModel)]="deteiledForm.fullname"   #fullname="ngModel" type="text" id="fullname" name="fullname" placeholder="Name required">
+          <input class="inputMail" required email   [(ngModel)]="deteiledForm.mail"    #mail="ngModel" type="text" id="mail" name="mail" placeholder="Email required">
+          <input class="inputNumber" required [(ngModel)]="deteiledForm.numberPhone" pattern="\d{3}[0-9]{9}"      #numberPhone="ngModel" type="text" id="number" name="phoneNumber" placeholder="Number required">
+          <input class="inputSybject" required  [(ngModel)]="deteiledForm.subject"    #subject="ngModel" type="text" id="subject" name="subject" placeholder="Subject required">
+          <textarea  class="inputDescription" required minlength="5" [(ngModel)]="deteiledForm.description"    #description="ngModel" placeholder="Description required" (resize)="false"></textarea>
+          <button  [disabled]="f.invalid"  type="submit"  >Submit </button>
+        </form>
+      </div>
+    </div>
+  </div>
 </div>
-<button id="estimateButton" type="button"  class=" mx-auto btn btn1 button_shadow">{{'estimate' | translate}}</button>

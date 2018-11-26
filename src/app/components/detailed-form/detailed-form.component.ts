@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ModalBoxService} from '../../services/modal-box.service';
+import {deteiledForm, Form} from '../classes/user';
+import {MessageService} from '../../services/message.service';
 
 @Component({
   selector: 'app-detailed-form',
@@ -7,11 +9,14 @@ import {ModalBoxService} from '../../services/modal-box.service';
   styleUrls: ['./detailed-form.component.css']
 })
 export class DetailedFormComponent implements OnInit {
-
-  constructor(public open_modalbox: ModalBoxService) { }
-
-  ngOnInit() {
-    this.open_modalbox.openEsimate();
+  deteiledForm: deteiledForm = new deteiledForm();
+  constructor(public open_modalbox: ModalBoxService, public senddetailedForm: MessageService)
+  { }
+  sendForm(){
+    console.log('form', this.deteiledForm);
+    this.senddetailedForm.senddetailedForm(this.deteiledForm);
   }
-
+  ngOnInit() {
+   // this.open_modalbox.openEsimate();
+  }
 }
