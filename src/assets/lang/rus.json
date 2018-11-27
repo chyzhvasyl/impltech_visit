@@ -19,5 +19,6 @@
   "incorrectNumber": "Некорректный номер",
   "incorrectMail": "Некорректный адрес",
   "incorrectSubject": "Некорректное поле",
-  "incorrectDescription": "Некорректное описание"
+  "incorrectDescription": "Некорректное описание",
+  "success": "Успешно отправлено"
 }

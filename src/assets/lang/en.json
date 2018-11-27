@@ -19,6 +19,7 @@
   "incorrectNumber": "Incorrect number",
   "incorrectMail": "Incorrect email",
   "incorrectSubject": "Incorrect subject",
-  "incorrectDescription": "Incorrect description"
+  "incorrectDescription": "Incorrect description",
+  "success": "Successfully sent"
 
 }

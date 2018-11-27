@@ -141,6 +141,7 @@ function fileUpload(req, res) {
                    smtp_transport.sendMail(mail, function(error, response){
                      if(error){
                        res.send(error);
+                       intel.error(error);
                      }else{
                        res.send(response);
                      }
@@ -166,7 +167,8 @@ function feedBackForm(req, res){
       from: '"Sender-Form" <bot@impltech.com>',
       to: "yurihoy1488@gmail.com", /* req.mail*/
       subject: 'Potential Client:',
-      text:  'Контакты: ' +'\n'+ 'Имя ' + message.fullname +'\n'+'Почта '  + message.mail + '\n' + 'Номер телефона '  + message.numberPhone + '\n' + 'Предмет '  + message.subject +'\n' + 'Описание '  + message.description
+      text:  'Контакты: ' +'\n'+ 'Имя ' + message.fullname +'\n'+'Почта '  + message.mail + '\n' + 'Номер телефона '
+        + message.numberPhone + '\n' + 'Предмет '  + message.subject +'\n' + 'Описание '  + message.description
     };
       smtp_transport.sendMail(mail, function(error, response){
         if(error){

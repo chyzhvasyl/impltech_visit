@@ -166,3 +166,17 @@ button[disabled]{
   font-weight: 600;
 
 }
+.successBlock{
+  position: absolute;
+  float: right;
+  top: 8%;
+  right: 0;
+  display: block;
+  background-color: rgba(54, 159, 255, 0.19);
+  box-shadow: 8px 8px 15px -4px rgba(54, 159, 255, 0.19);
+  font-size: 20px;
+  border-radius: 18px 18px 18px 18px;
+  -moz-border-radius: 18px 18px 18px 18px;
+  -webkit-border-radius: 18px 18px 18px 18px;
+  border: 1px dashed #000000;
+}
