@@ -651,3 +651,5 @@ POST /api/upload_file 200 37 - 3.432 ms 27/Nov/2018:13:05:20 +0000 1.1
 POST /api/upload_file 200 37 - 10.078 ms 27/Nov/2018:13:06:40 +0000 1.1
 POST /api/upload_file 200 249 - 17374.920 ms 27/Nov/2018:13:10:27 +0000 1.1
 POST /api/upload_file 200 250 - 17183.177 ms 27/Nov/2018:13:11:49 +0000 1.1
+POST /api/auth 201 74 - 16.739 ms 27/Nov/2018:15:32:03 +0000 1.1
+POST /api/auth 200 64 - 3.151 ms 27/Nov/2018:16:21:48 +0000 1.1

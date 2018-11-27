@@ -49,8 +49,7 @@ export class FeedbackFormComponent implements OnInit {
       {
       final_data = this.feedbackForm.mail;
     }
-     console.log(final_data.getAll('graph'));
-     console.log(final_data.getAll('data'));
+
 
     return this.http.post(environment.api_url +  `/api/upload_file`, final_data /*, options */)
       .toPromise()

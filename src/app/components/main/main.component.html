@@ -20,7 +20,7 @@
               <a routerLink="/services"   class="nav-link" href="#">{{'services' | translate}}</a>
             </li>
             <li class="  nav-item mr-3 ml-3">
-              <a  class="nav-link"   routerLink="/technologies" >{{'tech' | translate}}</a>
+              <a href="#technologies" SimpleSmoothScroll [showHash]="true"  class="nav-link" >{{'tech' | translate}}</a>
             </li>
             <li class=" nav-item mr-3 ml-3">
               <a  routerLink="/portfolio"  class="nav-link" >{{'port' | translate}}</a>
@@ -150,6 +150,7 @@
                 Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</article>
             </div>
           </div>
+
           <div class="picture5">
             <img class="img-fluid" width="100px" src="../../../assets/images/screen_01/05.png">
           </div>
@@ -181,9 +182,12 @@
           </div>
         </div>
       </div>
+      <div id="technologies"></div>
+      <app-technologies ></app-technologies>
     </div>
   </div>
 </div>
+
 
 <app-feedback-form></app-feedback-form>
 
@@ -236,5 +240,6 @@
   </div>
 
 </footer>
+
 
 

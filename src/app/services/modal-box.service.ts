@@ -9,6 +9,7 @@ export class ModalBoxService {
 
   open_modal()
   {
+    console.log('cpaka');
     const modal = document.getElementById('myModal');
     const btn = document.getElementById('myBtn');
     const span: HTMLElement = document.getElementsByClassName('close1')[0] as HTMLElement;
