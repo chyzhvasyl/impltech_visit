@@ -1,21 +1,43 @@
 <button id="estimateButton" type="button" data-toggle="modal" data-target="#exampleModal"  class=" mx-auto btn btn1 button_shadow">{{'estimate' | translate}}</button>
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade " id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header P-0">
+    <div class="modal-content p-1">
+      <div class="modal-header p-1">
+        <div class="ml-2 headerDeteiledFeedback p-1">
+          {{'contactWithUs' | translate}}
+        </div>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
+      <div class="modal-body p-3">
         <form (ngSubmit)="f.form.valid && sendForm()" #f="ngForm" novalidate>
-          <input class="inputName" required [(ngModel)]="deteiledForm.fullname"   #fullname="ngModel" type="text" id="fullname" name="fullname" placeholder="Name required">
-          <input class="inputMail" required email   [(ngModel)]="deteiledForm.mail"    #mail="ngModel" type="text" id="mail" name="mail" placeholder="Email required">
-          <input class="inputNumber" required [(ngModel)]="deteiledForm.numberPhone" pattern="\d{3}[0-9]{9}"      #numberPhone="ngModel" type="text" id="number" name="phoneNumber" placeholder="Number required">
-          <input class="inputSybject" required  [(ngModel)]="deteiledForm.subject"    #subject="ngModel" type="text" id="subject" name="subject" placeholder="Subject required">
-          <textarea  class="inputDescription" required minlength="5" [(ngModel)]="deteiledForm.description"    #description="ngModel" placeholder="Description required" (resize)="false"></textarea>
-          <button  [disabled]="f.invalid"  type="submit"  >Submit </button>
+            <input class="inputName" maxlength="50" [(ngModel)]="deteiledForm.fullname" #fullname="ngModel" type="text" id="fullname" name="fullname" placeholder="Name required" required > <!--[ngClass]="{ 'is-invalid': f.submitted && fullname.invalid }"  -->
+<!--
+          <div *ngIf="f.submitted && fullname.invalid" class="invalid-feedback">
+            <div *ngIf="fullname?.errors.required">First Name is required</div>
+          </div>-->
+          <div [hidden]="fullname.valid || fullname.untouched" class="alert alert-danger p-2 mb-1">
+            {{'incorrectName' | translate}}
+          </div>
+          <input class="inputMail"  required pattern="[a-zA-Z_].+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}"   [(ngModel)]="deteiledForm.mail"    #mail="ngModel" type="text" id="mail" name="mail" placeholder="lol@gmail.com">
+          <div [hidden]="mail.valid || mail.untouched" class="alert alert-danger p-2 mb-1">
+            {{'incorrectMail' | translate}}
+          </div>
+          <input  class="inputNumber" required maxlength="12" [(ngModel)]="deteiledForm.numberPhone" pattern="\d{3}[0-9]{9}"      #numberPhone="ngModel" type="text" id="number" name="phoneNumber" placeholder="380952040877">
+          <div [hidden]="numberPhone.valid || numberPhone.untouched" class="alert alert-danger p-2 mb-1">
+            {{'incorrectNumber' | translate}}
+          </div>
+          <input class="inputSybject" maxlength="50" required  [(ngModel)]="deteiledForm.subject"    #subject="ngModel" type="text" id="subject" name="subject" placeholder="Subject required">
+          <div [hidden]="subject.valid || subject.untouched" class="alert alert-danger p-2 mb-1">
+            {{'incorrectSubject' | translate}}
+          </div>
+          <textarea [ngModelOptions]="{standalone: true}"  class="inputDescription" required maxlength="500"   [(ngModel)]="deteiledForm.description"    #description="ngModel" placeholder="Description required" (resize)="false"></textarea>
+          <div [hidden]="description.valid || description.untouched" class="alert alert-danger p-2 mb-1">
+            {{'incorrectDescription' | translate}}
+          </div>
+          <button class="p-2"  [disabled]="f.invalid"  type="submit"  >{{'submit' | translate}} </button>
         </form>
       </div>
     </div>

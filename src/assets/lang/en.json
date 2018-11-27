@@ -7,12 +7,18 @@
   "estimate":"ESTIMATE THE PROJECT",
   "propose":"WE PROPOSE",
   "cycle": "FULL CYCLE OF DEVELOPMENT",
-"1": "Development of design stylistics",
+  "1": "Development of design stylistics",
   "2": "Preparation of documentation and project management",
   "3": "Application development",
   "4": "Testing",
   "5": "Deploing on cloud servers",
-  "6": "Support and evolution"
-
+  "6": "Support and evolution",
+  "submit": "Submit",
+  "contactWithUs": "Contact with us",
+  "incorrectName": "Incorrect name",
+  "incorrectNumber": "Incorrect number",
+  "incorrectMail": "Incorrect email",
+  "incorrectSubject": "Incorrect subject",
+  "incorrectDescription": "Incorrect description"
 
 }

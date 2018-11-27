@@ -15,7 +15,7 @@ import {TabViewModule} from 'primeng/primeng';
 import {CodeHighlighterModule} from 'primeng/primeng';
 import {ButtonModule} from 'primeng/primeng';
 import {InputTextModule} from 'primeng/inputtext';
-import {ReactiveFormsModule, FormsModule} from '@angular/forms';
+import {ReactiveFormsModule, FormsModule, Validators} from '@angular/forms';
 import {routes} from './services/routing/routing-routing.module';
 import {RouterModule} from '@angular/router';
 import {MessageService} from './services/message.service';
@@ -52,7 +52,7 @@ export function HttpLoaderFactory(http: HttpClient) {
   ],
   imports: [
     BrowserModule, SimpleSmoothScrollModule, BrowserAnimationsModule, HttpClientModule, DialogModule, CommonModule, TabViewModule,
-    CodeHighlighterModule, ButtonModule, InputTextModule, ReactiveFormsModule, FormsModule,  HttpModule, RouterModule.forRoot(routes, { preloadingStrategy: AppPreloadingStrategy}),
+    CodeHighlighterModule, ButtonModule, InputTextModule, ReactiveFormsModule, FormsModule, HttpModule, RouterModule.forRoot(routes, { preloadingStrategy: AppPreloadingStrategy}),
     ProgressBarModule,
     TranslateModule.forRoot({
       loader: {
