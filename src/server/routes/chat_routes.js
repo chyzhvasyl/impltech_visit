@@ -94,19 +94,17 @@ function  auth(req, res) {
     }
   })
 }
-
 function logout(req, res) {
   res.clearCookie('token');
   res.status(200).send({message: 'logged out successfully'});
 }
-
 function fileUpload(req, res) {
   uploadFile(req, res, function (err) {
     if (err) {
       res.send(err);
     } else {
         if (req.file || req.body.data) {
-          let message = JSON.parse(req.body.data);
+          let message = req.body.data;
           fs.readFile(req.file.path, 'utf-8', function (err, data) {
             if (err) throw err;
             let newFile = new file();
@@ -127,11 +125,12 @@ function fileUpload(req, res) {
                       auth: authGmail
                     }
                   ));
+                console.log('message.mail', message);
                 let mail = {
                   from: '"Sender-Bot" <bot@impltech.com>',
-                  to: "incoming@impltech.com", /* req.mail*/
+                  to: "yurihoy1488@gmail.com", /* req.mail*/
                   subject: 'Potential Client:',
-                  text:  'Почта потенциального клиента: ' + message.mail,
+                  text:  'Почта потенциального клиента: ' + message,
                   attachments:
                     {
                       filename:  filename,
@@ -141,8 +140,10 @@ function fileUpload(req, res) {
                    smtp_transport.sendMail(mail, function(error, response){
                      if(error){
                        res.send(error);
+                       console.log('error', error);
                        intel.error(error);
                      }else{
+                       console.log('response', response);
                        res.send(response);
                      }
                      smtp_transport.close();
@@ -167,8 +168,8 @@ function feedBackForm(req, res){
       from: '"Sender-Form" <bot@impltech.com>',
       to: "yurihoy1488@gmail.com", /* req.mail*/
       subject: 'Potential Client:',
-      text:  'Контакты: ' +'\n'+ 'Имя ' + message.fullname +'\n'+'Почта '  + message.mail + '\n' + 'Номер телефона '
-        + message.numberPhone + '\n' + 'Предмет '  + message.subject +'\n' + 'Описание '  + message.description
+      text:  'Контакты_______ ' +'\n'+ 'Имя: ' + message.fullname +'\n'+'Почта: '  + message.mail + '\n' + 'Номер телефона: '
+        + message.numberPhone + '\n' + 'Предмет: '  + message.subject +'\n' + 'Описание: '  + message.description
     };
       smtp_transport.sendMail(mail, function(error, response){
         if(error){
@@ -189,7 +190,6 @@ let storage = multer.diskStorage({
     cb(null, Date.now() + path.extname(file.originalname));
   }
 });
-
 let uploadFile = multer({
   storage: storage,
   limits: {fileSize: 20 * 1024 * 1024},
@@ -199,7 +199,7 @@ let uploadFile = multer({
 }).single('graph');
 
 function checkFileType(file, cb) {
-  const filetypes = /.ppt|.txt|.doc|.docx|.pdf/;
+  const filetypes = /.ppt|.txt|.doc|.docx|.pdf|.png|.jpeg/;
   const extname = path.extname(file.originalname).toLowerCase();
   const isValidExtension = filetypes.test(extname);
   if (isValidExtension) {

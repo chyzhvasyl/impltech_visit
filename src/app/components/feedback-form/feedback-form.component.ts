@@ -37,7 +37,7 @@ export class FeedbackFormComponent implements OnInit {
       for (let i = 0; i < files.length; i++) {
         formData.append('graph', files[i]);
       }
-      formData.append('data', JSON.stringify(this.form));
+      formData.append('data', this.feedbackForm.mail);
       const headers = new Headers();
       headers.append('Content-Type', 'application/json');
       headers.append('Accept', 'application/json');
@@ -47,10 +47,10 @@ export class FeedbackFormComponent implements OnInit {
 
     else
       {
-      final_data = this.form;
+      final_data = this.feedbackForm.mail;
     }
-    // console.log(final_data.getAll('graph'));
-    // console.log(final_data.getAll('data'));
+     console.log(final_data.getAll('graph'));
+     console.log(final_data.getAll('data'));
 
     return this.http.post(environment.api_url +  `/api/upload_file`, final_data /*, options */)
       .toPromise()
