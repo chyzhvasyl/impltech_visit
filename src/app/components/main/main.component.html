@@ -1,8 +1,8 @@
 
 
-<div    style="" class="container-fluid ">
+<div    class="container-fluid ">
   <div id="head" class="row">
-    <div class="col-md-1  ">
+    <div class="col-md-1">
     </div>
     <div class="col-md-10">
       <nav class="mt-3 navbar navbar-expand-lg navbar-light"><br>
@@ -31,26 +31,26 @@
           </ul>
         </div>
         <div>
-          <label class="switch">
+
+<label>
+  <ul  class="navbar-nav" style="font-size: 15px">
+    <li >
+      <div [ngClass]="{'lang_color': index % 2 === 0 }"   class="language-mark mr-1">
+        РУС
+      </div>
+    </li>
+    <li >
+      <div [ngClass]="{'lang_color': index % 2 !== 0 }" class="language-mark ml-1 ">
+        ENG
+      </div>
+    </li>
+  </ul>
+          <div class="switch mb-1">
             <input (click)="switchLanguage(index)"   type="checkbox">
             <span   class="slider"> </span>
-          </label>
+          </div>
+</label>
 
-<ul  class="navbar-nav" >
-  <li >
-  <div    class="language-mark mr-1">
-    рус
-  </div>
-  </li>
-  <li style="color: #2d527c; font-weight: bold" >
-
-  </li>
-  <li >
-<div [ngClass]="{'lang_color': index % 2 !== 0 }" class="language-mark ml-1 ">
-  en
-</div>
-  </li>
-</ul>
           <!--
                 <table>
 
@@ -219,13 +219,13 @@
         <div class="row">
  <img   class="img-fluid foterIcons" src="../../../assets/images/footer/footer/phone_icon.png">
 <div class="mr-3 ml-3 footerFonts"> +3806787887 </div>
-         <a href="https://www.google.com"><img    class="img-fluid foterIcons" src="../../../assets/images/footer/footer/facebook_icon.png"></a>
+         <a href="https://www.google.com"><img    class="img-fluid foterIcons mb-3" src="../../../assets/images/footer/footer/facebook_icon.png"></a>
         </div>
         <div class="row">
-          <img    class="img-fluid foterIcons" src="../../../assets/images/footer/footer/mail_icon.png">
+          <img    class="img-fluid foterIcons " src="../../../assets/images/footer/footer/mail_icon.png">
           <div class="mr-3 ml-3 footerFonts"> impltech@gmail.com </div>
 <a href="https://www.google.com">
-  <img    class="img-fluid foterIcons" src="../../../assets/images/footer/footer/icon_l.png">
+  <img    class="img-fluid foterIcons mb-3" src="../../../assets/images/footer/footer/icon_l.png">
 </a>
 
         </div>

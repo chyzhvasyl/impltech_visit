@@ -7,7 +7,6 @@
         <h5>Представтесь и начните чат</h5>
       </div>
       <div class="modal-body1 ">
-
      <form *ngIf="logged_in === false" class="p-3">
        <div class="form-group">
          <input [(ngModel)]="user.username" #username = "ngModel" name="username" required pattern="[a-zA-Z_]{1,30}"  class="form-control" id="exampleName"  placeholder="Enter name">
@@ -28,24 +27,17 @@
 <div *ngIf="logged_in === true">
            <div  class="chat_body" >
              <div *ngFor="let message  of message_array;" class="message">
-
-
                <div *ngIf = "message_array.length" >
-
                  <div class="name">
                    {{message.id}}
                  </div>
                  <br>
                  <div class="content">
-
                    {{message.content}}
-
                  </div>
                  <br>
-
                  <div class="date">
                    {{message.date}}
-
                  </div>
                </div>
              </div>
@@ -64,12 +56,10 @@
        -->
     </div>
   </div>
+<a id="myBtn" href="#myModal" class="shadow">
 
-<a  href="#myModal" style="">
-  <img   id="myBtn" class="img-fluid shadow  " width="50px" src="../../../assets/images/chat.png">
+ <!-- <img    class=" shadow  " width="50px" src="../../../assets/images/chat.png"> -->
 </a>
-
-
-
   <!-- Modal -->
 </div>
+

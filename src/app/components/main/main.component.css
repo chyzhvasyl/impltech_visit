@@ -101,9 +101,9 @@ label .switch{
 .switch {
   position: relative;
   display: inline-block;
-  width: 60px;
-  height: 14px;
-margin-bottom: 0;
+  width: 70px;
+  height: 7px;
+  margin-bottom: 0;
 }
 
 /* Hide default HTML checkbox */
@@ -112,13 +112,13 @@ margin-bottom: 0;
 /* The slider */
 .slider {
   position: absolute;
-
   cursor: pointer;
+  border-radius: 3px;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #ccc;
+  background-color: #d7d7d7;
   -webkit-transition: .4s;
   transition: .4s;
 }
@@ -126,27 +126,28 @@ margin-bottom: 0;
 .slider:before {
   position: absolute;
   content: "";
-  height: 6px;
-  width: 26px;
-  left: 4px;
-  bottom: 4px;
-  background-color: white;
+  height: 7px;
+  width: 35px;
+  border-radius: 3px;
+  left: 0px;
+  bottom: 0px;
+  background-color: #15d8ff;
   -webkit-transition: .4s;
   transition: .4s;
 }
 
 input:checked + .slider {
-  background-color:  #15d8ff;
+  background-color:  #d7d7d7;
 }
 
 input:focus + .slider {
-  box-shadow: 0 0 1px   #15d8ff;
+  box-shadow: 0 0 2px   #d7d7d7;
 }
 
 input:checked + .slider:before {
-  -webkit-transform: translateX(26px);
-  -ms-transform: translateX(26px);
-  transform: translateX(26px);
+  -webkit-transform: translateX(35px);
+  -ms-transform: translateX(35px);
+  transform: translateX(35px);
 }
 
 /*navbar */
@@ -251,7 +252,7 @@ article{
   background-repeat:no-repeat; background-attachment:fixed;
   background-image: url("../../../assets/images/bg.png")  ;
   z-index: -1;
-  content: ' ';
+  content: '';
   height: 100%;
   left: 0;
   position: fixed;
@@ -424,14 +425,11 @@ div.modal-backdrop.fade.show
   to {top:0; opacity:1}
 }
 
-
 .lang_color
 {
-
-
-  color: #15d8ff;  display: block
+  transition: .6s;
+  color: #737373;  display: block
 }
-
 
 /* footer */
 .footerBody{
