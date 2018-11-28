@@ -102,7 +102,7 @@ label .switch{
   position: relative;
   display: inline-block;
   width: 70px;
-  height: 7px;
+  height: 4px;
   margin-bottom: 0;
 }
 
@@ -113,7 +113,7 @@ label .switch{
 .slider {
   position: absolute;
   cursor: pointer;
-  border-radius: 3px;
+  border-radius: 2px;
   top: 0;
   left: 0;
   right: 0;
@@ -126,9 +126,9 @@ label .switch{
 .slider:before {
   position: absolute;
   content: "";
-  height: 7px;
+  height: 4px;
   width: 35px;
-  border-radius: 3px;
+  border-radius: 2px;
   left: 0px;
   bottom: 0px;
   background-color: #15d8ff;
@@ -184,10 +184,11 @@ input:checked + .slider:before {
 }
 
 #square{
-
-  position: relative;
+  height: auto;
+  position: fixed;
   display: block;
   width: 100%;
+
   /* left: 50%;
      transform: translateX(-50%);
    */
@@ -311,66 +312,65 @@ article{
 
 
 /* small pictures  */
-.picture1{
-  position: absolute;
-left: 10%;
-top: 30%;
+
+.picture1, .picture2, .picture3, .picture4, .picture5, .picture6, .picture7, .picture8, .picture9, .picture10{
   z-index: 1;
+
+}
+.picture1{
+margin-left: 10%;
+  margin-top: 10%;
+
 }
 
 .picture2 {
-  position: absolute;
-  left: 75%;
-  top: 40%;
-  z-index: 1;
+  margin-left: 75%;
+  margin-top: 15%;
+
 }
 .picture3{
-  position: absolute;
-  left: 85%;
-  top: 10%;
-  z-index: 1;
+
+  margin-left: 55%;
+  margin-top: 19%;
+
 }
 .picture4{
-  position: absolute;
-  left: 85%;
-  top: 90%;
-  z-index: 1;
+  margin-left: 85%;
+  margin-top: 5%;
+
 }
 .picture5{
-  position: absolute;
-  left: 19%;
-  top: 95%;
-  z-index: 1;
+  margin-left: 19%;
+  margin-top: 9%;
+
 }
 .picture6{
-  position: absolute;
-  left: 24%;
-  top: 73%;
-  z-index: 1;
+  margin-left: 24%;
+
+
 }
 .picture7{
-  position: absolute;
-  left: 12%;
-  top: 105%;
-  z-index: 1;
+  margin-left: 12%;
+
+
 }
 .picture8{
-  position: absolute;
-  left: 52%;
-  top: 108%;
-  z-index: 1;
+
+  margin-left: 52%;
+
+
 }
 .picture9{
-  position: absolute;
-  left: 28%;
-  top: 55%;
-  z-index: 1;
+
+  margin-left: 28%;
+
+
 }
 .picture10{
-  position: absolute;
-  left: 33%;
-  top: 42%;
-  z-index: 1;
+
+  margin-left: 33%;
+
+
 }
 
 

@@ -33,6 +33,8 @@ import {ProgressBarModule} from 'primeng/progressbar';
 import { EstimatingComponent } from './components/estimating/estimating.component';
 import { FeedbackFormComponent } from './components/feedback-form/feedback-form.component';
 import { DetailedFormComponent } from './components/detailed-form/detailed-form.component';
+import { ParallaxModule, ParallaxConfig } from 'ngx-parallax';
+import { TestComponent } from './components/test/test.component';
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/lang/');
 }
@@ -48,11 +50,12 @@ export function HttpLoaderFactory(http: HttpClient) {
     MessengerComponent,
     EstimatingComponent,
     FeedbackFormComponent,
-    DetailedFormComponent
+    DetailedFormComponent,
+    TestComponent,
   ],
   imports: [
     BrowserModule, SimpleSmoothScrollModule, BrowserAnimationsModule, HttpClientModule, DialogModule, CommonModule, TabViewModule,
-    CodeHighlighterModule, ButtonModule, InputTextModule, ReactiveFormsModule, FormsModule, HttpModule, RouterModule.forRoot(routes, { preloadingStrategy: AppPreloadingStrategy}),
+    CodeHighlighterModule, ButtonModule, InputTextModule, ReactiveFormsModule, FormsModule, HttpModule, ParallaxModule, RouterModule.forRoot(routes, { preloadingStrategy: AppPreloadingStrategy}),
     ProgressBarModule,
     TranslateModule.forRoot({
       loader: {

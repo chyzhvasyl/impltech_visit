@@ -8,6 +8,7 @@ import {TranslatingService} from '../../services/translating.service';
 import {User} from '../classes/user';
 import {environment} from '../../../environments/environment';
 import {WebsocketService} from '../../services/websocket.service';
+import { ParallaxConfig } from 'ngx-parallax';
 
 
 @Component({
@@ -42,6 +43,7 @@ export class MainComponent implements OnInit {
   index = 0;
   display = false;
   user: User = new User();
+
   constructor(private smooth: SimpleSmoothScrollService, private translate: TranslatingService) {
 
   }

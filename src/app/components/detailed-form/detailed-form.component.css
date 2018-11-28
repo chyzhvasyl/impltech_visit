@@ -71,12 +71,13 @@ div {
   cursor: pointer;
 }
 
-.btn1{
+.btn1 {
   border-radius: 20px;
   border-color: #2d527c;
   background-color: #2d527c;
   color: snow;
   display: block;
+  position: sticky;
 
 }
 .btn1:hover{
@@ -94,6 +95,7 @@ div {
   -webkit-box-shadow: 10px 11px 16px 1px rgba(176,176,176,1);
   -moz-box-shadow: 10px 11px 16px 1px rgba(176,176,176,1);
   box-shadow: 10px 11px 16px 1px rgba(176,176,176,1);
+
 }
 
 
