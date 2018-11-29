@@ -15,14 +15,12 @@
 
 -->
 
-
 <div class="image-container">
   <img class="img-fluid" src="../../../assets/images/bottom_feedback/01.png" />
   <div class="after">
 <div class="row">
   <div class="col-md-5" >
     <img  class="img-fluid float-right" src="../../../assets/images/bottom_feedback/02.png">
-
   </div>
   <div class="col-md-7">
     <form  class="p-1  "  (ngSubmit)="submitFeedback()" >
@@ -42,12 +40,10 @@
         <input type="file"  [(ngModel)]="feedbackForm.file"   [ngModelOptions]="{standalone: true}"   (change)="addFile($event)"   #file="ngModel"  id="exampleInputFile" >
         <i class="fa fa-cloud-upload"></i> Прикрепить файл
       </label>
-      <button type="submit"   [disabled]="mail.invalid || file.invalid"    class="btn btn1 button_shadow ml-2">send</button>
+      <button type="submit"   [disabled]="(mail.invalid || file.invalid) "    class="btn btn1 button_shadow ml-2">send</button>
     </div>
   </form>
   </div>
-
 </div>
-
   </div>
 </div>

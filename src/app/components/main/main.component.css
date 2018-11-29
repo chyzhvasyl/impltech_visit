@@ -10,7 +10,7 @@
   margin: 0;
 }
 .zero{
-  margin-top: 5%;
+  margin-top: 8%;
   margin-left: 0;
   margin-right: 0;
   padding-left: 0;
@@ -30,7 +30,13 @@ a[href = "http://impltech.com"] {
 .nav-item a :hover {
   color: dodgerblue;
 }
+.marg{
 
+  margin-top: 8%;
+
+
+
+}
 
 /*nav item clash     */
 @-webkit-keyframes swing {

@@ -6,6 +6,7 @@ import {PortfolioComponent} from '../../components/portfolio/portfolio.component
 import { ServicesComponent} from '../../components/services/services.component';
 import {PagenotfoundComponent} from '../../components/pagenotfound/pagenotfound.component';
 import {AppPreloadingStrategy} from '../../components/classes/app-preloading-strategy';
+import {AboutProjectComponent} from '../../components/about-project/about-project.component';
 
 export const routes: Routes = [
   {
@@ -26,6 +27,11 @@ export const routes: Routes = [
   {
     path: 'services',
     component: ServicesComponent,
+    data: { preload: true, delay: true }
+  },
+  {
+    path: 'about_project/:id',
+    component: AboutProjectComponent,
     data: { preload: true, delay: true }
   },
   {

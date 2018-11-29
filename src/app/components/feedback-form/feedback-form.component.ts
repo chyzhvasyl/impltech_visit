@@ -14,26 +14,25 @@ export class FeedbackFormComponent implements OnInit {
   feedbackForm: Form = new Form();
   form: any = {};
   files: any;
+  submited = false;
   constructor(private upload: MessageService, public http: Http ) {
-
     this.form = {
       mail: ''
     };
-
   }
-
 
   addFile(event) {
     let target = event.target || event.srcElement;
     this.files = target.files;
+    this.submited = true;
   }
 
   submitFeedback( ) {
-
     let final_data;
     if (this.files) {
       let files: FileList = this.files;
       const formData = new FormData();
+
       for (let i = 0; i < files.length; i++) {
         formData.append('graph', files[i]);
       }
@@ -44,20 +43,17 @@ export class FeedbackFormComponent implements OnInit {
       const options = new RequestOptions( {headers: headers });
       final_data = formData;
     }
-
     else
       {
       final_data = this.feedbackForm.mail;
     }
-
-
     return this.http.post(environment.api_url +  `/api/upload_file`, final_data /*, options */)
       .toPromise()
       .then(
         res => {
           console.log('res', res.json());
+          this.feedbackForm = null;
           return res.json();
-
         },
         err => {
           console.log('error', err.json());
@@ -65,7 +61,6 @@ export class FeedbackFormComponent implements OnInit {
         }
       );
   }
-
   // uploadFile(event)
   // {
   //   this.upload.submitFeedback(event, this.feedbackForm).subscribe(data => {

@@ -35,6 +35,9 @@ import { FeedbackFormComponent } from './components/feedback-form/feedback-form.
 import { DetailedFormComponent } from './components/detailed-form/detailed-form.component';
 import { ParallaxModule, ParallaxConfig } from 'ngx-parallax';
 import { TestComponent } from './components/test/test.component';
+import { AboutProjectComponent } from './components/about-project/about-project.component';
+import { AllProjectsComponent } from './components/all-projects/all-projects.component';
+
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/lang/');
 }
@@ -52,6 +55,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     FeedbackFormComponent,
     DetailedFormComponent,
     TestComponent,
+    AboutProjectComponent,
+    AllProjectsComponent,
   ],
   imports: [
     BrowserModule, SimpleSmoothScrollModule, BrowserAnimationsModule, HttpClientModule, DialogModule, CommonModule, TabViewModule,

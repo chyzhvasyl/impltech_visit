@@ -71,12 +71,11 @@ export class MainComponent implements OnInit {
     console.log(this.user);
 
   }
-  ngOnInit()
-  {
+  ngOnInit() {
 
     // якір
 
-    this.smooth.smoothScrollToAnchor();
+    this.smooth.smoothScrollToAnchor({ duration: 1000, easing: 'linear' });
 
     // open modal
   }

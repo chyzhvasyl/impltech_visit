@@ -67,6 +67,18 @@ senddetailedForm(body){
     );
 
 }
+getListProjects(){
+    return this.http.get('../../../assets/projects/projects.json')
+      .toPromise()
+      .then(
+        res => {
+          return res.json();
+        },
+        err => {
+          return err.json();
+        }
+      );
+}
 
 }
 
