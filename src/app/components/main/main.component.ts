@@ -43,8 +43,9 @@ export class MainComponent implements OnInit {
   display = false;
   user: User = new User();
   socket;
+  socket_id: string;
   numberOfOnlineUsers: number;
-
+  arr_socket = [];
 
   constructor(private smooth: SimpleSmoothScrollService, private translate: TranslatingService) {
     this.socket = io(environment.ws_url);
@@ -76,9 +77,15 @@ export class MainComponent implements OnInit {
   ngOnInit()
   {
   // вивід онлайн користувачів на сайті
+    this.socket.on('connection', (socket_id) => {
+      this.socket_id = socket_id;
+     this.arr_socket.push(socket_id);
+      console.log('connection', this.arr_socket);
+    });
     this.socket.on('online', (numberOfOnlineUsers) => {
       this.numberOfOnlineUsers = numberOfOnlineUsers;
     });
+
     this.socket.on('disconnect', (numberOfOnlineUsers) => {
       this.numberOfOnlineUsers = numberOfOnlineUsers;
     });

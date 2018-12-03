@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges } from '@angular/core';
 import {User} from '../classes/user';
 import {Message} from '../classes/message';
 import {WebsocketService} from '../../services/websocket.service';
@@ -15,7 +15,7 @@ import {MessageService} from '../../services/message.service';
   styleUrls: ['./messenger.component.css']
 })
 export class MessengerComponent implements OnInit {
-  logged_in = false;
+  logged_in = true;
   result: object;
   index = 0;
   display = false;
@@ -62,10 +62,14 @@ export class MessengerComponent implements OnInit {
       }
     );
   }
+
   ngOnInit() {
     this.websocketservice.getMessages().subscribe(message => {
       this.message_array = message;
       this.message_array.reverse();
+    });
+    this.websocketservice.getSocket().subscribe(socket => {
+      console.log('socket', socket);
     });
 
     //this.message_array.push(environment.message_history);

@@ -4,11 +4,12 @@ let message_scheme = require('../schems/message');
 
 module.exports = io =>{
   let online = 0;
-  io.on("connection", (socket) => {
+  io.on("connection", function (socket)   {
 
-    console.log('new connection made');
-
-    socket.on('message', content => {
+    console.log('new connection made',  socket.id );
+    socket.emit('connection', socket.id);
+    socket.join(socket.id);
+    socket.on('msg', content => {
 
       let message = {
         date: new Date(),
@@ -23,7 +24,15 @@ module.exports = io =>{
         else {
           console.log("Message Received: " + content);
           socket.emit('message', message);
-          socket.to('all').emit('message', message)
+          socket.to(socket.id).emit('message', message)
+
+
+
+          //socket.on('message', (message) => {
+          //  console.log("Message Received: " + message);
+          //  io.emit('message', {type:'new-message', text: message});
+          //});
+
 
         }
 
@@ -31,6 +40,7 @@ module.exports = io =>{
 
       //io.emit('message', {type:'new-message', text: message});
     });
+
     online++;
     socket.emit('online', online);
     console.log("online " + online);

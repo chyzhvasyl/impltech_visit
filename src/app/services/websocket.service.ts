@@ -17,9 +17,12 @@ export class WebsocketService {
     const observable = new Observable(observer => {
       this.socket.on('message', (data) => {
         console.log('Received message from Websocket Server', 'connected!');
-        this.socket.emit('receive_history');
+         this.socket.emit('receive_history');
+
         observer.next(data);
       });
+
+
      // this.socket.on('history', messages => {
      //  console.log('history', messages);
 //
@@ -30,7 +33,8 @@ export class WebsocketService {
     });
     const printed_message = {
       next: (data: Object) => {
-        this.socket.emit('message', data);
+        this.socket.emit('msg', data);
+
         //this.socket.emit('history', data);
         console.log(data);
       },
@@ -55,5 +59,16 @@ export class WebsocketService {
       };
     });
   }
-
+  getSocket() {
+    return new Observable(observer => {
+      this.socket.on('connection', (messages) => {
+        //console.log('connection', messages);
+        // messages.reverse();
+        observer.next(messages);
+      });
+      return () => {
+        this.socket.disconnect();
+      };
+    });
+  }
 }
