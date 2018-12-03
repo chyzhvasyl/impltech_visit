@@ -1,4 +1,4 @@
-import { Component, OnInit, OnChanges } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {User} from '../classes/user';
 import {Message} from '../classes/message';
 import {WebsocketService} from '../../services/websocket.service';
@@ -15,7 +15,8 @@ import {MessageService} from '../../services/message.service';
   styleUrls: ['./messenger.component.css']
 })
 export class MessengerComponent implements OnInit {
-  logged_in = true;
+  myModal: string;
+  logged_in = false;
   result: object;
   index = 0;
   display = false;
@@ -27,7 +28,8 @@ export class MessengerComponent implements OnInit {
   constructor( private chatservice: ChatService, private websocketservice: WebsocketService, private open_modalbox: ModalBoxService,
                private message_service: MessageService)
   {
-    this.socket = io(environment.ws_url);
+    this.socket = this.websocketservice.socket;
+    this.myModal = 'myModal';
   }
   chat_autoscroll() {
     $(document).ready(function () {
@@ -62,14 +64,11 @@ export class MessengerComponent implements OnInit {
       }
     );
   }
-
   ngOnInit() {
+console.log('id', this.myModal);
     this.websocketservice.getMessages().subscribe(message => {
       this.message_array = message;
       this.message_array.reverse();
-    });
-    this.websocketservice.getSocket().subscribe(socket => {
-      console.log('socket', socket);
     });
 
     //this.message_array.push(environment.message_history);
@@ -87,6 +86,7 @@ export class MessengerComponent implements OnInit {
 
     });
     this.open_modalbox.open_modal();
+
 
   }
 

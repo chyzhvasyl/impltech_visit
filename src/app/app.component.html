@@ -1,3 +1,15 @@
 
-<router-outlet></router-outlet>
+<div [hidden]="!loading">
+  <router-outlet></router-outlet>
+</div>
 
+<div [hidden]="loading">
+  <p-progressBar [style]="{height: '20px', color: '#ffa700'}" mode="indeterminate"></p-progressBar>
+</div>
+
+
+<!--
+<app-test>
+
+</app-test>
+-->

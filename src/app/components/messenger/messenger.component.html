@@ -7,12 +7,6 @@
         <h5>Представтесь и начните чат</h5>
       </div>
       <div class="modal-body1 ">
-
-
-
-
-
-
      <form *ngIf="logged_in === false" class="p-3">
        <div class="form-group">
          <input [(ngModel)]="user.username" #username = "ngModel" name="username" required pattern="[a-zA-Z_]{1,30}"  class="form-control" id="exampleName"  placeholder="Enter name">
@@ -33,49 +27,39 @@
 <div *ngIf="logged_in === true">
            <div  class="chat_body" >
              <div *ngFor="let message  of message_array;" class="message">
-
-
-               <div   >
-
+               <div *ngIf = "message_array.length" >
                  <div class="name">
-
-
                    {{message.id}}
                  </div>
                  <br>
                  <div class="content">
-
                    {{message.content}}
-
                  </div>
-
                  <br>
-
                  <div class="date">
                    {{message.date}}
-
                  </div>
                </div>
              </div>
            </div>
            <form  class="p-1 form-inline" (ngSubmit)="sendMessage()">
              <div class="form-group">
-               <input [(ngModel)]="message.content" #content = "ngModel" name="content" required pattern=""  class="form-control" id="exampleName1"  placeholder="write smth">
+               <input [(ngModel)]="message.content" #content = "ngModel" name="content" required pattern=""  class="form-control"  placeholder="write smth">
              </div>
              <button type="submit"  [disabled]="content.invalid"   class="btn btn-info ml-2">send</button>
            </form>
 </div>
-
       </div>
-
-
-
       <!-- <div class="modal-footer1">
          <h3>Modal Footer</h3>
        </div>
        -->
     </div>
   </div>
-  <img   id="myBtn" class="img-fluid" width="50px" src="../../../assets/images/chat.png">
+<a id="myBtn" href="#myModal" class="shadow">
+
+ <!-- <img    class=" shadow  " width="50px" src="../../../assets/images/chat.png"> -->
+</a>
   <!-- Modal -->
 </div>
+

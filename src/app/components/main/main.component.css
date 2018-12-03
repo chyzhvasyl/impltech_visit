@@ -10,6 +10,7 @@
   margin: 0;
 }
 .zero{
+  margin-top: 8%;
   margin-left: 0;
   margin-right: 0;
   padding-left: 0;
@@ -29,7 +30,13 @@ a[href = "http://impltech.com"] {
 .nav-item a :hover {
   color: dodgerblue;
 }
+.marg{
 
+  margin-top: 8%;
+
+
+
+}
 
 /*nav item clash     */
 @-webkit-keyframes swing {
@@ -100,9 +107,9 @@ label .switch{
 .switch {
   position: relative;
   display: inline-block;
-  width: 60px;
-  height: 14px;
-margin-bottom: 0;
+  width: 70px;
+  height: 4px;
+  margin-bottom: 0;
 }
 
 /* Hide default HTML checkbox */
@@ -111,13 +118,13 @@ margin-bottom: 0;
 /* The slider */
 .slider {
   position: absolute;
-
   cursor: pointer;
+  border-radius: 2px;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #ccc;
+  background-color: #d7d7d7;
   -webkit-transition: .4s;
   transition: .4s;
 }
@@ -125,27 +132,28 @@ margin-bottom: 0;
 .slider:before {
   position: absolute;
   content: "";
-  height: 6px;
-  width: 26px;
-  left: 4px;
-  bottom: 4px;
-  background-color: white;
+  height: 4px;
+  width: 35px;
+  border-radius: 2px;
+  left: 0px;
+  bottom: 0px;
+  background-color: #15d8ff;
   -webkit-transition: .4s;
   transition: .4s;
 }
 
 input:checked + .slider {
-  background-color:  #15d8ff;
+  background-color:  #d7d7d7;
 }
 
 input:focus + .slider {
-  box-shadow: 0 0 1px   #15d8ff;
+  box-shadow: 0 0 2px   #d7d7d7;
 }
 
 input:checked + .slider:before {
-  -webkit-transform: translateX(26px);
-  -ms-transform: translateX(26px);
-  transform: translateX(26px);
+  -webkit-transform: translateX(35px);
+  -ms-transform: translateX(35px);
+  transform: translateX(35px);
 }
 
 /*navbar */
@@ -182,10 +190,11 @@ input:checked + .slider:before {
 }
 
 #square{
-  position: relative;
-  z-index: 1;
+  height: auto;
+  position: fixed;
   display: block;
   width: 100%;
+
   /* left: 50%;
      transform: translateX(-50%);
    */
@@ -223,25 +232,7 @@ p, h4{
 
 }
 
-.btn1{
-  border-radius: 20px;
-  border-color: #2d527c;
-  background-color: #2d527c;
-  color: snow;
-  display: block;
 
-}
-.btn1:hover{
-  border-radius: 20px;
-  border-color: #15d8ff;
-  background: #15d8ff;
-}
-.btn1:active {
-  border-color: #15d8ff;
-}
-.btn1:focus {
-  border-color: #15d8ff;
-}
 
 .textbody{
 
@@ -260,6 +251,7 @@ article{
 .back{
 
   position: relative;
+ /* height: 1600px; */
 }
 
 .back::before{
@@ -267,7 +259,7 @@ article{
   background-repeat:no-repeat; background-attachment:fixed;
   background-image: url("../../../assets/images/bg.png")  ;
   z-index: -1;
-  content: ' ';
+  content: '';
   height: 100%;
   left: 0;
   position: fixed;
@@ -326,66 +318,65 @@ article{
 
 
 /* small pictures  */
-.picture1{
-  position: absolute;
-left: 10%;
-top: 30%;
+
+.picture1, .picture2, .picture3, .picture4, .picture5, .picture6, .picture7, .picture8, .picture9, .picture10{
   z-index: 1;
+
+}
+.picture1{
+margin-left: 10%;
+  margin-top: 10%;
+
 }
 
 .picture2 {
-  position: absolute;
-  left: 75%;
-  top: 40%;
-  z-index: 1;
+  margin-left: 75%;
+  margin-top: 15%;
+
 }
 .picture3{
-  position: absolute;
-  left: 85%;
-  top: 10%;
-  z-index: 1;
+
+  margin-left: 55%;
+  margin-top: 19%;
+
 }
 .picture4{
-  position: absolute;
-  left: 85%;
-  top: 90%;
-  z-index: 1;
+  margin-left: 85%;
+  margin-top: 5%;
+
 }
 .picture5{
-  position: absolute;
-  left: 19%;
-  top: 95%;
-  z-index: 1;
+  margin-left: 19%;
+  margin-top: 9%;
+
 }
 .picture6{
-  position: absolute;
-  left: 24%;
-  top: 73%;
-  z-index: 1;
+  margin-left: 24%;
+
+
 }
 .picture7{
-  position: absolute;
-  left: 12%;
-  top: 105%;
-  z-index: 1;
+  margin-left: 12%;
+
+
 }
 .picture8{
-  position: absolute;
-  left: 52%;
-  top: 108%;
-  z-index: 1;
+
+  margin-left: 52%;
+
+
 }
 .picture9{
-  position: absolute;
-  left: 28%;
-  top: 55%;
-  z-index: 1;
+
+  margin-left: 28%;
+
+
 }
 .picture10{
-  position: absolute;
-  left: 33%;
-  top: 42%;
-  z-index: 1;
+
+  margin-left: 33%;
+
+
 }
 
 
@@ -414,7 +405,7 @@ ul li  {display:inline;}
   height: 100%;
   background-color: #2d527c;
 }
-div .modal-backdrop .fade .show
+div.modal-backdrop.fade.show
 {
 
   display: none;
@@ -440,17 +431,54 @@ div .modal-backdrop .fade .show
   to {top:0; opacity:1}
 }
 
-
 .lang_color
 {
-
-
-  color: #15d8ff;  display: block
+  transition: .6s;
+  color: #737373;  display: block
 }
 
+/* footer */
+.footerBody{
+  display: block;
+  background-color: #292929;
+
+}
+.footerContacts{
+  color: #15d8ff;
+  font-size: 24px;
+  font-weight: 600;
+  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Open Sans,Helvetica Neue,sans-serif;
+
+}
+
+.foterIcons{
+  width: 20px;
 
 
+  height: 20px;
 
+}
+.footerFonts{
+  letter-spacing: .4px;
+  line-height: 1.5;
+  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Open Sans,Helvetica Neue,sans-serif;
+  color: white;
+  font-weight: 600;
+  font-size: 18px;
+
+}
+.nav-link{
+  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Open Sans,Helvetica Neue,sans-serif;
+
+}
+.nav-link:hover{
+color: #FFFFFF;
+
+}
+.heightEntry{
+  height: 100%;
+
+}
 
 
 /* logo*/

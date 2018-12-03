@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {TranslatingService} from '../../services/translating.service';
-import * as io from 'socket.io-client';
-import {environment} from '../../../environments/environment';
-import {ModalBoxService} from '../../services/modal-box.service';
-
+import {MessageService} from '../../services/message.service';
+import {Subscription} from 'rxjs';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-portfolio',
@@ -11,35 +9,36 @@ import {ModalBoxService} from '../../services/modal-box.service';
   styleUrls: ['./portfolio.component.css', '../main/main.component.css']
 })
 export class PortfolioComponent implements OnInit {
-  constructor(private translate: TranslatingService, private open_modal: ModalBoxService) {
-    this.socket = io(environment.ws_url);
-
-
+  id: string;
+  projectList = [];
+  page: number;
+  maxSize: number;
+  pageSize: number;
+  private subscription: Subscription;
+  constructor(public getListProject: MessageService, private route: ActivatedRoute) {
+    this.page = 1;
+    this.maxSize = 5;
+    this.pageSize = 6;
   }
-  index = 0;
-  socket;
-  numberOfOnlineUsers: number;
-  switchLanguage(index) {
-    index = this.index++;
-    if ( index % 2 === 0) {
-      this.translate.language = 'en';
-    } else {
-      this.translate.language = 'rus';
-    }
-    this.translate.switchLanguage(this.translate.language);
-  }
+ changePage(page) {
+ const pageItems = this.projectList;
+ const length = this.projectList.length;
+ for (let i = 0; i <= this.projectList.length; i++ ) {
+
+ }
 
 
-
-
+ }
   ngOnInit() {
-    this.socket.on('online', (numberOfOnlineUsers) => {
-      this.numberOfOnlineUsers = numberOfOnlineUsers;
-    });
-    this.socket.on('disconnect', (numberOfOnlineUsers) => {
-      this.numberOfOnlineUsers = numberOfOnlineUsers;
-    });
-    this.open_modal.open_modal();
+    this.subscription = this.route.params.subscribe(params => this.id = params['id']);
+    this.getListProject.getListProjects().then( res => {
+      this.projectList = res.projects ;
+      return this.projectList;
+    }).catch(error => {
+      console.log('error', error);
+      return error;
+      }
+    );
   }
 
 }

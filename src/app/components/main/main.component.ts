@@ -6,8 +6,9 @@ import {trigger, state, style, transition,
   animate, group, query, stagger, keyframes} from '@angular/animations';
 import {TranslatingService} from '../../services/translating.service';
 import {User} from '../classes/user';
-import * as io from 'socket.io-client';
 import {environment} from '../../../environments/environment';
+import {WebsocketService} from '../../services/websocket.service';
+import { ParallaxConfig } from 'ngx-parallax';
 
 
 @Component({
@@ -42,13 +43,9 @@ export class MainComponent implements OnInit {
   index = 0;
   display = false;
   user: User = new User();
-  socket;
-  socket_id: string;
-  numberOfOnlineUsers: number;
-  arr_socket = [];
 
   constructor(private smooth: SimpleSmoothScrollService, private translate: TranslatingService) {
-    this.socket = io(environment.ws_url);
+
   }
 
   switchLanguage(index) {
@@ -74,23 +71,11 @@ export class MainComponent implements OnInit {
     console.log(this.user);
 
   }
-  ngOnInit()
-  {
-  // вивід онлайн користувачів на сайті
-    this.socket.on('connection', (socket_id) => {
-      this.socket_id = socket_id;
-     this.arr_socket.push(socket_id);
-      console.log('connection', this.arr_socket);
-    });
-    this.socket.on('online', (numberOfOnlineUsers) => {
-      this.numberOfOnlineUsers = numberOfOnlineUsers;
-    });
+  ngOnInit() {
 
-    this.socket.on('disconnect', (numberOfOnlineUsers) => {
-      this.numberOfOnlineUsers = numberOfOnlineUsers;
-    });
     // якір
-    this.smooth.smoothScrollToAnchor();
+
+    this.smooth.smoothScrollToAnchor({ duration: 1000, easing: 'linear' });
 
     // open modal
   }

@@ -19,7 +19,7 @@ require('./socket_chat/socket_chat')(io);
 app.options('*', cors(corsOptions));
 
 /* логгирование */
-// intel.addHandler(new intel.handlers.File('./logs/file.log'));
+intel.addHandler(new intel.handlers.File('./logs/file.log'));
 
 /* логгирование */
 app.use(bodyParser.json());

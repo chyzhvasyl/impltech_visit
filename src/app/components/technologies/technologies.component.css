@@ -26,7 +26,7 @@ div.card {
 
   overflow: no-display;
   width: 100%;
-  z-index: 2;
+
 
 
   position: absolute;
@@ -55,6 +55,7 @@ position: relative;
 .position_in_table {
   left: 80px;
   top: 120px;
+
 
 }
 .position_in_table2{
@@ -177,7 +178,7 @@ h6 span {
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Open Sans, Helvetica Neue, sans-serif;
 
   font-weight: 600;
-  top		: 28px; left: 380px;
+  top		: 25px; left: 380px;
 }
 
 @media  (max-width: 800px) {
@@ -201,5 +202,12 @@ border-radius: 10px;
 
 .margin_top{
   margin-top: 200px;
+
+}
+.mb-6{
+  margin-bottom: 2rem !important;
+}
+.ml-4-5{
+  margin-left: 2.75rem !important;
 
 }
