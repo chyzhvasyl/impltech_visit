@@ -2,11 +2,11 @@
 
 
 
-
+<link href='https://fonts.googleapis.com/css?family=Raleway:400,700|Merriweather' rel='stylesheet' type='text/css'>
 <div class="container">
   <div *ngIf="projectList.length" class="row">
     <div *ngFor="let projectImage of projectList" class="col-sm-4">
-
+<!--
               <div class="holder">
                   <img class="img-fluid" src="{{projectImage.url}}">
               </div>
@@ -16,62 +16,20 @@
                 </a>
               </div>
 
+-->
+      <div class="view view-first">
+        <img class="img-fluid"   src="{{projectImage.url}}"  />
+        <div class="mask">
+
+          <p>Какой-то проект</p>
+          <a  class="info"[routerLink]="['/about_project', projectImage.id]">
+            Посмотреть проект
+          </a>
+        </div>
+      </div>
     </div>
   </div>
 </div>
-
-
-
-
-
-
-<link href='https://fonts.googleapis.com/css?family=Raleway:400,700|Merriweather' rel='stylesheet' type='text/css'>
-
-<h1 style="font-family: 'Raleway', sans-serif;"> CSS3 hover<span id="hover"> effects/</span></h1>
-<p style="font-family: sans-serif; color: #fff; padding-left: 10px;">An implementation of Alessio Atzeni's CSS3 effects. Please give credit to <a href="www.jacobstone.co.uk" style="color:#efefef; text-decoration: none;">www.jacobstone.co.uk</a> if you use my photography.</p>
-<div id="all">
-  <div class="view view-first">
-    <img src="https://static1.squarespace.com/static/5aea79c52487fde9b8efd0b1/t/5bb6b38ce5e5f09147c1b8ab/1538700172787/empire-state.png" />
-    <div class="mask">
-      <h2>Empire State</h2>
-      <p>A cool description of some sort between these tags. I am so cool and awesomely awesome.</p>
-      <a href="#" class="info">Read More</a>
-    </div>
-  </div>
-
-
-  <div class="view view-second">
-    <img src="https://static1.squarespace.com/static/5aea79c52487fde9b8efd0b1/t/5bb6b38e4785d3a94fdb56b0/1538700175156/midtown.png" />
-    <div class="mask"></div>
-    <div class="content">
-      <h2>Midtown</h2>
-      <p>A description of some sort between these tags. I am so cool and awesomely awesome.</p>
-      <a href="#" class="info">Read More</a>
-    </div>
-  </div>
-
-
-  <div class="view view-tenth">
-    <img src="https://static1.squarespace.com/static/5aea79c52487fde9b8efd0b1/t/5bb6b388e5e5f09147c1b870/1538700168395/liberty.png" />
-    <div class="mask">
-      <h2>The Only Living Boy in New York</h2>
-      <p>Words and such, a whole lot more of muh flippin' words.</p>
-      <a href="#" class="info">Read More</a>
-    </div>
-  </div>
-
-  <div class="view view-second">
-    <img src="https://static1.squarespace.com/static/5aea79c52487fde9b8efd0b1/t/5bb6b392e5e5f09147c1b901/1538700178288/skyscrapers.png" />
-    <div class="mask"></div>
-    <div class="content">
-      <h2 id="testimonials">Skyscrapers</h2>
-      <p>&ldquo;A description of some sort between these tags. I am so cool. Didn't you hear? &rdquo;</p>
-      <a href="#" class="info">Read More</a>
-    </div>
-  </div>
-
-</div>
-
 
 
 
