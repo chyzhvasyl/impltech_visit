@@ -63,7 +63,7 @@ input[type="file"] {
 }
 .textbody{
   margin: 0;
-width: 400px;
+  width: 80%;
   height: auto;
   color: #2d527c;
   letter-spacing: .4px;
@@ -79,4 +79,28 @@ width: 400px;
   color: #2d527c;
   font-weight: 600;
 
+}
+.margin_left{
+width: 80%;
+
+}
+.margin_img{
+
+
+
+}
+@media   (max-width: 768px) {
+  .margin_left{
+    margin-left: 10em;
+
+  }
+  .float-right{
+
+    float: left !important;
+  }
+  .margin_img{
+
+
+
+  }
 }
