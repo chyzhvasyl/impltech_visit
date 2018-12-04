@@ -75,12 +75,12 @@ export class MainComponent implements OnInit {
 
     // якір
 
-    this.smooth.smoothScrollToAnchor({ duration: 1000, easing: 'linear' });
+    this.smooth.smoothScrollToAnchor({ duration: 1000, easing: 'linear', offset: -300 });
 
     // open modal
   }
   goTop(){
-    this.smooth.smoothScrollToTop({ duration: 1000, easing: 'linear' });
+    this.smooth.smoothScrollToTop({ duration: 1000, easing: 'linear', offset: 300 });
   }
 
   ngOnDestroy() {

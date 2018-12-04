@@ -5,7 +5,7 @@
 <link href='https://fonts.googleapis.com/css?family=Raleway:400,700|Merriweather' rel='stylesheet' type='text/css'>
 <div class="container">
   <div *ngIf="projectList.length" class="row">
-    <div *ngFor="let projectImage of projectList" class="col-sm-4">
+    <div *ngFor="let projectImage of pagedItems" class="col-sm-4">
 <!--
               <div class="holder">
                   <img class="img-fluid" src="{{projectImage.url}}">

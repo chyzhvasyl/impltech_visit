@@ -11,6 +11,7 @@ import {ActivatedRoute} from '@angular/router';
 export class PortfolioComponent implements OnInit {
   id: string;
   projectList = [];
+  pagedItems: any[];
   page: number;
   maxSize: number;
   pageSize: number;
@@ -23,16 +24,21 @@ export class PortfolioComponent implements OnInit {
  changePage(page) {
  const pageItems = this.projectList;
  const length = this.projectList.length;
- for (let i = 0; i <= this.projectList.length; i++ ) {
-
- }
-
-
+ const totalPages = Math.ceil(length /  this.pageSize);
+   if (page < 1) {
+     page = 1;
+   } else if (page > totalPages) {
+     page = totalPages;
+   }
+   const startIndex = (page - 1) * this.pageSize;
+   const endIndex = Math.min(startIndex + this.pageSize - 1, length - 1);
+   this.pagedItems = pageItems.slice(startIndex, endIndex + 1);
  }
   ngOnInit() {
     this.subscription = this.route.params.subscribe(params => this.id = params['id']);
     this.getListProject.getListProjects().then( res => {
       this.projectList = res.projects ;
+      this.changePage(this.page);
       return this.projectList;
     }).catch(error => {
       console.log('error', error);
