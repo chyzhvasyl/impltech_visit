@@ -1,4 +1,4 @@
-<div class="back row">
+<div class="back row" id="top">
 </div>
 <div  class="container-fluid ">
   <div id="head" class="row">
@@ -17,7 +17,7 @@
         <div     class="collapse navbar-collapse justify-content-md-center" id="navbarSupportedContent">
           <ul  class="navbar-nav ">
             <li class=" nav-item mr-3 ml-3">
-              <a routerLink="/services"   class="nav-link" href="#">{{'services' | translate}}</a>
+              <a class="nav-link" href="#top" SimpleSmoothScroll [showHash]="true">{{'services' | translate}}</a>
             </li>
             <li class="  nav-item mr-3 ml-3">
               <a href="#technologies" SimpleSmoothScroll [showHash]="true"  class="nav-link" >{{'tech' | translate}}</a>
@@ -190,7 +190,7 @@
 
 <app-portfolio id="portfolio" ></app-portfolio>
 <app-feedback-form></app-feedback-form>
-
+F
 
 
 <!--Footer -->
@@ -207,9 +207,9 @@
               </div>
             </div>
             <div class="col-md-2 mt-5">
-              <a routerLink="/services"   class="nav-link">{{'services' | translate}}</a>
-              <a  class="nav-link"   routerLink="/technologies" >{{'tech' | translate}}</a>
-              <a  routerLink="/portfolio"  class="nav-link" >{{'port' | translate}}</a>
+              <a href="#top"  SimpleSmoothScroll [showHash]="true" class="nav-link">{{'services' | translate}}</a>
+              <a  class="nav-link"   href="#technologies" SimpleSmoothScroll [showHash]="true">{{'tech' | translate}}</a>
+              <a  href="#portfolio"  class="nav-link" SimpleSmoothScroll [showHash]="true">{{'port' | translate}}</a>
             </div>
             <div class="col-md-5 mt-5 footerContacts">
               <div class="ml-5">
@@ -218,7 +218,7 @@
                 </div>
                 <div class="row">
                   <img   class="img-fluid foterIcons" src="../../../assets/images/footer/footer/phone_icon.png">
-                  <div class="mr-3 ml-3 footerFonts"> +3806787887 </div>
+                  <div class="mr-3 ml-3 footerFonts"> +380935887772 </div>
                   <a href="https://www.google.com"><img    class="img-fluid foterIcons mb-3" src="../../../assets/images/footer/footer/facebook_icon.png"></a>
                 </div>
                 <div class="row">
