@@ -4,6 +4,7 @@ import {Form} from '../classes/user';
 import {environment} from '../../../environments/environment';
 import {map} from 'rxjs/operators';
 import {Http, Headers, RequestOptions, Response} from '@angular/http';
+import {TranslatingService} from '../../services/translating.service';
 
 @Component({
   selector: 'app-feedback-form',
@@ -15,7 +16,7 @@ export class FeedbackFormComponent implements OnInit {
   form: any = {};
   files: any;
   submited = false;
-  constructor(private upload: MessageService, public http: Http ) {
+  constructor(private upload: MessageService, public http: Http, private translate: TranslatingService ) {
     this.form = {
       mail: ''
     };

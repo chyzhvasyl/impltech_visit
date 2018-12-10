@@ -13,7 +13,7 @@
       </div>
       <div class="modal-body p-3">
         <form (ngSubmit)="f.form.valid && sendForm()" #f="ngForm" novalidate>
-            <input class="inputName" maxlength="50" [(ngModel)]="deteiledForm.fullname" #fullname="ngModel" type="text" id="fullname" name="fullname" placeholder="Name required" required > <!--[ngClass]="{ 'is-invalid': f.submitted && fullname.invalid }"  -->
+            <input class="inputName" maxlength="50" [(ngModel)]="deteiledForm.fullname" #fullname="ngModel" type="text" id="fullname" name="fullname" placeholder="{{'nameReq' | translate}}" required > <!--[ngClass]="{ 'is-invalid': f.submitted && fullname.invalid }"  -->
 <!--
           <div *ngIf="f.submitted && fullname.invalid" class="invalid-feedback">
             <div *ngIf="fullname?.errors.required">First Name is required</div>
@@ -21,19 +21,19 @@
           <div [hidden]="fullname.valid || fullname.untouched" class="alert alert-danger p-2 mb-1">
             {{'incorrectName' | translate}}
           </div>
-          <input class="inputMail"  required pattern="[a-zA-Z_].+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}"   [(ngModel)]="deteiledForm.mail"    #mail="ngModel" type="text" id="mail" name="mail" placeholder="lol@gmail.com">
+          <input class="inputMail"  required pattern="[a-zA-Z_].+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}"   [(ngModel)]="deteiledForm.mail"    #mail="ngModel" type="text" id="mail" name="mail" placeholder="email@example.com">
           <div [hidden]="mail.valid || mail.untouched" class="alert alert-danger p-2 mb-1">
             {{'incorrectMail' | translate}}
           </div>
-          <input  class="inputNumber" required maxlength="12" [(ngModel)]="deteiledForm.numberPhone" pattern="\d{3}[0-9]{9}"      #numberPhone="ngModel" type="text" id="number" name="phoneNumber" placeholder="380952040877">
+          <input  class="inputNumber" required maxlength="12" [(ngModel)]="deteiledForm.numberPhone" pattern="\d{3}[0-9]{9}"      #numberPhone="ngModel" type="text" id="number" name="phoneNumber" placeholder="380XXXXXXXXX">
           <div [hidden]="numberPhone.valid || numberPhone.untouched" class="alert alert-danger p-2 mb-1">
             {{'incorrectNumber' | translate}}
           </div>
-          <input class="inputSybject" maxlength="50" required  [(ngModel)]="deteiledForm.subject"    #subject="ngModel" type="text" id="subject" name="subject" placeholder="Subject required">
+          <input class="inputSybject" maxlength="50" required  [(ngModel)]="deteiledForm.subject"    #subject="ngModel" type="text" id="subject" name="subject" placeholder="{{'subjectReq' | translate}}">
           <div [hidden]="subject.valid || subject.untouched" class="alert alert-danger p-2 mb-1">
             {{'incorrectSubject' | translate}}
           </div>
-          <textarea [ngModelOptions]="{standalone: true}"  class="inputDescription" required maxlength="500"   [(ngModel)]="deteiledForm.description"    #description="ngModel" placeholder="Description required" (resize)="false"></textarea>
+          <textarea [ngModelOptions]="{standalone: true}"  class="inputDescription" required maxlength="500"   [(ngModel)]="deteiledForm.description"    #description="ngModel" placeholder="{{'descriptionReq' | translate}}" (resize)="false"></textarea>
           <div [hidden]="description.valid || description.untouched" class="alert alert-danger p-2 mb-1">
             {{'incorrectDescription' | translate}}
           </div>

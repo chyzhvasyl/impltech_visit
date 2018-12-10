@@ -15,11 +15,16 @@
   "6": "Support and evolution",
   "submit": "Submit",
   "contactWithUs": "Contact with us",
+  "nameReq": "Name required",
+  "subjectReq": "Subject required",
+  "descriptionReq": "Description required",
   "incorrectName": "Incorrect name",
   "incorrectNumber": "Incorrect number",
   "incorrectMail": "Incorrect email",
   "incorrectSubject": "Incorrect subject",
   "incorrectDescription": "Incorrect description",
-  "success": "Successfully sent"
+  "success": "Successfully sent",
+  "attach": "Attach file",
+  "send": "Send"
 
 }

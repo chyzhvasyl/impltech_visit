@@ -15,10 +15,15 @@
   "6": "Поддержка и развитие",
   "submit": "Отправить",
   "contactWithUs": "Свяжитесь с нами",
+  "nameReq": "Имя (обязательно)",
+  "subjectReq": "Тема (обязательно)",
+  "descriptionReq": "Описание (обязательно)",
   "incorrectName": "Некорректное имя",
   "incorrectNumber": "Некорректный номер",
   "incorrectMail": "Некорректный адрес",
   "incorrectSubject": "Некорректное поле",
   "incorrectDescription": "Некорректное описание",
-  "success": "Успешно отправлено"
+  "success": "Успешно отправлено",
+  "attach": "Прикрепить файл",
+  "send": "Отправить"
 }

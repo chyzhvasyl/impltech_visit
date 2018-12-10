@@ -37,14 +37,14 @@
         </div>
       </div>
     <div class="form-group">
-      <input  [(ngModel)]="feedbackForm.mail" style="width: 70%"  #mail="ngModel" name="content" required pattern=""  class="form-control"  placeholder="write smth">
+      <input  [(ngModel)]="feedbackForm.mail" style="width: 70%"  #mail="ngModel" name="content" required pattern=""  class="form-control"  placeholder="">
     </div>
     <div class="form-group mt-3 form-inline">
       <label class="custom-file-upload btn  ">
         <input type="file"  [(ngModel)]="feedbackForm.file"   [ngModelOptions]="{standalone: true}"   (change)="addFile($event)"   #file="ngModel"  id="exampleInputFile" >
-        <i class="fa fa-cloud-upload"></i> Прикрепить файл
+        <i class="fa fa-cloud-upload"></i> {{"attach" | translate}}
       </label>
-      <button type="submit"   [disabled]="(mail.invalid || file.invalid) "    class="btn btn1 button_shadow ml-2">send</button>
+      <button type="submit"   [disabled]="(mail.invalid || file.invalid) "    class="btn btn1 button_shadow ml-2">{{"send" | translate}}</button>
     </div>
       </div>
   </form>
