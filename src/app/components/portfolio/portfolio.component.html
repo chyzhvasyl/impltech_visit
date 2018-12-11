@@ -1,32 +1,28 @@
-
-
-
-
 <link href='https://fonts.googleapis.com/css?family=Raleway:400,700|Merriweather' rel='stylesheet' type='text/css'>
 <div class="container">
   <div *ngIf="projectList.length" class="row">
     <div *ngFor="let projectImage of pagedItems" class="col-sm-4">
-<!--
-              <div class="holder">
-                  <img class="img-fluid" src="{{projectImage.url}}">
-              </div>
-              <div class="block">
-                <a  [routerLink]="['/about_project', projectImage.id]">
-                  Посмотреть проект
-                </a>
-              </div>
+      <!--
+                    <div class="holder">
+                        <img class="img-fluid" src="{{projectImage.url}}">
+                    </div>
+                    <div class="block">
+                      <a  [routerLink]="['/about_project', projectImage.id]">
+                        Посмотреть проект
+                      </a>
+                    </div>
 
--->
+      -->
       <div class="view view-first">
-        <img class="img-fluid"   src="{{projectImage.url}}"  />
+        <img class="img-fluid" src="{{projectImage.url}}"/>
         <div class="mask">
-<div class="central_body" >
+          <div class="central_body">
 
-  <p>Какой-то проект</p>
-  <a  class="info"[routerLink]="['/about_project', projectImage.id]">
-    Посмотреть проект
-  </a>
-</div>
+            <p>{{projectImage.name}}</p>
+            <a class="info" [routerLink]="['/about_project', projectImage.id]">
+              {{"seeProject" | translate}}
+            </a>
+          </div>
 
         </div>
       </div>
@@ -35,146 +31,130 @@
 </div>
 
 
-
-
 <div *ngIf="this.projectList" class="d-flex justify-content-center mt-5">
-<ngb-pagination (pageChange)="changePage($event)"  [collectionSize]="projectList.length" [(page)]="page" [maxSize] = "maxSize" [pageSize] = "pageSize"  aria-label="Default pagination"></ngb-pagination>
+  <ngb-pagination (pageChange)="changePage($event)" [collectionSize]="projectList.length" [(page)]="page"
+                  [maxSize]="maxSize" [pageSize]="pageSize" aria-label="Default pagination"></ngb-pagination>
 </div>
 
 
+<!--<div    style="" class="container-fluid ">-->
+<!--<div id="head" class="row">-->
+<!--<div class="col-md-1  ">-->
+<!--</div>-->
+<!--<div class="col-md-10">-->
+<!--<nav class="mt-3 navbar navbar-expand-lg navbar-light"><br>-->
+<!--<div style="font-size: 10px">-->
+<!--&lt;!&ndash;  <a data-text="innovations"  class=" button-hover "  href="http://impltech.com">impltech</a>-->
+<!--&ndash;&gt;<a routerLink="/">-->
+<!--<img class="img-fluid" width="200px"  src="../../../assets/images/logo/logo.png">-->
+<!--</a>-->
+<!--</div>-->
+<!--<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">-->
+<!--<span class="navbar-toggler-icon"></span>-->
+<!--</button>-->
+<!--<div     class="collapse navbar-collapse justify-content-md-center" id="navbarSupportedContent">-->
+<!--<ul  class="navbar-nav ">-->
+<!--<li class=" nav-item mr-3 ml-3">-->
+<!--<a routerLink="/services"   class="nav-link" href="#">{{'services' | translate}}</a>-->
+<!--</li>-->
+<!--<li class="  nav-item mr-3 ml-3">-->
+<!--<a  class="nav-link"   routerLink="/technologies" >{{'tech' | translate}}</a>-->
+<!--</li>-->
+<!--<li class=" nav-item mr-3 ml-3">-->
+<!--<a  routerLink="/portfolio"  class="nav-link" >{{'port' | translate}}</a>-->
+<!--</li>-->
+
+<!--</ul>-->
+<!--</div>-->
+<!--<div>-->
+<!--<label class="switch">-->
+<!--<input (click)="switchLanguage(index)"   type="checkbox">-->
+<!--<span   class="slider"> </span>-->
+<!--</label>-->
+
+<!--<ul  class="navbar-nav" >-->
+<!--<li >-->
+<!--<div    class="language-mark mr-1">-->
+<!--рус-->
+<!--</div>-->
+<!--</li>-->
+<!--<li style="color: #2d527c; font-weight: bold" >-->
+
+<!--</li>-->
+<!--<li >-->
+<!--<div [ngClass]="{'lang_color': index % 2 !== 0 }" class="language-mark ml-1 ">-->
+<!--en-->
+<!--</div>-->
+<!--</li>-->
+<!--</ul>-->
+<!--&lt;!&ndash;-->
+<!--<table>-->
+
+<!--<tr>-->
+<!--<td [@fadein] *ngIf="index % 2 === 0"  class="language-mark">-->
+
+<!--рус-->
+<!--</td>-->
+<!--<td *ngIf="index % 2 !== 0" style="color: #15d8ff" class="language-mark">-->
+<!--eng-->
+<!--</td>-->
+
+<!--</tr>-->
+<!--</table>-->
 
 
+<!--<div [@fadein] *ngIf="index % 2 === 0; else eng"  class="language-mark" >-->
 
+<!--рус-->
 
+<!--</div>-->
 
-
-
-
-
-
-
-
-
-
-   <!--<div    style="" class="container-fluid ">-->
-  <!--<div id="head" class="row">-->
-    <!--<div class="col-md-1  ">-->
-    <!--</div>-->
-    <!--<div class="col-md-10">-->
-      <!--<nav class="mt-3 navbar navbar-expand-lg navbar-light"><br>-->
-        <!--<div style="font-size: 10px">-->
-          <!--&lt;!&ndash;  <a data-text="innovations"  class=" button-hover "  href="http://impltech.com">impltech</a>-->
-   <!--&ndash;&gt;<a routerLink="/">-->
-            <!--<img class="img-fluid" width="200px"  src="../../../assets/images/logo/logo.png">-->
-          <!--</a>-->
-        <!--</div>-->
-        <!--<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">-->
-          <!--<span class="navbar-toggler-icon"></span>-->
-        <!--</button>-->
-        <!--<div     class="collapse navbar-collapse justify-content-md-center" id="navbarSupportedContent">-->
-          <!--<ul  class="navbar-nav ">-->
-            <!--<li class=" nav-item mr-3 ml-3">-->
-              <!--<a routerLink="/services"   class="nav-link" href="#">{{'services' | translate}}</a>-->
-            <!--</li>-->
-            <!--<li class="  nav-item mr-3 ml-3">-->
-              <!--<a  class="nav-link"   routerLink="/technologies" >{{'tech' | translate}}</a>-->
-            <!--</li>-->
-            <!--<li class=" nav-item mr-3 ml-3">-->
-              <!--<a  routerLink="/portfolio"  class="nav-link" >{{'port' | translate}}</a>-->
-            <!--</li>-->
-
-          <!--</ul>-->
-        <!--</div>-->
-        <!--<div>-->
-          <!--<label class="switch">-->
-            <!--<input (click)="switchLanguage(index)"   type="checkbox">-->
-            <!--<span   class="slider"> </span>-->
-          <!--</label>-->
-
-          <!--<ul  class="navbar-nav" >-->
-            <!--<li >-->
-              <!--<div    class="language-mark mr-1">-->
-                <!--рус-->
-              <!--</div>-->
-            <!--</li>-->
-            <!--<li style="color: #2d527c; font-weight: bold" >-->
-
-            <!--</li>-->
-            <!--<li >-->
-              <!--<div [ngClass]="{'lang_color': index % 2 !== 0 }" class="language-mark ml-1 ">-->
-                <!--en-->
-              <!--</div>-->
-            <!--</li>-->
-          <!--</ul>-->
-          <!--&lt;!&ndash;-->
-                <!--<table>-->
-
-                     <!--<tr>-->
-                       <!--<td [@fadein] *ngIf="index % 2 === 0"  class="language-mark">-->
-
-                         <!--рус-->
-                       <!--</td>-->
-                       <!--<td *ngIf="index % 2 !== 0" style="color: #15d8ff" class="language-mark">-->
-                         <!--eng-->
-                       <!--</td>-->
-
-                     <!--</tr>-->
-                   <!--</table>-->
-
-
-
-                 <!--<div [@fadein] *ngIf="index % 2 === 0; else eng"  class="language-mark" >-->
-
-                   <!--рус-->
-
-                 <!--</div>-->
-
-                 <!--<div style="color: #15d8ff;" class="language-mark"  #eng>-->
-                   <!--eng-->
-                 <!--</div>   &ndash;&gt;-->
-        <!--</div>-->
-      <!--</nav>-->
-    <!--</div>-->
-    <!--<div class="col-md-1">-->
-    <!--</div>-->
-  <!--</div>-->
-  <!--&lt;!&ndash; <div appParallax [ratio]="0.5" id="circle"></div>-->
-  <!--<div appParallax [ratio]="0.9" id="rectangle"></div>-->
+<!--<div style="color: #15d8ff;" class="language-mark"  #eng>-->
+<!--eng-->
+<!--</div>   &ndash;&gt;-->
+<!--</div>-->
+<!--</nav>-->
+<!--</div>-->
+<!--<div class="col-md-1">-->
+<!--</div>-->
+<!--</div>-->
+<!--&lt;!&ndash; <div appParallax [ratio]="0.5" id="circle"></div>-->
+<!--<div appParallax [ratio]="0.9" id="rectangle"></div>-->
 <!--&ndash;&gt;-->
-  <!--<div class="row back">-->
+<!--<div class="row back">-->
 
-    <!--<div    appParallax [ratio]="0.2" id="square">-->
-      <!--<div class="picture1">-->
-        <!--<img class="img-fluid" width="100px" src="../../../assets/images/screen_01/01.png">-->
-      <!--</div>-->
-      <!--<div class="picture3">-->
+<!--<div    appParallax [ratio]="0.2" id="square">-->
+<!--<div class="picture1">-->
+<!--<img class="img-fluid" width="100px" src="../../../assets/images/screen_01/01.png">-->
+<!--</div>-->
+<!--<div class="picture3">-->
 
-        <!--<img class="img-fluid" width="100px" src="../../../assets/images/screen_01/03.png">-->
-      <!--</div>-->
+<!--<img class="img-fluid" width="100px" src="../../../assets/images/screen_01/03.png">-->
+<!--</div>-->
 
-      <!--<div class="text-center" >-->
-        <!--<div class="height1 ">-->
-          <!--<div class="row zero top">-->
-            <!--<div  class="col-md-12"  >-->
+<!--<div class="text-center" >-->
+<!--<div class="height1 ">-->
+<!--<div class="row zero top">-->
+<!--<div  class="col-md-12"  >-->
 
-            <!--</div>-->
-          <!--</div>-->
-          <!--<div  class="row margin1 zero">-->
-            <!--<div class=""  style="margin: 0 auto;" >-->
-              <!--<p  > portfolio!</p>-->
-
-
-            <!--</div>-->
-          <!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--<div  class="row margin1 zero">-->
+<!--<div class=""  style="margin: 0 auto;" >-->
+<!--<p  > portfolio!</p>-->
 
 
-          <!--<app-messenger></app-messenger>-->
-        <!--</div>-->
+<!--</div>-->
+<!--</div>-->
 
 
-      <!--</div>-->
-    <!--</div>-->
-  <!--</div>-->
+<!--<app-messenger></app-messenger>-->
+<!--</div>-->
+
+
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
 <!--</div>-->
 
 

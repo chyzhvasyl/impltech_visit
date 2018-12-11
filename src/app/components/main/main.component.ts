@@ -1,14 +1,16 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import {Component, OnInit, OnDestroy, HostListener} from '@angular/core';
 import $ from 'jquery';
-import { SimpleSmoothScrollService } from 'ng2-simple-smooth-scroll';
-import { SimpleSmoothScrollOption } from 'ng2-simple-smooth-scroll';
-import {trigger, state, style, transition,
-  animate, group, query, stagger, keyframes} from '@angular/animations';
+import {SimpleSmoothScrollService} from 'ng2-simple-smooth-scroll';
+import {SimpleSmoothScrollOption} from 'ng2-simple-smooth-scroll';
+import {
+  trigger, state, style, transition,
+  animate, group, query, stagger, keyframes
+} from '@angular/animations';
 import {TranslatingService} from '../../services/translating.service';
 import {User} from '../classes/user';
 import {environment} from '../../../environments/environment';
 import {WebsocketService} from '../../services/websocket.service';
-import { ParallaxConfig } from 'ngx-parallax';
+import {ParallaxConfig} from 'ngx-parallax';
 
 
 @Component({
@@ -23,20 +25,18 @@ import { ParallaxConfig } from 'ngx-parallax';
         animate(1500)
       ]),
       transition(':leave', [
-        animate(1500, style({transform: 'translateY(100%)',  opacity: 0}))
+        animate(1500, style({transform: 'translateY(100%)', opacity: 0}))
       ]),
     ]),
-trigger('fadein', [
-  state('inside', style({ opacity: 1})),
-  transition(':enter', [
-    style({ opacity: 0}),
-    animate(700)
-  ]),
-  transition(':leave', [
-    animate(700, style({ opacity: 0}))
-  ])
-])
-  ]
+    trigger('fadein', [
+      state('inside', style({opacity: 1})),
+      transition(':enter', [style({opacity: 0}), animate(700)]),
+      transition(':leave', [animate(700, style({opacity: 0}))])
+    ]),
+    trigger('appear', [
+      transition(':enter', [style({transform: 'translateX(-80%)', opacity: 0}), animate(2700)]
+    )])
+    ]
 })
 
 export class MainComponent implements OnInit {
@@ -49,8 +49,8 @@ export class MainComponent implements OnInit {
   }
 
   switchLanguage(index) {
-     index = this.index++;
-    if ( index % 2 === 0) {
+    index = this.index++;
+    if (index % 2 === 0) {
       this.translate.language = 'en';
     } else {
       this.translate.language = 'rus';
@@ -66,21 +66,37 @@ export class MainComponent implements OnInit {
     this.display = false;
   }
 
-  signin(){
+  signin() {
 
     console.log(this.user);
 
   }
+
+  @HostListener('click', ['$event.target'])
+  onReady(target) {
+    this.anim1();
+    console.log(target.value);
+  }
+
+  anim1() {
+    const pic1 = $('.illustration-main0');
+    $(document).ready(function () {
+      pic1.addClass('illustration-main1');
+      pic1.removeClass('illustration-main0');
+    });
+  }
+
   ngOnInit() {
 
     // якір
 
-    this.smooth.smoothScrollToAnchor({ duration: 1000, easing: 'linear', offset: -300 });
+    this.smooth.smoothScrollToAnchor({duration: 1000, easing: 'linear', offset: -300});
 
     // open modal
   }
-  goTop(){
-    this.smooth.smoothScrollToTop({ duration: 1000, easing: 'linear', offset: 300 });
+
+  goTop() {
+    this.smooth.smoothScrollToTop({duration: 1000, easing: 'linear', offset: 300});
   }
 
   ngOnDestroy() {

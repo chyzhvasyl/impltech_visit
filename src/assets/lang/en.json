@@ -25,6 +25,7 @@
   "incorrectDescription": "Incorrect description",
   "success": "Successfully sent",
   "attach": "Attach file",
-  "send": "Send"
+  "send": "Send",
+  "seeProject": "See the project"
 
 }

@@ -1,15 +1,16 @@
 
-
 .nav-item a {
   color: #2d527c;
   font-weight: 600;
   /* margin-left:  20px ;
    margin-right:  20px;*/
 }
-.navbar-brand{
+
+.navbar-brand {
   margin: 0;
 }
-.zero{
+
+.zero {
   margin-top: 8%;
   margin-left: 0;
   margin-right: 0;
@@ -30,10 +31,10 @@ a[href = "http://impltech.com"] {
 .nav-item a :hover {
   color: dodgerblue;
 }
-.marg{
+
+.marg {
 
   margin-top: 8%;
-
 
 
 }
@@ -65,6 +66,7 @@ a[href = "http://impltech.com"] {
     transform: translateX(0);
   }
 }
+
 @keyframes swing {
   15% {
     -webkit-transform: translateX(9px);
@@ -91,6 +93,7 @@ a[href = "http://impltech.com"] {
     transform: translateX(0);
   }
 }
+
 .nav-item a:hover {
   -webkit-animation: swing 0.6s ease;
   animation: swing 0.6s ease;
@@ -98,12 +101,14 @@ a[href = "http://impltech.com"] {
   animation-iteration-count: 1;
   color: #15d8ff;
 }
+
 /* lang togler */
-label .switch{
+label .switch {
 
   margin-bottom: 0;
 
 }
+
 .switch {
   position: relative;
   display: inline-block;
@@ -113,7 +118,9 @@ label .switch{
 }
 
 /* Hide default HTML checkbox */
-.switch input {display:none;}
+.switch input {
+  display: none;
+}
 
 /* The slider */
 .slider {
@@ -143,11 +150,11 @@ label .switch{
 }
 
 input:checked + .slider {
-  background-color:  #d7d7d7;
+  background-color: #d7d7d7;
 }
 
 input:focus + .slider {
-  box-shadow: 0 0 2px   #d7d7d7;
+  box-shadow: 0 0 2px #d7d7d7;
 }
 
 input:checked + .slider:before {
@@ -157,10 +164,9 @@ input:checked + .slider:before {
 }
 
 /*navbar */
-#head
-{
+#head {
 
-  box-shadow: 0 2px 2px 0 rgba(0,0,0, 0.1), 0 2px 2px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.1), 0 2px 2px 0 rgba(0, 0, 0, 0.1);
   background-color: white;
   z-index: 200;
   height: auto;
@@ -169,27 +175,30 @@ input:checked + .slider:before {
   position: fixed;
 }
 
-.parallax-window{
+.parallax-window {
   width: 100%;
   min-height: 400px;
   background: transparent;
 }
+
 .parallax-container {
   height: 500px;
   width: 100%;
 
 }
-#content{
+
+#content {
   overflow: visible;
   text-align: center;
   font-size: 1.5rem;
   z-index: 2;
 }
-#container{
+
+#container {
   width: 100%;
 }
 
-#square{
+#square {
   height: auto;
   position: fixed;
   display: block;
@@ -202,62 +211,66 @@ input:checked + .slider:before {
 
   /* Negative half of height. */
 }
-.top{
+
+.top {
   margin-top: 8%;
 
 }
 
-.center{
+.center {
 
   left: 50%;
   transform: translateX(-50%);
 }
-figure{
+
+figure {
   text-align: center;
 }
-p, h4{
+
+p, h4 {
   letter-spacing: .4px;
   line-height: 1.5;
-  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Open Sans,Helvetica Neue,sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Open Sans, Helvetica Neue, sans-serif;
   color: #2d527c;
   font-weight: 600;
 }
 
 
 /*   body */
-.body{
-  box-shadow: 0  -2px 2px 0  rgba(0,0,0, 0.1);
+.body {
+  box-shadow: 0 -2px 2px 0 rgba(0, 0, 0, 0.1);
   background-color: white;
   z-index: 100;
 
 }
 
 
-
-.textbody{
+.textbody {
 
   color: #2d527c;
   letter-spacing: .4px;
   line-height: 1.5;
-  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Open Sans,Helvetica Neue,sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Open Sans, Helvetica Neue, sans-serif;
 
 }
-article{
+
+article {
   margin-top: 10px;
   margin-bottom: 50px;
 }
 
 
-.back{
+.back {
 
   position: relative;
- /* height: 1600px; */
+  /* height: 1600px; */
 }
 
-.back::before{
+.back::before {
   background-size: 100% 100%;
-  background-repeat:no-repeat; background-attachment:fixed;
-  background-image: url("../../../assets/images/bg.png")  ;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-image: url("../../../assets/images/bg.png");
   z-index: -1;
   content: '';
   height: 100%;
@@ -268,6 +281,15 @@ article{
   will-change: transform;
 }
 
+.illustration-main {
+  opacity: 1;
+
+}
+
+.illustration-main1 {
+  opacity: 1;
+  transform: translateX(0);
+}
 
 
 /* height of body
@@ -316,15 +338,15 @@ article{
 */
 
 
-
 /* small pictures  */
 
-.picture1, .picture2, .picture3, .picture4, .picture5, .picture6, .picture7, .picture8, .picture9, .picture10{
+.picture1, .picture2, .picture3, .picture4, .picture5, .picture6, .picture7, .picture8, .picture9, .picture10 {
   z-index: 1;
 
 }
-.picture1{
-margin-left: 10%;
+
+.picture1 {
+  margin-left: 10%;
   margin-top: 10%;
 
 }
@@ -334,45 +356,53 @@ margin-left: 10%;
   margin-top: 15%;
 
 }
-.picture3{
+
+.picture3 {
 
   margin-left: 55%;
   margin-top: 19%;
 
 }
-.picture4{
+
+.picture4 {
   margin-left: 85%;
   margin-top: 5%;
 
 }
-.picture5{
+
+.picture5 {
   margin-left: 19%;
   margin-top: 9%;
 
 }
-.picture6{
+
+.picture6 {
   margin-left: 24%;
 
 
 }
-.picture7{
+
+.picture7 {
   margin-left: 12%;
 
 
 }
-.picture8{
+
+.picture8 {
 
   margin-left: 52%;
 
 
 }
-.picture9{
+
+.picture9 {
 
   margin-left: 28%;
 
 
 }
-.picture10{
+
+.picture10 {
 
   margin-left: 33%;
 
@@ -380,8 +410,7 @@ margin-left: 10%;
 }
 
 
-
-.language-mark{
+.language-mark {
   display: block;
   color: darkgray;
   letter-spacing: .4px;
@@ -390,110 +419,128 @@ margin-left: 10%;
   font-weight: 600;
 }
 
-td{
+td {
 
   display: inline-block;
 }
 
 
-ul li  {display:inline;}
+ul li {
+  display: inline;
+}
 
-.loh{
+.loh {
 
 
   width: 100%;
   height: 100%;
   background-color: #2d527c;
 }
-div.modal-backdrop.fade.show
-{
+
+div.modal-backdrop.fade.show {
 
   display: none;
 }
 
-.button_shadow{
-  -webkit-box-shadow: 10px 11px 16px 1px rgba(176,176,176,1);
-  -moz-box-shadow: 10px 11px 16px 1px rgba(176,176,176,1);
-  box-shadow: 10px 11px 16px 1px rgba(176,176,176,1);
+.button_shadow {
+  -webkit-box-shadow: 10px 11px 16px 1px rgba(176, 176, 176, 1);
+  -moz-box-shadow: 10px 11px 16px 1px rgba(176, 176, 176, 1);
+  box-shadow: 10px 11px 16px 1px rgba(176, 176, 176, 1);
 }
-
-
 
 
 /* Add Animation */
 @-webkit-keyframes animatetop {
-  from {top: -300px; opacity:0}
-  to {top:0; opacity:1}
+  from {
+    top: -300px;
+    opacity: 0
+  }
+  to {
+    top: 0;
+    opacity: 1
+  }
 }
 
 @keyframes animatetop {
-  from {top: -300px; opacity:0}
-  to {top:0; opacity:1}
+  from {
+    top: -300px;
+    opacity: 0
+  }
+  to {
+    top: 0;
+    opacity: 1
+  }
 }
 
-.lang_color
-{
+.lang_color {
   transition: .6s;
-  color: #737373;  display: block
+  color: #737373;
+  display: block
 }
 
 /* footer */
-.footerBody{
+.footerBody {
   display: block;
   background-color: #292929;
 
 }
-.footerContacts{
+
+.footerContacts {
   color: #15d8ff;
   font-size: 24px;
   font-weight: 600;
-  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Open Sans,Helvetica Neue,sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Open Sans, Helvetica Neue, sans-serif;
 
 }
 
-.foterIcons{
+.foterIcons {
   width: 20px;
 
 
   height: 20px;
 
 }
-.footerFonts{
+
+.footerFonts {
   letter-spacing: .4px;
   line-height: 1.5;
-  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Open Sans,Helvetica Neue,sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Open Sans, Helvetica Neue, sans-serif;
   color: white;
   font-weight: 600;
   font-size: 18px;
 
 }
-.nav-link{
-  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Open Sans,Helvetica Neue,sans-serif;
+
+.nav-link {
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Open Sans, Helvetica Neue, sans-serif;
 
 }
-.nav-link:hover{
-color: #FFFFFF;
+
+.nav-link:hover {
+  color: #FFFFFF;
 
 }
-.heightEntry{
+
+.heightEntry {
   height: 100%;
 
 }
 
-.height{
+.height {
 
 
 }
 
-@media  (min-width: 768px) and (max-width: 1007px) {
-  .height{
+@media (min-width: 768px) and (max-width: 1007px) {
+  .height {
 
     height: 200px;
 
   }
 }
-@media   (max-width: 800px) {
-  .height{
+
+@media (max-width: 800px) {
+  .height {
 
     height: 400px;
 

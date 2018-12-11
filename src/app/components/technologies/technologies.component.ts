@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {TranslatingService} from '../../services/translating.service';
 import {ModalBoxService} from '../../services/modal-box.service';
 import {HostListener} from '@angular/core';
@@ -13,6 +13,7 @@ import * as $ from 'jquery';
 
 export class TechnologiesComponent implements OnInit {
   screen_width: number = window.innerWidth;
+
   constructor(private translate: TranslatingService, private open_modal: ModalBoxService) {
   }
 
@@ -21,7 +22,7 @@ export class TechnologiesComponent implements OnInit {
 
   switchLanguage(index) {
     index = this.index++;
-    if ( index % 2 === 0) {
+    if (index % 2 === 0) {
       this.translate.language = 'en';
     } else {
       this.translate.language = 'rus';
@@ -34,25 +35,26 @@ export class TechnologiesComponent implements OnInit {
     this.screen_width = event.target.innerWidth;
   }
 
-margin_top(){
-//let div = document.getElementsByClassName('absolute_center');
-  this.iterator++;
-  const div1 = $('.absolute_center  ');
-  if ( this.iterator % 2 === 0) {
-    $(document).ready(function () {
-      div1.removeClass('margin_top');
+  margin_top() {
+// let div = document.getElementsByClassName('absolute_center');
+    this.iterator++;
+    const div1 = $('.absolute_center  ');
+    if (this.iterator % 2 === 0) {
+      $(document).ready(function () {
+        div1.removeClass('margin_top');
 
-    });
-  } else {
-    $(document).ready(function () {
-      div1.addClass('margin_top');
+      });
+    } else {
+      $(document).ready(function () {
+        div1.addClass('margin_top');
 
-    });
+      });
+    }
+
   }
 
-}
   ngOnInit() {
-this.open_modal.open_modal();
+    this.open_modal.open_modal();
   }
 
 }

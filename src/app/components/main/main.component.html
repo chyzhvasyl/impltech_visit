@@ -1,55 +1,56 @@
 <div class="back row" id="top">
 </div>
-<div  class="container-fluid ">
+<div class="container-fluid ">
   <div id="head" class="row">
     <div class="col-md-1">
     </div>
     <div class="col-md-10">
       <nav class="mt-3 navbar navbar-expand-lg navbar-light"><br>
-<div style="font-size: 10px">
-        <!--  <a data-text="innovations"  class=" button-hover "  href="http://impltech.com">impltech</a>
- -->
-  <img class="img-fluid" width="200px"  src="../../../assets/images/logo/logo.png">
-</div>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <div style="font-size: 10px">
+          <!--  <a data-text="innovations"  class=" button-hover "  href="http://impltech.com">impltech</a>
+   -->
+          <img class="img-fluid" width="200px" src="../../../assets/images/logo/logo.png">
+        </div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div     class="collapse navbar-collapse justify-content-md-center" id="navbarSupportedContent">
-          <ul  class="navbar-nav ">
+        <div class="collapse navbar-collapse justify-content-md-center" id="navbarSupportedContent">
+          <ul class="navbar-nav ">
             <li class=" nav-item mr-3 ml-3">
               <a class="nav-link" href="#top" SimpleSmoothScroll [showHash]="true">{{'services' | translate}}</a>
             </li>
             <li class="  nav-item mr-3 ml-3">
-              <a href="#technologies" SimpleSmoothScroll [showHash]="true"  class="nav-link" >{{'tech' | translate}}</a>
+              <a href="#technologies" SimpleSmoothScroll [showHash]="true" class="nav-link">{{'tech' | translate}}</a>
             </li>
             <li class=" nav-item mr-3 ml-3">
-              <a   href="#portfolio" SimpleSmoothScroll [showHash]="true"   class="nav-link" >{{'port' | translate}}</a>
+              <a href="#portfolio" SimpleSmoothScroll [showHash]="true" class="nav-link">{{'port' | translate}}</a>
             </li>
-            <li  class=" nav-item mr-3 ml-3">
-              <a   href="#div2" SimpleSmoothScroll [showHash]="true"  class="nav-link" >{{'cont' | translate}}</a>
+            <li class=" nav-item mr-3 ml-3">
+              <a href="#div2" SimpleSmoothScroll [showHash]="true" class="nav-link">{{'cont' | translate}}</a>
             </li>
           </ul>
         </div>
         <div>
 
-<label>
-  <ul  class="navbar-nav" style="font-size: 15px; cursor: pointer;">
-    <li >
-      <div [ngClass]="{'lang_color': index % 2 === 0 }"   class="language-mark mr-1">
-        РУС
-      </div>
-    </li>
-    <li >
-      <div [ngClass]="{'lang_color': index % 2 !== 0 }" class="language-mark ml-1 ">
-        ENG
-      </div>
-    </li>
-  </ul>
-          <div class="switch mb-1">
-            <input (click)="switchLanguage(index)"   type="checkbox">
-            <span   class="slider"> </span>
-          </div>
-</label>
+          <label>
+            <ul class="navbar-nav" style="font-size: 15px; cursor: pointer;">
+              <li>
+                <div [ngClass]="{'lang_color': index % 2 === 0 }" class="language-mark mr-1">
+                  РУС
+                </div>
+              </li>
+              <li>
+                <div [ngClass]="{'lang_color': index % 2 !== 0 }" class="language-mark ml-1 ">
+                  ENG
+                </div>
+              </li>
+            </ul>
+            <div class="switch mb-1">
+              <input (click)="switchLanguage(index)" type="checkbox">
+              <span class="slider"> </span>
+            </div>
+          </label>
 
           <!--
                 <table>
@@ -84,7 +85,7 @@
   <div appParallax [ratio]="0.9" id="rectangle"></div>
 -->
 
-  <div    appParallax [ratio]="0.7" id="square">
+  <div appParallax [ratio]="0.7" id="square">
     <div class="picture1">
       <img class="img-fluid" width="100px" src="../../../assets/images/screen_01/01.png">
     </div>
@@ -119,39 +120,44 @@
     </div>
   </div>
 </div>
-<div class="text-center" >
-  <div class="heightEntry">
+<div class="text-center">
+  <div class="heightEntry" (click)="anim1()">
     <div class="row zero">
       <!--<animation div  [@slideIn]   class="col-md-12"  > -->
-      <div class="col-md-12"  >
-        <img  width="600px"  class="img-fluid "  src="../../../assets/images/illustration.png">
+      <div [@appear] class="col-md-12 illustration-main" >
+        <img width="600px" class="img-fluid " src="../../../assets/images/illustration.png" >
       </div>
     </div>
-    <div  class="row  zero">
-      <div class=""  style="margin: 0 auto;" >
-        <p  >{{'header'| translate}}</p>
+    <div class="row  zero">
+      <div class="" style="margin: 0 auto;">
+        <p>{{'header'| translate}}</p>
       </div>
     </div>
     <app-messenger></app-messenger>
     <app-detailed-form></app-detailed-form>
   </div>
-  <h4 class="mt-4"  align="center">
-    {{'propose' | translate}} <div style="color: #15d8ff; display: inline-block">{{'cycle' | translate}}</div>
+  <h4 class="mt-4" align="center">
+    {{'propose' | translate}}
+    <div style="color: #15d8ff; display: inline-block">{{'cycle' | translate}}</div>
   </h4>
-  <div  class="container text-center textbody">
+  <div class="container text-center textbody">
     <div class="row">
       <div class="col-md-6">
         <img class="img-fluid" width="100px" src="../../../assets/images/screen_02/icons/01.png"><br>
         <b>{{'1' | translate}}</b><br>
         <article>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</article>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+          magna aliqua.
+          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        </article>
       </div>
       <div class="col-md-6">
         <img class="img-fluid" width="100px" src="../../../assets/images/screen_02/icons/02.png"><br>
         <b>{{'2' | translate}}</b><br>
-        <article> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</article>
+        <article> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+          dolore magna aliqua.
+          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        </article>
       </div>
     </div>
 
@@ -161,34 +167,46 @@
         <b>{{'3' | translate}}</b>
         <br>
         <article>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</article>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+          magna aliqua.
+          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        </article>
       </div>
       <div class="col-md-6">
         <img class="img-fluid" width="100px" src="../../../assets/images/screen_02/icons/04.png"><br>
-        <b> {{'4' | translate}}</b>  <br>   <article>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</article>
+        <b> {{'4' | translate}}</b> <br>
+        <article>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+          dolore magna aliqua.
+          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        </article>
       </div>
     </div>
     <div class="row">
       <div class="col-md-6">
         <img class="img-fluid" width="100px" src="../../../assets/images/screen_02/icons/05.png"><br>
         <b>{{'5' | translate}}</b>
-        <article>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</article>     </div>
+        <article>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+          dolore magna aliqua.
+          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        </article>
+      </div>
       <div class="col-md-6">
         <img class="img-fluid" width="100px" src="../../../assets/images/screen_02/icons/06.png"><br>
-        <b>{{'6' | translate}}</b>   <br> <article>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</article>    </div>
+        <b>{{'6' | translate}}</b> <br>
+        <article>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+          dolore magna aliqua.
+          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        </article>
+      </div>
 
     </div>
   </div>
 </div>
 
-<app-technologies   id="technologies" > </app-technologies>
-<div  class="height"></div>
+<app-technologies id="technologies"></app-technologies>
+<div class="height"></div>
 
-<app-portfolio id="portfolio" ></app-portfolio>
+<app-portfolio id="portfolio"></app-portfolio>
 <app-feedback-form></app-feedback-form>
 F
 
@@ -196,20 +214,20 @@ F
 <!--Footer -->
 <footer>
   <div class="container-fluid p-0">
-    <div  >
+    <div>
       <div class="  footerBody">
         <div class="container">
           <div class="row">
             <div class="col-md-5 mt-5">
-              <img class="img-fluid " width="300px"  src="../../../assets/images/footer/footer/logo_blue.png">
+              <img class="img-fluid " width="300px" src="../../../assets/images/footer/footer/logo_blue.png">
               <div class="mt-3 text-white mb-5">
                 {{'header'| translate}}
               </div>
             </div>
             <div class="col-md-2 mt-5">
-              <a href="#top"  SimpleSmoothScroll [showHash]="true" class="nav-link">{{'services' | translate}}</a>
-              <a  class="nav-link"   href="#technologies" SimpleSmoothScroll [showHash]="true">{{'tech' | translate}}</a>
-              <a  href="#portfolio"  class="nav-link" SimpleSmoothScroll [showHash]="true">{{'port' | translate}}</a>
+              <a href="#top" SimpleSmoothScroll [showHash]="true" class="nav-link">{{'services' | translate}}</a>
+              <a class="nav-link" href="#technologies" SimpleSmoothScroll [showHash]="true">{{'tech' | translate}}</a>
+              <a href="#portfolio" class="nav-link" SimpleSmoothScroll [showHash]="true">{{'port' | translate}}</a>
             </div>
             <div class="col-md-5 mt-5 footerContacts">
               <div class="ml-5">
@@ -217,15 +235,16 @@ F
                   {{'cont' | translate}}
                 </div>
                 <div class="row">
-                  <img   class="img-fluid foterIcons" src="../../../assets/images/footer/footer/phone_icon.png">
-                  <div class="mr-3 ml-3 footerFonts"> +380935887772 </div>
-                  <a href="https://www.google.com"><img    class="img-fluid foterIcons mb-3" src="../../../assets/images/footer/footer/facebook_icon.png"></a>
+                  <img class="img-fluid foterIcons" src="../../../assets/images/footer/footer/phone_icon.png">
+                  <div class="mr-3 ml-3 footerFonts"> +380935887772</div>
+                  <a href="https://www.google.com"><img class="img-fluid foterIcons mb-3"
+                                                        src="../../../assets/images/footer/footer/facebook_icon.png"></a>
                 </div>
                 <div class="row">
-                  <img    class="img-fluid foterIcons " src="../../../assets/images/footer/footer/mail_icon.png">
-                  <div class="mr-3 ml-3 footerFonts"> impltech@gmail.com </div>
+                  <img class="img-fluid foterIcons " src="../../../assets/images/footer/footer/mail_icon.png">
+                  <div class="mr-3 ml-3 footerFonts"> impltech@gmail.com</div>
                   <a href="https://www.google.com">
-                    <img    class="img-fluid foterIcons mb-3" src="../../../assets/images/footer/footer/icon_l.png">
+                    <img class="img-fluid foterIcons mb-3" src="../../../assets/images/footer/footer/icon_l.png">
                   </a>
                 </div>
               </div>

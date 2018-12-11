@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, HostListener, OnInit} from '@angular/core';
 import {ModalBoxService} from '../../services/modal-box.service';
 import {deteiledForm, Form} from '../classes/user';
 import {MessageService} from '../../services/message.service';
@@ -32,6 +32,8 @@ export class DetailedFormComponent implements OnInit {
       this.submitted = false;
     }, 2000);
   }
+
+
   ngOnInit() {
    // this.open_modalbox.openEsimate();
   }
