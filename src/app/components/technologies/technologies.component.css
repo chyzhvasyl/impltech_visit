@@ -38,6 +38,54 @@ div.card {
 
 }
 
+.block-mobile-start {
+  opacity: 0;
+  transform: translateX(-100%);
+  transition: all .7s ease-out;
+}
+
+.block-mobile-end {
+  opacity: 1;
+  transform: translateX(0);
+  transition: all .7s ease-out;
+}
+
+.block-web-start {
+  opacity: 0;
+  transform: translateX(100%);
+  transition: all .7s ease-out;
+}
+
+.block-web-end {
+  opacity: 1;
+  transform: translateX(0);
+  transition: all .7s ease-out;
+  transition-delay: .7s;
+}
+
+.tech-icons-start{
+  /*transform: rotateZ(180deg);*/
+  transform: skewX(75deg);
+  transition: all 1s ease-out;
+}
+
+.tech-icons-end {
+  transition: all 1s ease-out;
+}
+
+
+.tech-icons2-start{
+  transform: skewX(-70deg);
+  transition: all 1.5s cubic-bezier(.5, -1, .5, 1);
+}
+
+.tech-icons2-end {
+  transition: all 1.5s cubic-bezier(.5, -1, .5, 1);
+}
+
+.icons2{
+}
+
 .demo {
   margin: 0 auto;
   width: 55px;

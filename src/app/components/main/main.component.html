@@ -21,13 +21,13 @@
               <a class="nav-link" href="#top" SimpleSmoothScroll [showHash]="true">{{'services' | translate}}</a>
             </li>
             <li class="  nav-item mr-3 ml-3">
-              <a href="#technologies" SimpleSmoothScroll [showHash]="true" class="nav-link">{{'tech' | translate}}</a>
+              <a href="#technologies-page" SimpleSmoothScroll [showHash]="true" class="nav-link">{{'tech' | translate}}</a>
             </li>
             <li class=" nav-item mr-3 ml-3">
-              <a href="#portfolio" SimpleSmoothScroll [showHash]="true" class="nav-link">{{'port' | translate}}</a>
+              <a href="#portfolio-page" SimpleSmoothScroll [showHash]="true" class="nav-link">{{'port' | translate}}</a>
             </li>
             <li class=" nav-item mr-3 ml-3">
-              <a href="#div2" SimpleSmoothScroll [showHash]="true" class="nav-link">{{'cont' | translate}}</a>
+              <a href="#contacts" SimpleSmoothScroll [showHash]="true" class="nav-link">{{'cont' | translate}}</a>
             </li>
           </ul>
         </div>
@@ -121,7 +121,7 @@
   </div>
 </div>
 <div class="text-center">
-  <div class="heightEntry" (click)="anim1()">
+  <div class="heightEntry">
     <div class="row zero">
       <!--<animation div  [@slideIn]   class="col-md-12"  > -->
       <div [@appear] class="col-md-12 illustration-main" >
@@ -203,12 +203,13 @@
   </div>
 </div>
 
+<div class="page" id="technologies-page"></div>
 <app-technologies id="technologies"></app-technologies>
-<div class="height"></div>
-
+<!--<div class="height"></div>-->
+<div class="page" id="portfolio-page"></div>
 <app-portfolio id="portfolio"></app-portfolio>
 <app-feedback-form></app-feedback-form>
-F
+
 
 
 <!--Footer -->
@@ -226,8 +227,8 @@ F
             </div>
             <div class="col-md-2 mt-5">
               <a href="#top" SimpleSmoothScroll [showHash]="true" class="nav-link">{{'services' | translate}}</a>
-              <a class="nav-link" href="#technologies" SimpleSmoothScroll [showHash]="true">{{'tech' | translate}}</a>
-              <a href="#portfolio" class="nav-link" SimpleSmoothScroll [showHash]="true">{{'port' | translate}}</a>
+              <a class="nav-link" href="#technologies-page" SimpleSmoothScroll [showHash]="true">{{'tech' | translate}}</a>
+              <a href="#portfolio-page" class="nav-link" SimpleSmoothScroll [showHash]="true">{{'port' | translate}}</a>
             </div>
             <div class="col-md-5 mt-5 footerContacts">
               <div class="ml-5">
@@ -254,7 +255,7 @@ F
       </div>
     </div>
   </div>
-  <div id="div2">
+  <div id="contacts">
   </div>
 
 </footer>

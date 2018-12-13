@@ -171,7 +171,6 @@ input:checked + .slider:before {
   z-index: 200;
   height: auto;
   width: 100%;
-
   position: fixed;
 }
 
@@ -210,6 +209,13 @@ input:checked + .slider:before {
 
 
   /* Negative half of height. */
+}
+
+.page:before {
+  display: block;
+  content: "";
+  height: 70px;
+  margin: -70px 0 0;
 }
 
 .top {

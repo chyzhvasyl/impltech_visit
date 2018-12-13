@@ -34,15 +34,16 @@ import {ParallaxConfig} from 'ngx-parallax';
       transition(':leave', [animate(700, style({opacity: 0}))])
     ]),
     trigger('appear', [
-      transition(':enter', [style({transform: 'translateX(-80%)', opacity: 0}), animate(2700)]
-    )])
-    ]
+      transition(':enter', [style({transform: 'translateX(-80%)', opacity: 0}), animate(2500)]
+      )])
+  ]
 })
 
 export class MainComponent implements OnInit {
   index = 0;
   display = false;
   user: User = new User();
+  // menuHeight = $('#head').getBoundingClientRect();
 
   constructor(private smooth: SimpleSmoothScrollService, private translate: TranslatingService) {
 
@@ -72,19 +73,6 @@ export class MainComponent implements OnInit {
 
   }
 
-  @HostListener('click', ['$event.target'])
-  onReady(target) {
-    this.anim1();
-    console.log(target.value);
-  }
-
-  anim1() {
-    const pic1 = $('.illustration-main0');
-    $(document).ready(function () {
-      pic1.addClass('illustration-main1');
-      pic1.removeClass('illustration-main0');
-    });
-  }
 
   ngOnInit() {
 
@@ -100,6 +88,6 @@ export class MainComponent implements OnInit {
   }
 
   ngOnDestroy() {
-    //this.connection.unsubscribe();
+    // this.connection.unsubscribe();
   }
 }
